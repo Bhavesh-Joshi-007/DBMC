@@ -1,236 +1,226 @@
 <!DOCTYPE html>
 <html lang="en" class="loader">
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DBMC - Dholu Bholu Marketing Company</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css"
-    />
 
-    <!-- remix icon  -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
-      rel="stylesheet"
-    />
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DBMC - Dholu Bholu Marketing Company</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css" />
 
-    <!-- Swiper JS -->
-    <!-- Swiper CSS -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
-    />
+  <!-- remix icon  -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
 
-    <!-- Swiper JS -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+  <!-- Swiper JS -->
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
 
-    <link media="all" rel="stylesheet" href="css/main.css" />
+  <!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 
-    <!-- AOS CSS -->
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
-      rel="stylesheet"
-    />
+  <link media="all" rel="stylesheet" href="css/main.css" />
+  <!-- anime.min.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
 
-    <!-- AOS JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-  </head>
+  <!-- AOS CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet" />
 
-  <body>
-    <div class="overlay"></div>
-    <div class="popup-form-section" id="popup-form" style="display: none">
-      <div class="popup-title-section">
-        <h1 class="popup-form-heading">LET'S GET<br />IN TOUCH</h1>
-        <i class="ri-close-fill" id="close"></i>
-      </div>
+  <!-- AOS JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+</head>
 
-      <div class="popup-form-container">
-        <form>
-          <div class="popup-form-row">
-            <input
-              type="text"
-              class="popup-name-field"
-              placeholder="First Name"
-              required
-            />
-            <input
-              type="text"
-              class="popup-last-name-field"
-              placeholder="Last Name"
-              required
-            />
-          </div>
-
-          <div class="popup-form-row">
-            <input
-              type="tel"
-              class="popup-name-field"
-              placeholder="Contact Number"
-              required
-            />
-          </div>
-
-          <div class="popup-form-row">
-            <input
-              type="email"
-              class="popup-name-field"
-              placeholder="Email Address"
-              required
-            />
-          </div>
-
-          <div class="popup-form-row">
-            <input
-              type="text"
-              class="popup-last-name-field"
-              placeholder="Company/Organization"
-            />
-          </div>
-
-          <button type="submit" class="popup-submit-btn">Submit</button>
-        </form>
-      </div>
+<body>
+  <div class="overlay"></div>
+  <div class="popup-form-section" id="popup-form" style="display: none">
+    <div class="popup-title-section">
+      <h1 class="popup-form-heading">LET'S GET<br />IN TOUCH</h1>
+      <i class="ri-close-fill" id="close"></i>
     </div>
-    <div id="wrapper" data-scroll-container>
-      <div class="nav-head-container" id="home">
-        <div class="nav-head">
-          <nav class="navlink">
-            <div class="dbmc-logo">
-              <img src="./images/DBMC_logo1.png" alt="" />
-            </div>
-            <div class="nav-linked" id="home">
-              <a href="#home">Home</a>
-              <a href="#about">About us</a>
-              <a href="#services">Our Services</a>
 
-              <a href="#clients">Our Consumers</a>
-              <a href="#buddies">Our Buddies</a>
-              <a href="#why-us">Why DBMC?</a>
+    <div class="popup-form-container">
+      <form method="post" id="popup_web_form">
+        <div class="popup-form-row">
+          <div class="input-group">
+            <input type="text" name="name" class="popup-name-field" placeholder=" " required>
+            <label>Your Name</label>
+          </div>
+          <div class="input-group">
+            <input type="tel" name="phone" class="popup-name-field" placeholder=" " required>
+            <label>Contact Number</label>
+          </div>
+        </div>
+        <div class="popup-form-row">
+          <div class="input-group">
+            <input type="email" name="email" class="popup-name-field" placeholder=" ">
+            <label>Email Address</label>
+          </div>
+          <div class="input-group">
+            <input type="text" name="organization_name" class="popup-last-name-field" placeholder=" ">
+            <label>Company/Organization</label>
+          </div>
+        </div>
+        <div class="popup-form-row">
+          <div class="input-group">
+            <input type="text" name="web_link" class="popup-last-name-field" placeholder=" ">
+            <label>Website/SocialMedial link</label>
+          </div>
+        </div>
 
-              <span class="btn-wrap">
-                <a href="#contact" class="btn-enquire"
-                  ><span class="text">Reach us</span></a
-                >
-              </span>
-            </div>
-            <a href="#" class="menu-opener">
-              <i class="icon-menu"></i>
-              <i class="icon-close"></i>
-            </a>
-          </nav>
+        <div class="popup-select-container">
+          <h2>Which services are you interested in?</h2>
+          <div class="popup-options-container">
+            <button class="popup-option-button" type="button" data-value="Meme Marketing">Meme Marketing</button>
+            <button class="popup-option-button" type="button" data-value="Performance Marketing">Performance
+              Marketing</button>
+            <button class="popup-option-button" type="button" data-value="Web Development">Web Development</button>
+            <button class="popup-option-button" type="button" data-value="Influencer Marketing">Influencer
+              Marketing</button>
+            <button class="popup-option-button" type="button" data-value="Social Media Marketing">Social Media
+              Marketing</button>
+            <button class="popup-option-button" type="button" data-value="Performance Media">Performance Media</button>
+            <button class="popup-option-button" type="button" data-value="Twitter Seeding">Twitter Seeding</button>
+            <button class="popup-option-button" type="button" data-value="Content Creation">Content Creation</button>
+            <button class="popup-option-button" type="button" data-value="Others">Others</button>
+          </div>
+          <input type="hidden" name="service" id="popup-selected-services">
+        </div>
 
-          <main class="main-container-section">
-            <div class="content-wrapper">
-              <div class="left-content">
-                <div class="text-container">
-                  <div class="text-structure">
-                    <div class="masker">
-                      <div class="text-wrapper">
-                        <h1 class="text-style">We Are</h1>
-                      </div>
+        <button type="submit" class="popup-submit-btn">Submit</button>
+      </form>
+
+    </div>
+  </div>
+  <div id="wrapper" data-scroll-container>
+    <div class="nav-head-container" id="home">
+      <div class="nav-head">
+        <nav class="navlink">
+          <div class="dbmc-logo">
+            <a href="#home"><img src="./images/DBMC_logo1.png" alt="" /></a>
+          </div>
+          <div class="nav-linked" id="home">
+            <!-- <a href="#home">Home</a> -->
+            <a href="#about">About Us</a>
+            <a href="#services">Our Services</a>
+
+            <a href="#clients">Our Consumers</a>
+            <a href="#buddies">Our Buddies</a>
+            <a href="#why-us">Why DBMC?</a>
+
+            <span class="btn-wrap">
+              <a href="#contact" class="btn-enquire"><span class="text">Reach us</span></a>
+            </span>
+          </div>
+          <a href="#" class="menu-opener">
+            <i class="icon-menu"></i>
+            <i class="icon-close"></i>
+          </a>
+        </nav>
+
+        <main class="main-container-section">
+          <div class="content-wrapper">
+            <div class="left-content">
+              <div class="text-container" data-aos="fade-right">
+                <div class="text-structure">
+                  <div class="masker">
+                    <div class="text-wrapper">
+                      <h1 class="text-style">We Are</h1>
                     </div>
-                    <div class="masker">
-                      <div class="text-wrapper">
-                        <div class="highlight"></div>
-                        <h1 class="text-style style-DBMC">DBMC</h1>
-                      </div>
+                  </div>
+                  <div class="masker">
+                    <div class="text-wrapper">
+                      <div class="highlight"></div>
+                      <h1 class="text-style style-DBMC">DBMC</h1>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="right-content">
-                <img src="./images/homepage_image.png" alt="" />
-              </div>
             </div>
-          </main>
-        </div>
+            <div class="right-content" data-aos="fade-left">
+              <img src="./images/homepage_image.png" alt="" />
+            </div>
+          </div>
+        </main>
       </div>
+    </div>
 
-      <main class="main">
-        <section class="info-section">
-          <ul class="info-about-list" data-aos="fade-up">
-            <li>
-              <h3 class="num"><span data-count="120">0</span></h3>
-              <span class="text">Brands</span>
-            </li>
-            <li>
-              <h3 class="num"><span data-count="1050">0</span>+</h3>
-              <span class="text">Campaigns</span>
-            </li>
-            <li>
-              <h3 class="num"><span data-count="10">0</span>K</h3>
-              <span class="text">Creator <br />Community</span>
-            </li>
-            <li>
-              <h3 class="num"><span data-count="98">0</span>%</h3>
-              <span class="text">Success <br />Matrix</span>
-            </li>
-          </ul>
-        </section>
+    <main class="main">
+      <section class="info-section">
+        <ul class="info-about-list">
+          <li data-aos="fade-right">
+            <h3 class="num"><span data-count="120">0</span></h3>
+            <span class="text">Brands</span>
+          </li>
+          <li data-aos="fade-left">
+            <h3 class="num"><span data-count="1050">0</span>+</h3>
+            <span class="text">Campaigns</span>
+          </li>
+          <li data-aos="fade-right">
+            <h3 class="num"><span data-count="10">0</span>K</h3>
+            <span class="text">Creator <br />Community</span>
+          </li>
+          <li data-aos="fade-left">
+            <h3 class="num"><span data-count="98">0</span>%</h3>
+            <span class="text">Success <br />Matrix</span>
+          </li>
+        </ul>
+      </section>
 
-        <section class="showcase-section" id="showcase">
-          <div class="showcase-container">
-            <div class="heading-area caseStudy-container">
-              <div class="case-studies-head" data-aos="fade-right">
-                <h2>Case <span class="Studies">Studies</span></h2>
-              </div>
-              <span class="text" data-aos="fade-left"
-                >Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                Voluptatem nisi impedit illo eaque voluptate veritatis vel
-                deserunt accusamus quas suscipit.</span
-              >
+      <section class="showcase-section" id="showcase">
+        <div class="showcase-container">
+          <div class="heading-area caseStudy-container">
+            <div class="case-studies-head" data-aos="fade-right">
+              <h2>Case <span class="Studies">Studies</span></h2>
             </div>
-            <div class="popup-holder" id="popup1">
-              <div class="lightbox-demo showcase-lightbox">
-                <div class="showcase-content">
-                  <div class="heading-wrap">
-                    <div class="heading-block">
-                      <strong class="heading"
-                        >Lorem ipsum dolor sit amet consectetur
-                        adipisicing.</strong
-                      >
-                    </div>
+            <span class="text" data-aos="fade-left">Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+              Voluptatem nisi impedit illo eaque voluptate veritatis vel
+              deserunt accusamus quas suscipit.</span>
+          </div>
+          <div class="popup-holder" id="popup1">
+            <div class="lightbox-demo showcase-lightbox">
+              <div class="showcase-content">
+                <div class="heading-wrap">
+                  <div class="heading-block">
+                    <strong class="heading">Lorem ipsum dolor sit amet consectetur
+                      adipisicing.</strong>
                   </div>
-                  <div class="wrap">
-                    <div class="text-block">
-                      <ul class="text-list">
+                </div>
+                <div class="wrap">
+                  <div class="text-block">
+                    <ul class="text-list">
+                      <li>
+                        <strong>Objective - </strong>Lorem ipsum dolor sit
+                        amet consectetur, adipisicing elit. Atque inventore
+                        eveniet placeat. Hic, possimus debitis!
+                      </li>
+                    </ul>
+                    <div class="outcome-list-holder">
+                      <strong class="title">Planning - </strong>
+                      <ul class="outcome-list">
+                        <li>Lorem, ipsum.</li>
                         <li>
-                          <strong>Objective - </strong>Lorem ipsum dolor sit
-                          amet consectetur, adipisicing elit. Atque inventore
-                          eveniet placeat. Hic, possimus debitis!
+                          Lorem, ipsum dolor sit amet consectetur adipisicing
+                          elit. Tempore, ad.
                         </li>
                       </ul>
-                      <div class="outcome-list-holder">
-                        <strong class="title">Planning - </strong>
-                        <ul class="outcome-list">
-                          <li>Lorem, ipsum.</li>
-                          <li>
-                            Lorem, ipsum dolor sit amet consectetur adipisicing
-                            elit. Tempore, ad.
-                          </li>
-                        </ul>
-                      </div>
-                      <br />
-                      <div class="outcome-list-holder">
-                        <strong class="title">Outcome - </strong>
-                        <ul class="outcome-list">
-                          <li>
-                            Lorem ipsum dolor sit amet consectetur adipisicing.
-                          </li>
-                          <li>
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Ut, velit?
-                          </li>
-                        </ul>
-                      </div>
-                      <br />
-                      <div class="outcome-list-holder">
+                    </div>
+                    <br />
+                    <div class="outcome-list-holder">
+                      <strong class="title">Outcome - </strong>
+                      <ul class="outcome-list">
+                        <li>
+                          Lorem ipsum dolor sit amet consectetur adipisicing.
+                        </li>
+                        <li>
+                          Lorem ipsum dolor sit amet consectetur adipisicing
+                          elit. Ut, velit?
+                        </li>
+                      </ul>
+                    </div>
+                    <br />
+                    <!-- <div class="outcome-list-holder">
                         <strong class="title">Economical Value - </strong>
                         <ul class="outcome-list">
                           <li>
@@ -239,145 +229,141 @@
                           </li>
                           <li>CPM ~Rs 1</li>
                         </ul>
-                      </div>
-                    </div>
-                    <div class="right-col">
-                      <ul class="showcase-info-list">
-                        <li>
-                          <strong class="num">2.7M+</strong>
-                          <span class="text">Engagement Rate</span>
-                        </li>
-                        <li>
-                          <strong class="num">20M+</strong>
-                          <span class="text">Reach</span>
-                        </li>
-                        <li>
-                          <strong class="num">10/10</strong>
-                          <span class="text">Sentiment Analysis</span>
-                        </li>
-                      </ul>
-                    </div>
+                      </div> -->
+                  </div>
+                  <div class="right-col">
+                    <ul class="showcase-info-list">
+                      <li>
+                        <strong class="num">2.7M+</strong>
+                        <span class="text">Engagement Rate</span>
+                      </li>
+                      <li>
+                        <strong class="num">20M+</strong>
+                        <span class="text">Reach</span>
+                      </li>
+                      <li>
+                        <strong class="num">10/10</strong>
+                        <span class="text">Sentiment Analysis</span>
+                      </li>
+                    </ul>
                   </div>
                 </div>
               </div>
             </div>
+          </div>
 
-            <div class="popup-holder" id="popup2">
-              <div id="popup2" class="lightbox-demo showcase-lightbox">
-                <div class="showcase-content">
-                  <div class="heading-wrap">
-                    <div class="heading-block">
-                      <strong class="heading"
-                        >Jab we got Mirzapur to everyone’s neighbourhood</strong
-                      >
-                    </div>
-                    <div class="spotify-image-col">
-                      <!-- <div class="spotify-image">
+          <div class="popup-holder" id="popup2">
+            <div id="popup2" class="lightbox-demo showcase-lightbox">
+              <div class="showcase-content">
+                <div class="heading-wrap">
+                  <div class="heading-block">
+                    <strong class="heading">Jab we got Mirzapur to everyone’s neighbourhood</strong>
+                  </div>
+                  <div class="spotify-image-col">
+                    <!-- <div class="spotify-image">
                         <img src="images/Campaigns/image%20210.png" alt="spotify" />
                       </div> -->
-                    </div>
                   </div>
-                  <div class="wrap">
-                    <div class="text-block">
-                      <ul class="text-list">
+                </div>
+                <div class="wrap">
+                  <div class="text-block">
+                    <ul class="text-list">
+                      <li>
+                        <strong>Objective - </strong> Making rounds over the
+                        internet about how cool Mirzapur is! We did it both
+                        the times the seasons were out.
+                      </li>
+                      <li>
+                        <strong>Planning - </strong>Multi-platform across IG,
+                        FB, and Twitter with memes, aesthetic videos, and
+                        pages suited best for this campaign.
+                      </li>
+                    </ul>
+                    <div class="outcome-list-holder">
+                      <strong class="title">Outcome - </strong>
+                      <ul class="outcome-list">
                         <li>
-                          <strong>Objective - </strong> Making rounds over the
-                          internet about how cool Mirzapur is! We did it both
-                          the times the seasons were out.
+                          A massive amount of UGC was created across the
+                          internet leading to our campaign execution
                         </li>
                         <li>
-                          <strong>Planning - </strong>Multi-platform across IG,
-                          FB, and Twitter with memes, aesthetic videos, and
-                          pages suited best for this campaign.
+                          Within the first 2 days of the campaign, Kaleen
+                          Bhaiyya as a character had picked up swiftly
                         </li>
                       </ul>
-                      <div class="outcome-list-holder">
-                        <strong class="title">Outcome - </strong>
-                        <ul class="outcome-list">
-                          <li>
-                            A massive amount of UGC was created across the
-                            internet leading to our campaign execution
-                          </li>
-                          <li>
-                            Within the first 2 days of the campaign, Kaleen
-                            Bhaiyya as a character had picked up swiftly
-                          </li>
-                        </ul>
-                      </div>
-                      <br />
-                      <ul class="text-list">
+                    </div>
+                    <br />
+                    <!-- <ul class="text-list">
                         <li>
                           <strong>Economical value - </strong> The Cost per
                           impression was about Re. 0.033.
                         </li>
-                      </ul>
-                    </div>
-                    <div class="right-col">
-                      <ul class="showcase-info-list">
-                        <li>
-                          <strong class="num">300M+</strong>
-                          <span class="text">Engagement Rate</span>
-                        </li>
-                        <li>
-                          <strong class="num">25M+</strong>
-                          <span class="text">Reach</span>
-                        </li>
-                        <li>
-                          <strong class="num">10/10</strong>
-                          <span class="text">Sentiment Analysis</span>
-                        </li>
-                      </ul>
-                    </div>
+                      </ul> -->
+                  </div>
+                  <div class="right-col">
+                    <ul class="showcase-info-list">
+                      <li>
+                        <strong class="num">300M+</strong>
+                        <span class="text">Engagement Rate</span>
+                      </li>
+                      <li>
+                        <strong class="num">25M+</strong>
+                        <span class="text">Reach</span>
+                      </li>
+                      <li>
+                        <strong class="num">10/10</strong>
+                        <span class="text">Sentiment Analysis</span>
+                      </li>
+                    </ul>
                   </div>
                 </div>
               </div>
             </div>
+          </div>
 
-            <div class="popup-holder" id="popup3">
-              <div id="popup3" class="lightbox-demo showcase-lightbox">
-                <div class="showcase-content">
-                  <div class="heading-wrap">
-                    <div class="heading-block">
-                      <strong class="heading"
-                        >Lorem ipsum dolor sit amet consectetur
-                        adipisicing.</strong
-                      >
-                    </div>
+          <div class="popup-holder" id="popup3">
+            <div id="popup3" class="lightbox-demo showcase-lightbox">
+              <div class="showcase-content">
+                <div class="heading-wrap">
+                  <div class="heading-block">
+                    <strong class="heading">Lorem ipsum dolor sit amet consectetur
+                      adipisicing.</strong>
                   </div>
-                  <div class="wrap">
-                    <div class="text-block">
-                      <ul class="text-list">
+                </div>
+                <div class="wrap">
+                  <div class="text-block">
+                    <ul class="text-list">
+                      <li>
+                        <strong>Objective - </strong>Lorem ipsum dolor sit
+                        amet consectetur, adipisicing elit. Atque inventore
+                        eveniet placeat. Hic, possimus debitis!
+                      </li>
+                    </ul>
+                    <div class="outcome-list-holder">
+                      <strong class="title">Planning - </strong>
+                      <ul class="outcome-list">
+                        <li>Lorem, ipsum.</li>
                         <li>
-                          <strong>Objective - </strong>Lorem ipsum dolor sit
-                          amet consectetur, adipisicing elit. Atque inventore
-                          eveniet placeat. Hic, possimus debitis!
+                          Lorem, ipsum dolor sit amet consectetur adipisicing
+                          elit. Tempore, ad.
                         </li>
                       </ul>
-                      <div class="outcome-list-holder">
-                        <strong class="title">Planning - </strong>
-                        <ul class="outcome-list">
-                          <li>Lorem, ipsum.</li>
-                          <li>
-                            Lorem, ipsum dolor sit amet consectetur adipisicing
-                            elit. Tempore, ad.
-                          </li>
-                        </ul>
-                      </div>
-                      <br />
-                      <div class="outcome-list-holder">
-                        <strong class="title">Outcome - </strong>
-                        <ul class="outcome-list">
-                          <li>
-                            Lorem ipsum dolor sit amet consectetur adipisicing.
-                          </li>
-                          <li>
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Ut, velit?
-                          </li>
-                        </ul>
-                      </div>
-                      <br />
-                      <div class="outcome-list-holder">
+                    </div>
+                    <br />
+                    <div class="outcome-list-holder">
+                      <strong class="title">Outcome - </strong>
+                      <ul class="outcome-list">
+                        <li>
+                          Lorem ipsum dolor sit amet consectetur adipisicing.
+                        </li>
+                        <li>
+                          Lorem ipsum dolor sit amet consectetur adipisicing
+                          elit. Ut, velit?
+                        </li>
+                      </ul>
+                    </div>
+                    <br />
+                    <!-- <div class="outcome-list-holder">
                         <strong class="title">Economical Value - </strong>
                         <ul class="outcome-list">
                           <li>
@@ -386,140 +372,136 @@
                           </li>
                           <li>CPM ~Rs 1</li>
                         </ul>
-                      </div>
-                    </div>
-                    <div class="right-col">
-                      <ul class="showcase-info-list">
-                        <li>
-                          <strong class="num">2.7M+</strong>
-                          <span class="text">Engagement Rate</span>
-                        </li>
-                        <li>
-                          <strong class="num">20M+</strong>
-                          <span class="text">Reach</span>
-                        </li>
-                        <li>
-                          <strong class="num">10/10</strong>
-                          <span class="text">Sentiment Analysis</span>
-                        </li>
-                      </ul>
-                    </div>
+                      </div> -->
+                  </div>
+                  <div class="right-col">
+                    <ul class="showcase-info-list">
+                      <li>
+                        <strong class="num">2.7M+</strong>
+                        <span class="text">Engagement Rate</span>
+                      </li>
+                      <li>
+                        <strong class="num">20M+</strong>
+                        <span class="text">Reach</span>
+                      </li>
+                      <li>
+                        <strong class="num">10/10</strong>
+                        <span class="text">Sentiment Analysis</span>
+                      </li>
+                    </ul>
                   </div>
                 </div>
               </div>
             </div>
+          </div>
 
-            <div class="popup-holder" id="popup4">
-              <div id="popup4" class="lightbox-demo showcase-lightbox">
-                <div class="showcase-content">
-                  <div class="heading-wrap">
-                    <div class="heading-block">
-                      <strong class="heading"
-                        >Jab we replaced ‘sacha pyaar’ to ‘Indori Ishq’ for
-                        everyone</strong
-                      >
-                    </div>
+          <div class="popup-holder" id="popup4">
+            <div id="popup4" class="lightbox-demo showcase-lightbox">
+              <div class="showcase-content">
+                <div class="heading-wrap">
+                  <div class="heading-block">
+                    <strong class="heading">Jab we replaced ‘sacha pyaar’ to ‘Indori Ishq’ for
+                      everyone</strong>
                   </div>
-                  <div class="wrap">
-                    <div class="text-block">
-                      <ul class="text-list">
+                </div>
+                <div class="wrap">
+                  <div class="text-block">
+                    <ul class="text-list">
+                      <li>
+                        <strong>Objective - </strong>Ensuring MX Player's new
+                        web series Indori Ishq made the rounds on the internet
+                        with the best impact possible.
+                      </li>
+                      <li>
+                        <strong>Planning - </strong>A 360* campaign,
+                        multi-platform across IG, FB, and Twitter with memes,
+                        aesthetic videos, and pages suited best for this
+                        campaign.
+                      </li>
+                    </ul>
+                    <div class="outcome-list-holder">
+                      <strong class="title">Outcome - </strong>
+                      <ul class="outcome-list">
                         <li>
-                          <strong>Objective - </strong>Ensuring MX Player's new
-                          web series Indori Ishq made the rounds on the internet
-                          with the best impact possible.
+                          Videos on Facebook resulted in 20Mn+ reach alone.
                         </li>
+                        <li>A potential impact close to 145Mn+ people.</li>
                         <li>
-                          <strong>Planning - </strong>A 360* campaign,
-                          multi-platform across IG, FB, and Twitter with memes,
-                          aesthetic videos, and pages suited best for this
-                          campaign.
-                        </li>
-                      </ul>
-                      <div class="outcome-list-holder">
-                        <strong class="title">Outcome - </strong>
-                        <ul class="outcome-list">
-                          <li>
-                            Videos on Facebook resulted in 20Mn+ reach alone.
-                          </li>
-                          <li>A potential impact close to 145Mn+ people.</li>
-                          <li>
-                            77M+ People have gone and watched Indori Ishq during
-                            this campaign.
-                          </li>
-                        </ul>
-                      </div>
-                      <br />
-                    </div>
-                    <div class="right-col">
-                      <ul class="showcase-info-list">
-                        <li>
-                          <strong class="num">13M+</strong>
-                          <span class="text">Engagement Rate</span>
-                        </li>
-                        <li>
-                          <strong class="num">92M+</strong>
-                          <span class="text">Reach</span>
-                        </li>
-                        <li>
-                          <strong class="num">10/10</strong>
-                          <span class="text">Sentiment Analysis</span>
+                          77M+ People have gone and watched Indori Ishq during
+                          this campaign.
                         </li>
                       </ul>
                     </div>
+                    <br />
+                  </div>
+                  <div class="right-col">
+                    <ul class="showcase-info-list">
+                      <li>
+                        <strong class="num">13M+</strong>
+                        <span class="text">Engagement Rate</span>
+                      </li>
+                      <li>
+                        <strong class="num">92M+</strong>
+                        <span class="text">Reach</span>
+                      </li>
+                      <li>
+                        <strong class="num">10/10</strong>
+                        <span class="text">Sentiment Analysis</span>
+                      </li>
+                    </ul>
                   </div>
                 </div>
               </div>
             </div>
+          </div>
 
-            <div class="popup-holder" id="popup5">
-              <div id="popup5" class="lightbox-demo showcase-lightbox">
-                <div class="showcase-content">
-                  <div class="heading-wrap">
-                    <div class="heading-block">
-                      <strong class="heading"
-                        >Jab we made people appreciate a scam</strong
-                      >
-                    </div>
-                    <div class="spotify-image-col">
-                      <!-- <div class="spotify-image">
+          <div class="popup-holder" id="popup5">
+            <div id="popup5" class="lightbox-demo showcase-lightbox">
+              <div class="showcase-content">
+                <div class="heading-wrap">
+                  <div class="heading-block">
+                    <strong class="heading">Jab we made people appreciate a scam</strong>
+                  </div>
+                  <div class="spotify-image-col">
+                    <!-- <div class="spotify-image">
                         <img src="images/Campaigns/image%20212.png" alt="spotify" />
                       </div> -->
-                    </div>
                   </div>
-                  <div class="wrap">
-                    <div class="text-block">
-                      <ul class="text-list">
+                </div>
+                <div class="wrap">
+                  <div class="text-block">
+                    <ul class="text-list">
+                      <li>
+                        <strong>Objective - </strong>Make Scam 1992 a show
+                        people can't stop talking about, through trends on the
+                        show and relatable, popular templates out of the show.
+                      </li>
+                    </ul>
+                    <div class="outcome-list-holder">
+                      <strong class="title">Planning - </strong>
+                      <ul class="outcome-list">
+                        <li>A Twitter Trend</li>
                         <li>
-                          <strong>Objective - </strong>Make Scam 1992 a show
-                          people can't stop talking about, through trends on the
-                          show and relatable, popular templates out of the show.
+                          Instagram banter via Mega Influencers such as Pranav
+                          Sapra and Akshar Pathak
                         </li>
                       </ul>
-                      <div class="outcome-list-holder">
-                        <strong class="title">Planning - </strong>
-                        <ul class="outcome-list">
-                          <li>A Twitter Trend</li>
-                          <li>
-                            Instagram banter via Mega Influencers such as Pranav
-                            Sapra and Akshar Pathak
-                          </li>
-                        </ul>
-                      </div>
-                      <br />
-                      <div class="outcome-list-holder">
-                        <strong class="title">Outcome - </strong>
-                        <ul class="outcome-list">
-                          <li>
-                            The 10-day campaign spread across 4000+ deliverables
-                          </li>
-                          <li>
-                            100% Internet sentiment as a result of a great show
-                            in itself
-                          </li>
-                        </ul>
-                      </div>
-                      <br />
-                      <div class="outcome-list-holder">
+                    </div>
+                    <br />
+                    <div class="outcome-list-holder">
+                      <strong class="title">Outcome - </strong>
+                      <ul class="outcome-list">
+                        <li>
+                          The 10-day campaign spread across 4000+ deliverables
+                        </li>
+                        <li>
+                          100% Internet sentiment as a result of a great show
+                          in itself
+                        </li>
+                      </ul>
+                    </div>
+                    <br />
+                    <!-- <div class="outcome-list-holder">
                         <strong class="title">Economical Value - </strong>
                         <ul class="outcome-list">
                           <li>
@@ -528,828 +510,761 @@
                           </li>
                           <li>CPM ~Rs 1</li>
                         </ul>
-                      </div>
-                    </div>
-                    <div class="right-col">
-                      <ul class="showcase-info-list">
-                        <li>
-                          <strong class="num">2.7M+</strong>
-                          <span class="text">Engagement Rate</span>
-                        </li>
-                        <li>
-                          <strong class="num">20M+</strong>
-                          <span class="text">Reach</span>
-                        </li>
-                        <li>
-                          <strong class="num">10/10</strong>
-                          <span class="text">Sentiment Analysis</span>
-                        </li>
-                      </ul>
-                    </div>
+                      </div> -->
+                  </div>
+                  <div class="right-col">
+                    <ul class="showcase-info-list">
+                      <li>
+                        <strong class="num">2.7M+</strong>
+                        <span class="text">Engagement Rate</span>
+                      </li>
+                      <li>
+                        <strong class="num">20M+</strong>
+                        <span class="text">Reach</span>
+                      </li>
+                      <li>
+                        <strong class="num">10/10</strong>
+                        <span class="text">Sentiment Analysis</span>
+                      </li>
+                    </ul>
                   </div>
                 </div>
               </div>
             </div>
+          </div>
 
-            <div class="popup-holder" id="popup6">
-              <div id="popup6" class="lightbox-demo showcase-lightbox">
-                <div class="showcase-content">
-                  <div class="heading-wrap">
-                    <div class="heading-block">
-                      <strong class="heading"
-                        >5.Jab we made everyone groove on Spotify memes</strong
-                      >
-                    </div>
-                    <div class="spotify-image-col">
-                      <!-- <div class="spotify-image">
+          <div class="popup-holder" id="popup6">
+            <div id="popup6" class="lightbox-demo showcase-lightbox">
+              <div class="showcase-content">
+                <div class="heading-wrap">
+                  <div class="heading-block">
+                    <strong class="heading">5.Jab we made everyone groove on Spotify memes</strong>
+                  </div>
+                  <div class="spotify-image-col">
+                    <!-- <div class="spotify-image">
                       <img src="images/spotify.png" alt="spotify">
                     </div> -->
-                    </div>
                   </div>
-                  <div class="wrap">
-                    <div class="text-block">
-                      <ul class="text-list">
+                </div>
+                <div class="wrap">
+                  <div class="text-block">
+                    <ul class="text-list">
+                      <li>
+                        <strong>Objective - </strong>Creating a template-based
+                        trend online for people to share their food pictures
+                        and seek a response from Spotify for the perfect
+                        playlist.
+                      </li>
+                      <li>
+                        <strong>Planning - </strong>We created a campaign by
+                        activating an arsenal of Twitter Influencers,
+                        memefluencers, and big meme pages.
+                      </li>
+                      <li>
+                        <strong>Brand collaborations - </strong>When other
+                        brands like Swiggy and Durex engaged in line with the
+                        campaign, the value increased multifold.
+                      </li>
+                    </ul>
+                    <div class="outcome-list-holder">
+                      <strong class="title">Outcome - </strong>
+                      <ul class="outcome-list">
+                        <li>100% of the promised results delivered</li>
+                        <li>Internet sentiment remained 100% positive</li>
                         <li>
-                          <strong>Objective - </strong>Creating a template-based
-                          trend online for people to share their food pictures
-                          and seek a response from Spotify for the perfect
-                          playlist.
-                        </li>
-                        <li>
-                          <strong>Planning - </strong>We created a campaign by
-                          activating an arsenal of Twitter Influencers,
-                          memefluencers, and big meme pages.
-                        </li>
-                        <li>
-                          <strong>Brand collaborations - </strong>When other
-                          brands like Swiggy and Durex engaged in line with the
-                          campaign, the value increased multifold.
-                        </li>
-                      </ul>
-                      <div class="outcome-list-holder">
-                        <strong class="title">Outcome - </strong>
-                        <ul class="outcome-list">
-                          <li>100% of the promised results delivered</li>
-                          <li>Internet sentiment remained 100% positive</li>
-                          <li>
-                            Spotify's personalized responses made people feel
-                            special leading to overall positive sentiment
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                    <div class="right-col">
-                      <ul class="showcase-info-list">
-                        <li>
-                          <strong class="num">220K+</strong>
-                          <span class="text">Engagement Rate</span>
-                        </li>
-                        <li>
-                          <strong class="num">5M+</strong>
-                          <span class="text">Reach</span>
-                        </li>
-                        <li>
-                          <strong class="num">10/10</strong>
-                          <span class="text">Sentiment Analysis</span>
+                          Spotify's personalized responses made people feel
+                          special leading to overall positive sentiment
                         </li>
                       </ul>
                     </div>
                   </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="popup-holder" id="popup7">
-              <div id="popup7" class="lightbox-demo showcase-lightbox">
-                <div class="showcase-content">
-                  <div class="heading-wrap">
-                    <div class="heading-block">
-                      <strong class="heading"
-                        >6.Jab we made everyone groove on Spotify memes</strong
-                      >
-                    </div>
-                    <div class="spotify-image-col"></div>
-                  </div>
-                  <div class="wrap">
-                    <div class="text-block">
-                      <ul class="text-list">
-                        <li>
-                          <strong>Objective - </strong>Creating a template-based
-                          trend online for people to share their food pictures
-                          and seek a response from Spotify for the perfect
-                          playlist.
-                        </li>
-                        <li>
-                          <strong>Planning - </strong>We created a campaign by
-                          activating an arsenal of Twitter Influencers,
-                          memefluencers, and big meme pages.
-                        </li>
-                        <li>
-                          <strong>Brand collaborations - </strong>When other
-                          brands like Swiggy and Durex engaged in line with the
-                          campaign, the value increased multifold.
-                        </li>
-                      </ul>
-                      <div class="outcome-list-holder">
-                        <strong class="title">Outcome - </strong>
-                        <ul class="outcome-list">
-                          <li>100% of the promised results delivered</li>
-                          <li>Internet sentiment remained 100% positive</li>
-                          <li>
-                            Spotify's personalized responses made people feel
-                            special leading to overall positive sentiment
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                    <div class="right-col">
-                      <ul class="showcase-info-list">
-                        <li>
-                          <strong class="num">220K+</strong>
-                          <span class="text">Engagement Rate</span>
-                        </li>
-                        <li>
-                          <strong class="num">5M+</strong>
-                          <span class="text">Reach</span>
-                        </li>
-                        <li>
-                          <strong class="num">10/10</strong>
-                          <span class="text">Sentiment Analysis</span>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="popup-holder" id="popup8">
-              <div id="popup8" class="lightbox-demo showcase-lightbox">
-                <div class="showcase-content">
-                  <div class="heading-wrap">
-                    <div class="heading-block">
-                      <strong class="heading"
-                        >6.Jab we made everyone groove on Spotify memes</strong
-                      >
-                    </div>
-                  </div>
-                  <div class="wrap">
-                    <div class="text-block">
-                      <ul class="text-list">
-                        <li>
-                          <strong>Objective - </strong>Creating a template-based
-                          trend online for people to share their food pictures
-                          and seek a response from Spotify for the perfect
-                          playlist.
-                        </li>
-                        <li>
-                          <strong>Planning - </strong>We created a campaign by
-                          activating an arsenal of Twitter Influencers,
-                          memefluencers, and big meme pages.
-                        </li>
-                        <li>
-                          <strong>Brand collaborations - </strong>When other
-                          brands like Swiggy and Durex engaged in line with the
-                          campaign, the value increased multifold.
-                        </li>
-                      </ul>
-                      <div class="outcome-list-holder">
-                        <strong class="title">Outcome - </strong>
-                        <ul class="outcome-list">
-                          <li>100% of the promised results delivered</li>
-                          <li>Internet sentiment remained 100% positive</li>
-                          <li>
-                            Spotify's personalized responses made people feel
-                            special leading to overall positive sentiment
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                    <div class="right-col">
-                      <ul class="showcase-info-list">
-                        <li>
-                          <strong class="num">220K+</strong>
-                          <span class="text">Engagement Rate</span>
-                        </li>
-                        <li>
-                          <strong class="num">5M+</strong>
-                          <span class="text">Reach</span>
-                        </li>
-                        <li>
-                          <strong class="num">10/10</strong>
-                          <span class="text">Sentiment Analysis</span>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="popup-holder" id="popup9">
-              <div id="popup9" class="lightbox-demo showcase-lightbox">
-                <div class="showcase-content">
-                  <div class="heading-wrap">
-                    <div class="heading-block">
-                      <strong class="heading"
-                        >6.Jab we made everyone groove on Spotify memes</strong
-                      >
-                    </div>
-                  </div>
-                  <div class="wrap">
-                    <div class="text-block">
-                      <ul class="text-list">
-                        <li>
-                          <strong>Objective - </strong>Creating a template-based
-                          trend online for people to share their food pictures
-                          and seek a response from Spotify for the perfect
-                          playlist.
-                        </li>
-                        <li>
-                          <strong>Planning - </strong>We created a campaign by
-                          activating an arsenal of Twitter Influencers,
-                          memefluencers, and big meme pages.
-                        </li>
-                        <li>
-                          <strong>Brand collaborations - </strong>When other
-                          brands like Swiggy and Durex engaged in line with the
-                          campaign, the value increased multifold.
-                        </li>
-                      </ul>
-                      <div class="outcome-list-holder">
-                        <strong class="title">Outcome - </strong>
-                        <ul class="outcome-list">
-                          <li>100% of the promised results delivered</li>
-                          <li>Internet sentiment remained 100% positive</li>
-                          <li>
-                            Spotify's personalized responses made people feel
-                            special leading to overall positive sentiment
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                    <div class="right-col">
-                      <ul class="showcase-info-list">
-                        <li>
-                          <strong class="num">220K+</strong>
-                          <span class="text">Engagement Rate</span>
-                        </li>
-                        <li>
-                          <strong class="num">5M+</strong>
-                          <span class="text">Reach</span>
-                        </li>
-                        <li>
-                          <strong class="num">10/10</strong>
-                          <span class="text">Sentiment Analysis</span>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="popup-holder" id="popup10">
-              <div id="popup10" class="lightbox-demo showcase-lightbox">
-                <div class="showcase-content">
-                  <div class="heading-wrap">
-                    <div class="heading-block">
-                      <strong class="heading"
-                        >6.Jab we made everyone groove on Spotify memes</strong
-                      >
-                    </div>
-                  </div>
-                  <div class="wrap">
-                    <div class="text-block">
-                      <ul class="text-list">
-                        <li>
-                          <strong>Objective - </strong>Creating a template-based
-                          trend online for people to share their food pictures
-                          and seek a response from Spotify for the perfect
-                          playlist.
-                        </li>
-                        <li>
-                          <strong>Planning - </strong>We created a campaign by
-                          activating an arsenal of Twitter Influencers,
-                          memefluencers, and big meme pages.
-                        </li>
-                        <li>
-                          <strong>Brand collaborations - </strong>When other
-                          brands like Swiggy and Durex engaged in line with the
-                          campaign, the value increased multifold.
-                        </li>
-                      </ul>
-                      <div class="outcome-list-holder">
-                        <strong class="title">Outcome - </strong>
-                        <ul class="outcome-list">
-                          <li>100% of the promised results delivered</li>
-                          <li>Internet sentiment remained 100% positive</li>
-                          <li>
-                            Spotify's personalized responses made people feel
-                            special leading to overall positive sentiment
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                    <div class="right-col">
-                      <ul class="showcase-info-list">
-                        <li>
-                          <strong class="num">220K+</strong>
-                          <span class="text">Engagement Rate</span>
-                        </li>
-                        <li>
-                          <strong class="num">5M+</strong>
-                          <span class="text">Reach</span>
-                        </li>
-                        <li>
-                          <strong class="num">10/10</strong>
-                          <span class="text">Sentiment Analysis</span>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="showcase-slider swiper-container">
-              <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                  <div class="showcase-block">
-                    <img
-                      src="./assets/Case Studies-img1.jpg"
-                      alt="case-study-1"
-                    />
-                    <button class="explore-btn" data-target="#popup1">
-                      Explore More
-                    </button>
-                  </div>
-                </div>
-                <div class="swiper-slide">
-                  <div class="showcase-block">
-                    <img
-                      src="./assets/Case Studies-img2.jpg"
-                      alt="case-study-1"
-                    />
-                    <button class="explore-btn" data-target="#popup2">
-                      Explore More
-                    </button>
-                  </div>
-                </div>
-                <div class="swiper-slide">
-                  <div class="showcase-block">
-                    <img
-                      src="./assets/Case Studies-img3.jpg"
-                      alt="case-study-1"
-                    />
-                    <button class="explore-btn" data-target="#popup3">
-                      Explore More
-                    </button>
-                  </div>
-                </div>
-                <div class="swiper-slide">
-                  <div class="showcase-block">
-                    <img
-                      src="./assets/Case Studies-img4.jpg"
-                      alt="case-study-1"
-                    />
-                    <button class="explore-btn" data-target="#popup4">
-                      Explore More
-                    </button>
-                  </div>
-                </div>
-                <div class="swiper-slide">
-                  <div class="showcase-block">
-                    <img
-                      src="./assets/Case Studies-img5.jpg"
-                      alt="case-study-1"
-                    />
-                    <button class="explore-btn" data-target="#popup5">
-                      Explore More
-                    </button>
-                  </div>
-                </div>
-                <div class="swiper-slide">
-                  <div class="showcase-block">
-                    <img
-                      src="./assets/Case Studies-img6.jpg"
-                      alt="case-study-1"
-                    />
-                    <button class="explore-btn" data-target="#popup6">
-                      Explore More
-                    </button>
-                  </div>
-                </div>
-                <div class="swiper-slide">
-                  <div class="showcase-block">
-                    <img
-                      src="./assets/Case Studies-img7.jpg"
-                      alt="case-study-1"
-                    />
-                    <button class="explore-btn" data-target="#popup7">
-                      Explore More
-                    </button>
-                  </div>
-                </div>
-                <div class="swiper-slide">
-                  <div class="showcase-block">
-                    <img
-                      src="./assets/Case Studies-img8.jpg"
-                      alt="case-study-1"
-                    />
-                    <button class="explore-btn" data-target="#popup8">
-                      Explore More
-                    </button>
-                  </div>
-                </div>
-                <div class="swiper-slide">
-                  <div class="showcase-block">
-                    <img
-                      src="./assets/Case Studies-img9.jpg"
-                      alt="case-study-1"
-                    />
-                    <button class="explore-btn" data-target="#popup9">
-                      Explore More
-                    </button>
-                  </div>
-                </div>
-                <div class="swiper-slide">
-                  <div class="showcase-block">
-                    <img
-                      src="./assets/Case Studies-img10.jpg"
-                      alt="case-study-1"
-                    />
-                    <button class="explore-btn" data-target="#popup10">
-                      Explore More
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Add Pagination -->
-              <div class="swiper-pagination"></div>
-
-              <!-- Add Navigation -->
-              <div class="swiper-button-next"></div>
-              <div class="swiper-button-prev"></div>
-            </div>
-          </div>
-        </section>
-
-        <section class="connect-info-section" id="about">
-          <div class="container">
-            <div class="description">
-              <strong class="description-text"
-                >About content
-                <span class="green-text text-star">For</span>
-                <br />DBMC
-                <span class="yellow-text">TEAM</span>
-                <i class="ri-sparkling-2-fill"></i>
-              </strong>
-            </div>
-          </div>
-        </section>
-        <section class="tags-section">
-          <div class="container">
-            <img src="./assets/SERVICES.png" alt="image description" />
-          </div>
-        </section>
-        <section class="expert-section" id="services">
-          <div class="service_container" id="service_container">
-            <div class="heading-area">
-              <h2 class="our-expert-head" data-aos="fade-right">
-                Our Expert
-                <span class="text-color"
-                  >Services
-                  <span class="img-hear"
-                    ><img
-                      src="images/img-message.png"
-                      alt="image description" /></span
-                ></span>
-              </h2>
-              <div class="img-star" data-aos="fade-right">
-                <!-- <img src="images/star-right-large.png" alt="image description" /> -->
-                <i class="ri-sparkling-2-fill"></i>
-              </div>
-            </div>
-            <div class="scroll-wrapper">
-              <div class="two-cols">
-                <div class="col">
-                  <article class="article-services bg-green">
-                    <div class="text-holder">
-                      <h3>Meme <br />Campaigns</h3>
-                      <p>
-                        From creating brand new digital IP’s to ideating a
-                        campaign and getting it executed, we can do anything and
-                        we’re insanely good at it. Forget being trendy, our team
-                        can make you trend!
-                      </p>
-                      <a href="#contact" class="btn-black">Let's Talk</a>
-                    </div>
-
-                    <div class="image-holder">
-                      <img src="images/img5.png" alt="image description" />
-                    </div>
-                  </article>
-                </div>
-                <div class="col">
-                  <article class="article-services bg-orange">
-                    <div class="text-holder">
-                      <h3>Influencer <br />Marketing</h3>
-                      <p>
-                        We help you get the true ROI (return on influencer)
-                        through a data-driven selection process and
-                        culture-relevant activation. Our partnership with
-                        influencers and their managers help us with better
-                        negotiation and execution of solid campaigns!
-                      </p>
-                      <a href="#contact" class="btn-black">Let's Talk</a>
-                    </div>
-                    <div class="image-holder">
-                      <img src="images/img4.png" alt="image description" />
-                    </div>
-                  </article>
-                </div>
-                <div class="col">
-                  <article class="article-services bg-mehroon">
-                    <div class="text-holder">
-                      <h3>Experimental <br />Campaigns</h3>
-                      <p>
-                        Anything and everything that you want to do online or
-                        offline, we do it for you. With crazy, out-of-the-box,
-                        and insanely intriguing ideas, we execute a campaign in
-                        a completely out-of-the-ordinary way. If you know
-                        “Nathan For You”, you’ll know what we’re talking about.
-                      </p>
-                      <a href="#contact" class="btn-black">Let's Talk</a>
-                    </div>
-                    <div class="image-holder">
-                      <img src="images/img2.png" alt="image description" />
-                    </div>
-                  </article>
-                </div>
-                <div class="col">
-                  <article class="article-services bg-pink">
-                    <div class="text-holder">
-                      <h3>Content <br />On Demand</h3>
-                      <p>
-                        Source the top content from the top creators in the
-                        country. Our team has a network of exceptionally
-                        talented content creators that deliver crazy content for
-                        you! We get what you want, exactly the way you want it.
-                      </p>
-                      <a href="#contact" class="btn-black">Let's Talk</a>
-                    </div>
-                    <div class="image-holder">
-                      <img src="images/img6.png" alt="image description" />
-                    </div>
-                  </article>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="clients-section" id="clients">
-          <div class="container">
-            <div class="clients-wrap">
-              <div class="heading-area" data-aos="fade-right">
-                <h2>
-                  Our <span class="Clients">Consumers</span
-                  ><span class="stars"
-                    ><img src="images/star-right-large.png" alt="star"
-                  /></span>
-                </h2>
-              </div>
-              <div
-                class="slider"
-                style="--width: 120px; --height: 100px; --quantity: 9"
-              >
-                <div class="list">
-                  <div class="item" style="--position: 1">
-                    <img
-                      src="images/logos/Disney%2bHotstar.png"
-                      alt="Disney+Hotstar"
-                    />
-                  </div>
-                  <div class="item" style="--position: 2">
-                    <img src="images/logos/Byjus.png" alt="Byjus" />
-                  </div>
-                  <div class="item" style="--position: 3">
-                    <img src="images/logos/Coinswitch.png" alt="Coinswitch" />
-                  </div>
-                  <div class="item" style="--position: 4">
-                    <img
-                      src="images/logos/Amazon%20Prime.png"
-                      alt="Amazon Prime"
-                    />
-                  </div>
-                  <div class="item" style="--position: 5">
-                    <img src="images/logos/Durex.png" alt="Durex" />
-                  </div>
-                  <div class="item" style="--position: 6">
-                    <img src="images/logos/Spotify.png" alt="Spotify" />
-                  </div>
-                  <div class="item" style="--position: 7">
-                    <img src="images/logos/Dream%2011.png" alt="Dream 11" />
-                  </div>
-                  <div class="item" style="--position: 8">
-                    <img src="images/logos/Myntra.png" alt="Myntra" />
-                  </div>
-                  <div class="item" style="--position: 9">
-                    <img src="images/logos/Applause.png" alt="Applause" />
-                  </div>
-                </div>
-              </div>
-
-              <div
-                class="slider"
-                reverse="true"
-                style="--width: 120px; --height: 100px; --quantity: 9"
-              >
-                <div class="list">
-                  <div class="item" style="--position: 1">
-                    <img src="images/logos/B21.png" alt="B21" />
-                  </div>
-                  <div class="item" style="--position: 2">
-                    <img src="images/logos/Budweiser.png" alt="Budweiser" />
-                  </div>
-                  <div class="item" style="--position: 3">
-                    <img
-                      src="images/logos/Digi%20Osmosis.png"
-                      alt="Digi Osmosis"
-                    />
-                  </div>
-                  <div class="item" style="--position: 4">
-                    <img src="images/logos/Disconvery.png" alt="Discovery" />
-                  </div>
-                  <div class="item" style="--position: 5">
-                    <img src="images/logos/Dunzo.png" alt="Dunzo" />
-                  </div>
-                  <div class="item" style="--position: 6">
-                    <img src="images/logos/Excel.png" alt="Excel" />
-                  </div>
-                  <div class="item" style="--position: 7">
-                    <img src="images/logos/Freefire.png" alt="Freefire" />
-                  </div>
-                  <div class="item" style="--position: 8">
-                    <img src="images/logos/giva.png" alt="Giva" />
-                  </div>
-                  <div class="item" style="--position: 9">
-                    <img src="images/logos/groww.png" alt="Groww" />
+                  <div class="right-col">
+                    <ul class="showcase-info-list">
+                      <li>
+                        <strong class="num">220K+</strong>
+                        <span class="text">Engagement Rate</span>
+                      </li>
+                      <li>
+                        <strong class="num">5M+</strong>
+                        <span class="text">Reach</span>
+                      </li>
+                      <li>
+                        <strong class="num">10/10</strong>
+                        <span class="text">Sentiment Analysis</span>
+                      </li>
+                    </ul>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </section>
 
-        <section class="circle-main" id="buddies">
-          <h1 class="circle-head" data-aos="fade-right">
-            Our <span class="buddies">Buddies</span>
-          </h1>
-          <div class="circle_container">
-            <div class="circular-menu">
-              <div class="center-circle">
-                <div class="center-image-container">
-                  <img
-                    src="https://images.unsplash.com/photo-1531259683007-016a7b628fc3"
-                    alt="Premium Meme"
-                    class="center-image"
-                  />
+          <div class="popup-holder" id="popup7">
+            <div id="popup7" class="lightbox-demo showcase-lightbox">
+              <div class="showcase-content">
+                <div class="heading-wrap">
+                  <div class="heading-block">
+                    <strong class="heading">6.Jab we made everyone groove on Spotify memes</strong>
+                  </div>
+                  <div class="spotify-image-col"></div>
+                </div>
+                <div class="wrap">
+                  <div class="text-block">
+                    <ul class="text-list">
+                      <li>
+                        <strong>Objective - </strong>Creating a template-based
+                        trend online for people to share their food pictures
+                        and seek a response from Spotify for the perfect
+                        playlist.
+                      </li>
+                      <li>
+                        <strong>Planning - </strong>We created a campaign by
+                        activating an arsenal of Twitter Influencers,
+                        memefluencers, and big meme pages.
+                      </li>
+                      <li>
+                        <strong>Brand collaborations - </strong>When other
+                        brands like Swiggy and Durex engaged in line with the
+                        campaign, the value increased multifold.
+                      </li>
+                    </ul>
+                    <div class="outcome-list-holder">
+                      <strong class="title">Outcome - </strong>
+                      <ul class="outcome-list">
+                        <li>100% of the promised results delivered</li>
+                        <li>Internet sentiment remained 100% positive</li>
+                        <li>
+                          Spotify's personalized responses made people feel
+                          special leading to overall positive sentiment
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="right-col">
+                    <ul class="showcase-info-list">
+                      <li>
+                        <strong class="num">220K+</strong>
+                        <span class="text">Engagement Rate</span>
+                      </li>
+                      <li>
+                        <strong class="num">5M+</strong>
+                        <span class="text">Reach</span>
+                      </li>
+                      <li>
+                        <strong class="num">10/10</strong>
+                        <span class="text">Sentiment Analysis</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="popup-holder" id="popup8">
+            <div id="popup8" class="lightbox-demo showcase-lightbox">
+              <div class="showcase-content">
+                <div class="heading-wrap">
+                  <div class="heading-block">
+                    <strong class="heading">6.Jab we made everyone groove on Spotify memes</strong>
+                  </div>
+                </div>
+                <div class="wrap">
+                  <div class="text-block">
+                    <ul class="text-list">
+                      <li>
+                        <strong>Objective - </strong>Creating a template-based
+                        trend online for people to share their food pictures
+                        and seek a response from Spotify for the perfect
+                        playlist.
+                      </li>
+                      <li>
+                        <strong>Planning - </strong>We created a campaign by
+                        activating an arsenal of Twitter Influencers,
+                        memefluencers, and big meme pages.
+                      </li>
+                      <li>
+                        <strong>Brand collaborations - </strong>When other
+                        brands like Swiggy and Durex engaged in line with the
+                        campaign, the value increased multifold.
+                      </li>
+                    </ul>
+                    <div class="outcome-list-holder">
+                      <strong class="title">Outcome - </strong>
+                      <ul class="outcome-list">
+                        <li>100% of the promised results delivered</li>
+                        <li>Internet sentiment remained 100% positive</li>
+                        <li>
+                          Spotify's personalized responses made people feel
+                          special leading to overall positive sentiment
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="right-col">
+                    <ul class="showcase-info-list">
+                      <li>
+                        <strong class="num">220K+</strong>
+                        <span class="text">Engagement Rate</span>
+                      </li>
+                      <li>
+                        <strong class="num">5M+</strong>
+                        <span class="text">Reach</span>
+                      </li>
+                      <li>
+                        <strong class="num">10/10</strong>
+                        <span class="text">Sentiment Analysis</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="popup-holder" id="popup9">
+            <div id="popup9" class="lightbox-demo showcase-lightbox">
+              <div class="showcase-content">
+                <div class="heading-wrap">
+                  <div class="heading-block">
+                    <strong class="heading">Jab we made everyone groove on Spotify memes</strong>
+                  </div>
+                </div>
+                <div class="wrap">
+                  <div class="text-block">
+                    <ul class="text-list">
+                      <li>
+                        <strong>Objective - </strong>Creating a template-based
+                        trend online for people to share their food pictures
+                        and seek a response from Spotify for the perfect
+                        playlist.
+                      </li>
+                      <li>
+                        <strong>Planning - </strong>We created a campaign by
+                        activating an arsenal of Twitter Influencers,
+                        memefluencers, and big meme pages.
+                      </li>
+                      <li>
+                        <strong>Brand collaborations - </strong>When other
+                        brands like Swiggy and Durex engaged in line with the
+                        campaign, the value increased multifold.
+                      </li>
+                    </ul>
+                    <div class="outcome-list-holder">
+                      <strong class="title">Outcome - </strong>
+                      <ul class="outcome-list">
+                        <li>100% of the promised results delivered</li>
+                        <li>Internet sentiment remained 100% positive</li>
+                        <li>
+                          Spotify's personalized responses made people feel
+                          special leading to overall positive sentiment
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="right-col">
+                    <ul class="showcase-info-list">
+                      <li>
+                        <strong class="num">220K+</strong>
+                        <span class="text">Engagement Rate</span>
+                      </li>
+                      <li>
+                        <strong class="num">5M+</strong>
+                        <span class="text">Reach</span>
+                      </li>
+                      <li>
+                        <strong class="num">10/10</strong>
+                        <span class="text">Sentiment Analysis</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="popup-holder" id="popup10">
+            <div id="popup10" class="lightbox-demo showcase-lightbox">
+              <div class="showcase-content">
+                <div class="heading-wrap">
+                  <div class="heading-block">
+                    <strong class="heading">Jab we made everyone groove on Spotify memes</strong>
+                  </div>
+                </div>
+                <div class="wrap">
+                  <div class="text-block">
+                    <ul class="text-list">
+                      <li>
+                        <strong>Objective - </strong>Creating a template-based
+                        trend online for people to share their food pictures
+                        and seek a response from Spotify for the perfect
+                        playlist.
+                      </li>
+                      <li>
+                        <strong>Planning - </strong>We created a campaign by
+                        activating an arsenal of Twitter Influencers,
+                        memefluencers, and big meme pages.
+                      </li>
+                      <li>
+                        <strong>Brand collaborations - </strong>When other
+                        brands like Swiggy and Durex engaged in line with the
+                        campaign, the value increased multifold.
+                      </li>
+                    </ul>
+                    <div class="outcome-list-holder">
+                      <strong class="title">Outcome - </strong>
+                      <ul class="outcome-list">
+                        <li>100% of the promised results delivered</li>
+                        <li>Internet sentiment remained 100% positive</li>
+                        <li>
+                          Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem nostrum,
+                          iusto recusandae rerum itaque.
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="right-col">
+                    <ul class="showcase-info-list">
+                      <li>
+                        <strong class="num">220K+</strong>
+                        <span class="text">Engagement Rate</span>
+                      </li>
+                      <li>
+                        <strong class="num">5M+</strong>
+                        <span class="text">Reach</span>
+                      </li>
+                      <li>
+                        <strong class="num">10/10</strong>
+                        <span class="text">Sentiment Analysis</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="showcase-slider swiper-container" data-aos="fade-up">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <div class="showcase-block">
+                  <img src="./assets/Case Studies-img1.jpg" alt="case-study-1" />
+                  <button class="explore-btn" data-target="#popup1">
+                    Explore More
+                  </button>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="showcase-block">
+                  <img src="./assets/Case Studies-img2.jpg" alt="case-study-1" />
+                  <button class="explore-btn" data-target="#popup2">
+                    Explore More
+                  </button>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="showcase-block">
+                  <img src="./assets/Case Studies-img3.jpg" alt="case-study-1" />
+                  <button class="explore-btn" data-target="#popup3">
+                    Explore More
+                  </button>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="showcase-block">
+                  <img src="./assets/Case Studies-img4.jpg" alt="case-study-1" />
+                  <button class="explore-btn" data-target="#popup4">
+                    Explore More
+                  </button>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="showcase-block">
+                  <img src="./assets/Case Studies-img5.jpg" alt="case-study-1" />
+                  <button class="explore-btn" data-target="#popup5">
+                    Explore More
+                  </button>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="showcase-block">
+                  <img src="./assets/Case Studies-img6.jpg" alt="case-study-1" />
+                  <button class="explore-btn" data-target="#popup6">
+                    Explore More
+                  </button>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="showcase-block">
+                  <img src="./assets/Case Studies-img7.jpg" alt="case-study-1" />
+                  <button class="explore-btn" data-target="#popup7">
+                    Explore More
+                  </button>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="showcase-block">
+                  <img src="./assets/Case Studies-img8.jpg" alt="case-study-1" />
+                  <button class="explore-btn" data-target="#popup8">
+                    Explore More
+                  </button>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="showcase-block">
+                  <img src="./assets/Case Studies-img9.jpg" alt="case-study-1" />
+                  <button class="explore-btn" data-target="#popup9">
+                    Explore More
+                  </button>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="showcase-block">
+                  <img src="./assets/Case Studies-img10.jpg" alt="case-study-1" />
+                  <button class="explore-btn" data-target="#popup10">
+                    Explore More
+                  </button>
                 </div>
               </div>
             </div>
 
-            <div class="followers-section">
-              <!-- Follower cards will be generated dynamically -->
-            </div>
-            <button class="back-button" style="display: none">
-              Back to Menu
-            </button>
-          </div>
-        </section>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
 
-        <section class="pioneers-sections" id="why-us">
-          <div class="container">
-            <article class="article-pioneers">
-              <h2 class="why_dbmc">
-                Why DBMC Section
-                <!-- <span class="text-color">pioneers of meme marketing</span> -->
-              </h2>
-              <div>
-                <div class="text-holder">
-                  <div class="img-star">
-                    <i class="ri-sparkling-2-fill"></i>
-                  </div>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Voluptatem velit nihil et consequatur odit, corrupti fuga
-                    eligendi optio dignissimos minima necessitatibus ab vitae
-                    sequi culpa quis iusto dolor dolorem libero sit facilis!
-                    Explicabo, iusto quisquam. Ex quae vero totam! Iure adipisci
-                    eveniet labore cum cumque suscipit impedit similique eaque
-                    explicabo.
-                  </p>
-                  <div class="text-large">
+            <!-- Add Navigation -->
+            <!-- <div class="swiper-button-next"></div> -->
+            <!-- <div class="swiper-button-prev"></div> -->
+          </div>
+        </div>
+      </section>
+
+      <section class="connect-info-section" id="about">
+        <div class="container" data-aos="fade-up">
+          <div class="description">
+            <strong class="description-text">About content
+              <span class="green-text text-star">For</span>
+              <br />DBMC
+              <span class="yellow-text">TEAM</span>
+              <i class="ri-sparkling-2-fill"></i>
+            </strong>
+          </div>
+        </div>
+      </section>
+      <section class="tags-section" data-aos="fade-up">
+        <div class="container">
+          <img src="./assets/SERVICES.png" alt="image description" />
+        </div>
+      </section>
+      <section class="expert-section" id="services">
+        <div class="service_container" id="service_container">
+          <div class="heading-area">
+            <h2 class="our-expert-head" data-aos="fade-right">
+              Our Expert
+              <span class="text-color">Services
+                <span class="img-hear"><img src="images/img-message.png" alt="image description" /></span></span>
+            </h2>
+            <div class="img-star" data-aos="fade-right">
+              <!-- <img src="images/star-right-large.png" alt="image description" /> -->
+              <i class="ri-sparkling-2-fill"></i>
+            </div>
+          </div>
+          <div class="scroll-wrapper">
+            <div class="two-cols">
+              <div class="col">
+                <article class="article-services bg-green">
+                  <div class="text-holder">
+                    <h3>Meme <br />Campaigns</h3>
                     <p>
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                      Illo possimus quis iusto quae tempora esse inventore,
-                      soluta ipsum dicta porro sit reiciendis numquam beatae hic
-                      id tenetur. Maxime consectetur atque sint exercitationem
-                      veritatis, alias commodi?
+                      From creating brand new digital IP’s to ideating a
+                      campaign and getting it executed, we can do anything and
+                      we’re insanely good at it. Forget being trendy, our team
+                      can make you trend!
                     </p>
+                    <a href="#contact" class="btn-black">Let's Talk</a>
                   </div>
+
+                  <div class="image-holder">
+                    <img src="images/img5.png" alt="image description" />
+                  </div>
+                </article>
+              </div>
+              <div class="col">
+                <article class="article-services bg-orange">
+                  <div class="text-holder">
+                    <h3>Influencer <br />Marketing</h3>
+                    <p>
+                      We help you get the true ROI (return on influencer)
+                      through a data-driven selection process and
+                      culture-relevant activation. Our partnership with
+                      influencers and their managers help us with better
+                      negotiation and execution of solid campaigns!
+                    </p>
+                    <a href="#contact" class="btn-black">Let's Talk</a>
+                  </div>
+                  <div class="image-holder">
+                    <img src="images/img4.png" alt="image description" />
+                  </div>
+                </article>
+              </div>
+              <div class="col">
+                <article class="article-services bg-mehroon">
+                  <div class="text-holder">
+                    <h3>Experimental <br />Campaigns</h3>
+                    <p>
+                      Anything and everything that you want to do online or
+                      offline, we do it for you. With crazy, out-of-the-box,
+                      and insanely intriguing ideas, we execute a campaign in
+                      a completely out-of-the-ordinary way. If you know
+                      “Nathan For You”, you’ll know what we’re talking about.
+                    </p>
+                    <a href="#contact" class="btn-black">Let's Talk</a>
+                  </div>
+                  <div class="image-holder">
+                    <img src="images/img2.png" alt="image description" />
+                  </div>
+                </article>
+              </div>
+              <div class="col">
+                <article class="article-services bg-pink">
+                  <div class="text-holder">
+                    <h3>Content <br />On Demand</h3>
+                    <p>
+                      Source the top content from the top creators in the
+                      country. Our team has a network of exceptionally
+                      talented content creators that deliver crazy content for
+                      you! We get what you want, exactly the way you want it.
+                    </p>
+                    <a href="#contact" class="btn-black">Let's Talk</a>
+                  </div>
+                  <div class="image-holder">
+                    <img src="images/img6.png" alt="image description" />
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="clients-section" id="clients">
+        <div class="container">
+          <div class="clients-wrap">
+            <div class="heading-area" data-aos="fade-right">
+              <h2>
+                Our <span class="Clients">Consumers</span><span class="stars"><img src="images/star-right-large.png"
+                    alt="star" /></span>
+              </h2>
+            </div>
+            <div class="slider" style="--width: 120px; --height: 100px; --quantity: 9" data-aos="fade-up">
+              <div class="list">
+                <div class="item" style="--position: 1">
+                  <img src="images/logos/Disney%2bHotstar.png" alt="Disney+Hotstar" />
+                </div>
+                <div class="item" style="--position: 2">
+                  <img src="images/logos/Byjus.png" alt="Byjus" />
+                </div>
+                <div class="item" style="--position: 3">
+                  <img src="images/logos/Coinswitch.png" alt="Coinswitch" />
+                </div>
+                <div class="item" style="--position: 4">
+                  <img src="images/logos/Amazon%20Prime.png" alt="Amazon Prime" />
+                </div>
+                <div class="item" style="--position: 5">
+                  <img src="images/logos/Durex.png" alt="Durex" />
+                </div>
+                <div class="item" style="--position: 6">
+                  <img src="images/logos/Spotify.png" alt="Spotify" />
+                </div>
+                <div class="item" style="--position: 7">
+                  <img src="images/logos/Dream%2011.png" alt="Dream 11" />
+                </div>
+                <div class="item" style="--position: 8">
+                  <img src="images/logos/Myntra.png" alt="Myntra" />
+                </div>
+                <div class="item" style="--position: 9">
+                  <img src="images/logos/Applause.png" alt="Applause" />
                 </div>
               </div>
-            </article>
-          </div>
-        </section>
-        <section class="meme-team-section">
-          <div class="container">
-            <h2>Our Team</h2>
-            <div class="meme-team-image">
-              <img src="images/team-image.png" alt="DBMC Team Image" />
-              <h2>DBMC Team Image</h2>
+            </div>
+
+            <div class="slider" reverse="true" style="--width: 120px; --height: 100px; --quantity: 9"
+              data-aos="fade-up">
+              <div class="list">
+                <div class="item" style="--position: 1">
+                  <img src="images/logos/B21.png" alt="B21" />
+                </div>
+                <div class="item" style="--position: 2">
+                  <img src="images/logos/Budweiser.png" alt="Budweiser" />
+                </div>
+                <div class="item" style="--position: 3">
+                  <img src="images/logos/Digi%20Osmosis.png" alt="Digi Osmosis" />
+                </div>
+                <div class="item" style="--position: 4">
+                  <img src="images/logos/Disconvery.png" alt="Discovery" />
+                </div>
+                <div class="item" style="--position: 5">
+                  <img src="images/logos/Dunzo.png" alt="Dunzo" />
+                </div>
+                <div class="item" style="--position: 6">
+                  <img src="images/logos/Excel.png" alt="Excel" />
+                </div>
+                <div class="item" style="--position: 7">
+                  <img src="images/logos/Freefire.png" alt="Freefire" />
+                </div>
+                <div class="item" style="--position: 8">
+                  <img src="images/logos/giva.png" alt="Giva" />
+                </div>
+                <div class="item" style="--position: 9">
+                  <img src="images/logos/groww.png" alt="Groww" />
+                </div>
+              </div>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <section class="form-data">
-          <div class="form-section" id="contact">
-            <div class="title-section">
-              <h1 class="form-title" data-aos="fade-right">
-                LET'S GET<br />IN TOUCH
-              </h1>
-              <div class="purple-line" data-aos="fade-right"></div>
-              <div class="form-social-icons" data-aos="fade-right">
-                <a href="#" title="Instagram"
-                  ><i class="ri-instagram-fill"></i
-                ></a>
-                <a href="#" title="LinkedIn"
-                  ><i class="ri-linkedin-box-fill"></i
-                ></a>
-                <a href="#" title="Facebook"
-                  ><i class="ri-facebook-fill"></i
-                ></a>
+      <section class="circle-main" id="buddies">
+        <h1 class="circle-head" data-aos="fade-right">
+          Our <span class="buddies">Buddies</span>
+        </h1>
+        <div class="circle_container">
+          <div class="circular-menu" data-aos="fade-right">
+            <div class="center-circle">
+              <div class="center-image-container">
+                <img src="https://images.unsplash.com/photo-1531259683007-016a7b628fc3" alt="Premium Meme"
+                  class="center-image" />
+              </div>
+            </div>
+          </div>
+
+          <div class="followers-section" data-aos="fade-left">
+            <!-- Follower cards will be generated dynamically -->
+          </div>
+          <button class="back-button" style="display: none">
+            Back to Menu
+          </button>
+        </div>
+      </section>
+
+      <section class="pioneers-sections" id="why-us" data-aos="zoom-in-down">
+        <div class="container">
+          <article class="article-pioneers">
+            <h2 class="why_dbmc">
+              Why DBMC Section
+              <!-- <span class="text-color">pioneers of meme marketing</span> -->
+            </h2>
+            <div>
+              <div class="text-holder">
+                <div class="img-star">
+                  <i class="ri-sparkling-2-fill"></i>
+                </div>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Voluptatem velit nihil et consequatur odit, corrupti fuga
+                  eligendi optio dignissimos minima necessitatibus ab vitae
+                  sequi culpa quis iusto dolor dolorem libero sit facilis!
+                  Explicabo, iusto quisquam. Ex quae vero totam! Iure adipisci
+                  eveniet labore cum cumque suscipit impedit similique eaque
+                  explicabo.
+                </p>
+                <div class="text-large">
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Illo possimus quis iusto quae tempora esse inventore,
+                    soluta ipsum dicta porro sit reiciendis numquam beatae hic
+                    id tenetur. Maxime consectetur atque sint exercitationem
+                    veritatis, alias commodi?
+                  </p>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+      <section class="meme-team-section">
+        <div class="container" data-aos="fade-right">
+          <h2>DBMC Team Image</h2>
+          <div class="meme-team-image" data-aos="zoom-in-down">
+            <!-- <img src="images/team-image.png" alt="DBMC Team Image" /> -->
+            <!-- <h2>DBMC Team Image</h2> -->
+          </div>
+        </div>
+      </section>
+
+      <section class="form-data">
+        <div class="form-section" id="contact">
+          <div class="title-section">
+            <h1 class="form-title" data-aos="fade-right">
+              LET'S GET<br />IN TOUCH
+            </h1>
+            <div class="purple-line" data-aos="fade-right"></div>
+            <div class="form-social-icons" data-aos="fade-right">
+              <a href="#" title="Instagram"><i class="ri-instagram-fill"></i></a>
+              <a href="#" title="LinkedIn"><i class="ri-linkedin-box-fill"></i></a>
+              <a href="#" title="Facebook"><i class="ri-facebook-fill"></i></a>
+            </div>
+          </div>
+
+          <form method="post" id="web_form" data-aos="fade-left">
+            <div class="form-row">
+              <div class="input-group">
+                <input type="text" name="name" class="name-field" id="username" placeholder=" " required>
+                <label for="username">Username</label>
               </div>
             </div>
 
-            <div class="form-container" data-aos="fade-left">
-              <form>
-                <div class="form-row">
-                  <input
-                    type="text"
-                    class="name-field"
-                    placeholder="First Name"
-                    required
-                  />
-                  <input
-                    type="text"
-                    class="last-name-field"
-                    placeholder="Last Name"
-                    required
-                  />
-                </div>
-
-                <div class="form-row">
-                  <input
-                    type="tel"
-                    class="name-field"
-                    placeholder="Contact Number"
-                    required
-                  />
-                </div>
-
-                <div class="form-row">
-                  <input
-                    type="email"
-                    class="name-field"
-                    placeholder="Email Address"
-                    required
-                  />
-                </div>
-
-                <div class="form-row">
-                  <input
-                    type="text"
-                    class="last-name-field"
-                    placeholder="Company/Organization"
-                  />
-                  <!-- <input type="text" class="name-field" placeholder="Country"> -->
-                </div>
-
-                <!-- <div class="form-row">
-                      <textarea placeholder="Describe Your Project..."></textarea>
-                  </div> -->
-
-                <button type="submit" class="form-submit-btn">Submit</button>
-              </form>
+            <div class="form-row">
+              <div class="input-group">
+                <input type="text" name="phone" class="name-field" id="contact-number" placeholder=" " required>
+                <label for="contact-number">Contact Number</label>
+              </div>
             </div>
-          </div>
-        </section>
 
-        <!-- <section class="our-team-section">
+            <div class="form-row">
+              <div class="input-group">
+                <input type="email" name="email" class="name-field" id="email" placeholder=" " required>
+                <label for="email">Email Address</label>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="input-group">
+                <input type="text" name="organization_name" class="name-field" id="organization" placeholder=" ">
+                <label for="organization">Company/Organization</label>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="input-group">
+                <input type="text" name="web_link" class="name-field" id="website" placeholder=" ">
+                <label for="website">Website/Social Media Link</label>
+              </div>
+            </div>
+            <div class="select-container">
+              <h2>Which services are you interested in?</h2>
+              <div class="options-container">
+                <button class="option-button" type="button" data-value="Meme Marketing">Meme Marketing</button>
+                <button class="option-button" type="button" data-value="Performance Marketing">Performance
+                  Marketing</button>
+                <button class="option-button" type="button" data-value="Web Development">Web Development</button>
+                <button class="option-button" type="button" data-value="Influencer Marketing">Influencer
+                  Marketing</button>
+                <button class="option-button" type="button" data-value="Social Media Marketing">Social Media
+                  Marketing</button>
+                <button class="option-button" type="button" data-value="Performance Media">Performance Media</button>
+                <button class="option-button" type="button" data-value="Twitter Seeding">Twitter Seeding</button>
+                <button class="option-button" type="button" data-value="Content Creation">Content Creation</button>
+                <button class="option-button" type="button" data-value="Others">Others</button>
+              </div>
+              <input type="hidden" name="service" id="selected-services">
+            </div>
+
+            <button type="submit" class="form-submit-btn">Submit</button>
+          </form>
+        </div>
+      </section>
+
+      <!-- <section class="our-team-section">
         <div class="container">
           <div class="heading-area">
             <h2>Reach Out To Us!</h2>
@@ -1363,8 +1278,8 @@
           </div>
         </div>
       </section> -->
-        <section class="our-team-section">
-          <!-- <div class="container">
+      <section class="our-team-section">
+        <!-- <div class="container">
           <div class="heading-area">
             <h2>Want To Be A Member</h2>
             <span class="btn-wrap">
@@ -1373,67 +1288,64 @@
             </span>
           </div>
         </div> -->
-          <div class="image-holder">
-            <img src="images/team-image.png" alt="image-description" />
-          </div>
-        </section>
-      </main>
+        <div class="image-holder" data-aos="zoom-in">
+          <img src="images/team-image.png" alt="image-description" />
+        </div>
+      </section>
+    </main>
 
-      <footer class="footer-container">
-        <div class="footer-content">
-          <div class="footer-left">
-            <div class="logo">
-              <img src="./images/DBMC_logo1.png" alt="" />
-            </div>
-            <span class="footer-btn-wrap">
-              <a
-                href="https://www.google.com/maps/place/DBMC+-+Content+%26+Meme+Marketing+Agency+(+In+Indore+)/@22.7502257,75.8984699,765m/data=!3m2!1e3!4b1!4m6!3m5!1s0x20744b8f0eaf463b:0xf0f8adc67ed1bfff!8m2!3d22.7502257!4d75.9010448!16s%2Fg%2F11w1kx5twd?entry=ttu&g_ep=EgoyMDI0MTIxMS4wIKXMDSoASAFQAw%3D%3D"
-                target="_blank"
-              >
-                DBMC - Content & Meme Marketing Agency <br />
-                10-A, Sector A, Sheetal Nagar, Indore, Madhya Pradesh 452010</a
-              >
-            </span>
-            <div class="social-icons">
-              <i class="ri-instagram-line"></i>
-              <i class="ri-twitter-x-fill"></i>
-              <i class="ri-linkedin-box-fill"></i>
-            </div>
+    <footer class="footer-container">
+      <div class="footer-content">
+        <div class="footer-left">
+          <div class="logo">
+            <img src="./images/DBMC_logo1.png" alt="" />
           </div>
-          <div class="footer-right">
-            <div class="footer-column">
-              <a href="#">How it work</a>
-              <a href="#">Recent work</a>
-              <a href="#">Client Experience</a>
-              <a href="#">Plans & Pricing</a>
-            </div>
-            <div class="footer-column">
-              <a href="#">FAQs</a>
-              <a href="#">Get Started</a>
-              <a href="#">Contact</a>
-              <a href="#">Client login</a>
-            </div>
+          <span class="footer-btn-wrap">
+            <a href="https://www.google.com/maps/place/DBMC+-+Content+%26+Meme+Marketing+Agency+(+In+Indore+)/@22.7502257,75.8984699,765m/data=!3m2!1e3!4b1!4m6!3m5!1s0x20744b8f0eaf463b:0xf0f8adc67ed1bfff!8m2!3d22.7502257!4d75.9010448!16s%2Fg%2F11w1kx5twd?entry=ttu&g_ep=EgoyMDI0MTIxMS4wIKXMDSoASAFQAw%3D%3D"
+              target="_blank">
+              DBMC - Content & Meme Marketing Agency <br />
+              10-A, Sector A, Sheetal Nagar, Indore, Madhya Pradesh 452010</a>
+          </span>
+          <div class="social-icons">
+            <i class="ri-instagram-line"></i>
+            <i class="ri-twitter-x-fill"></i>
+            <i class="ri-linkedin-box-fill"></i>
           </div>
         </div>
-        <div class="copyright-container">
-          <div class="copyright">Copyright © 2023 DBMC</div>
-          <div class="copyright">All Rights Reserved.</div>
+        <div class="footer-right">
+          <div class="footer-column">
+            <a href="#">How it work</a>
+            <a href="#">Recent work</a>
+            <a href="#">Client Experience</a>
+            <a href="#">Plans & Pricing</a>
+          </div>
+          <div class="footer-column">
+            <a href="#">FAQs</a>
+            <a href="#">Get Started</a>
+            <a href="#">Contact</a>
+            <a href="#">Client login</a>
+          </div>
         </div>
-        <!-- <h3 class="footer-head">DBMC</h3> -->
-      </footer>
-    </div>
+      </div>
+      <div class="copyright-container">
+        <div class="copyright">Copyright © 2023 DBMC</div>
+        <div class="copyright">All Rights Reserved.</div>
+      </div>
+      <!-- <h3 class="footer-head">DBMC</h3> -->
+    </footer>
+  </div>
 
-    <!-- gsap cdn -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
-      integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
+  <!-- gsap cdn -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
+    integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-    <!-- locomotive cdn -->
-    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
-    <script src="./js/script.js"></script>
-  </body>
+
+
+  <!-- locomotive cdn -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script> -->
+  <script src="./js/script.js"></script>
+</body>
+
 </html>
