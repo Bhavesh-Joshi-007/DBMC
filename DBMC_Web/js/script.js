@@ -1,9 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
   AOS.init({
-      offset: 120, 
-      duration: 600, 
-      easing: 'ease-in-out', 
-      delay: 100,
+    offset: 120,
+    duration: 600,
+    easing: 'ease-in-out',
+    delay: 100,
   });
 });
 
@@ -16,15 +16,15 @@ const body = document.body;
 
 
 setTimeout(() => {
-    popupFormSection.style.display = "block";
-    overlay.style.display = "block";
-    body.classList.add("no-scroll");
-}, 10000);
+  popupFormSection.style.display = "block";
+  overlay.style.display = "block";
+  body.classList.add("no-scroll");
+}, 5000);
 
 closeBtn.addEventListener("click", () => {
-    popupFormSection.style.display = "none";
-    overlay.style.display = "none";
-    body.classList.remove("no-scroll"); 
+  popupFormSection.style.display = "none";
+  overlay.style.display = "none";
+  body.classList.remove("no-scroll");
 });
 
 
@@ -41,11 +41,11 @@ document.addEventListener("DOMContentLoaded", () => {
   tl.to(
     textDBMC,
     {
-      x: 150, 
-      duration: 1, 
+      x: 150,
+      duration: 1,
       ease: "power2.out",
     },
-    0.2 
+    0.2
   );
 
   tl.to(
@@ -53,10 +53,10 @@ document.addEventListener("DOMContentLoaded", () => {
     {
       width: '10vw',
       height: '13vh',
-      duration: 1, 
-      ease: "power2.ease", 
+      duration: 1,
+      ease: "power2.ease",
     },
-    "-=1.45" 
+    "-=1.45"
   );
 });
 
@@ -64,15 +64,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
 document.addEventListener("DOMContentLoaded", () => {
   const smoothLinks = document.querySelectorAll(".smooth");
-  const offset = 70; 
-  
+  const offset = 70;
+
   smoothLinks.forEach((link) => {
     link.addEventListener("click", (event) => {
       event.preventDefault(); // Prevent default anchor behavior
-      
+
       const targetId = link.getAttribute("href");
       const targetElement = document.querySelector(targetId);
-      
+
       if (targetElement) {
         // Smooth scroll to the target element, accounting for the offset
         window.scrollTo({
@@ -101,16 +101,16 @@ window.addEventListener("scroll", () => {
     !activated
   ) {
     counters.forEach(counter => {
-      const target = parseInt(counter.getAttribute("data-count")); 
+      const target = parseInt(counter.getAttribute("data-count"));
       let count = 0;
 
       const updateCount = () => {
         if (count < target) {
-          count += Math.ceil(target / 100); 
+          count += Math.ceil(target / 100);
           counter.innerText = count > target ? target : count;
-          setTimeout(updateCount, 80); 
+          setTimeout(updateCount, 80);
         } else {
-          counter.innerText = target; 
+          counter.innerText = target;
         }
       };
 
@@ -329,9 +329,9 @@ function createMenuItems() {
     menuItem.style.transform = 'translate(-50%, -50%)';
 
     menuItem.addEventListener('click', () => {
-      stopWaveEffect(); 
-      updateContent(item); 
-      startWaveEffect(menuItem); 
+      stopWaveEffect();
+      updateContent(item);
+      startWaveEffect(menuItem);
     });
 
     container.appendChild(menuItem);
@@ -343,8 +343,8 @@ function createMenuItems() {
 let waveInterval;
 
 function startWaveEffect(menuItem) {
-  stopWaveEffect(); 
-  
+  stopWaveEffect();
+
   const container = document.querySelector('.circular-menu');
 
   waveInterval = setInterval(() => {
@@ -358,13 +358,13 @@ function startWaveEffect(menuItem) {
     container.appendChild(wave);
 
     gsap.to(wave, {
-      scale: 2,  
+      scale: 2,
       opacity: 0,
-      duration: 1,  
+      duration: 1,
       ease: "power1.out",
       onComplete: () => wave.remove(),
     });
-  }, 1000); 
+  }, 1000);
 }
 
 
@@ -412,8 +412,8 @@ function updateContent(menuItem) {
   });
 }
 
-let currentIndex = 0; 
-const menuItems = Object.keys(menuData); 
+let currentIndex = 0;
+const menuItems = Object.keys(menuData);
 
 function autoChangeMenuItem() {
   document.querySelectorAll('.menu-item').forEach(item => {
@@ -422,16 +422,16 @@ function autoChangeMenuItem() {
 
   const menuElements = document.querySelectorAll('.menu-item');
   const currentItemElement = menuElements[currentIndex];
-  
+
   if (currentItemElement) {
     currentItemElement.classList.add('active');
-    startWaveEffect(currentItemElement); 
+    startWaveEffect(currentItemElement);
   }
 
   const currentItem = menuItems[currentIndex];
   updateContent(currentItem);
 
-  currentIndex = (currentIndex + 1) % menuItems.length; 
+  currentIndex = (currentIndex + 1) % menuItems.length;
 }
 
 // Initial setup function
@@ -463,18 +463,18 @@ exploreButtons.forEach(button => {
     const targetPopupId = button.getAttribute("data-target");
     const popup = document.querySelector(targetPopupId);
 
- 
+
     if (popup) {
       document.querySelectorAll(".popup-holder").forEach(p => {
-        p.style.display = "none"; 
+        p.style.display = "none";
       });
 
       popup.style.display = "block";
 
       const showcaseBlock = button.closest(".showcase-block");
-      showcaseBlock.style.position = "relative"; 
+      showcaseBlock.style.position = "relative";
       popup.style.position = "absolute";
-      popup.style.zIndex = "1000"; 
+      popup.style.zIndex = "1000";
     }
   });
 });
@@ -492,3 +492,375 @@ document.addEventListener("click", event => {
   }
 });
 
+document.querySelectorAll('.popup-option-button').forEach(button => {
+  button.addEventListener('click', function () {
+    this.classList.toggle('selected');
+  });
+});
+
+
+
+// ---------------main form -----------
+
+document.querySelectorAll('.option-button').forEach(button => {
+  button.addEventListener('click', function () {
+    this.classList.toggle('selected');
+  });
+});
+
+
+let url = "https://script.google.com/macros/s/AKfycby_q8zim1wei8g09rFLDvhAXkFh9IIhZpO_f83Uv6omN4i4s9LsNeETmryTZ1-lPcyP/exec";
+
+function showError(inputElement, message) {
+  // Remove any existing error message for the input
+  inputElement.parentNode.querySelectorAll(".error-message").forEach((el) => el.remove());
+
+  // Create a new error message
+  let errorElement = document.createElement("div");
+  errorElement.className = "error-message";
+  errorElement.textContent = message;
+
+  // Append the error message
+  inputElement.parentNode.appendChild(errorElement);
+}
+// Validation logic for both forms
+function validateForm(form, nameInput, phoneInput, emailInput) {
+  let isValid = true;
+
+  // Remove existing error messages
+  form.querySelectorAll(".error-message").forEach((el) => el.remove());
+
+  // Validate name (must be more than 3 characters)
+  if (nameInput.value.trim().length <= 3) {
+    isValid = false;
+    showError(nameInput, "Name must be more than 3 characters.");
+  }
+
+  // Validate phone number (must be exactly 10 digits)
+  if (!/^\d{10}$/.test(phoneInput.value.trim())) {
+    isValid = false;
+    showError(phoneInput, "Contact Number must be exactly 10 digits.");
+  }
+
+  // Validate email (must end with @gmail.com)
+  if (!/^[a-zA-Z0-9._%+-]+@gmail\.com$/.test(emailInput.value.trim())) {
+    isValid = false;
+    showError(emailInput, "Email must be a valid @gmail.com address.");
+  }
+
+  return isValid;
+}
+
+
+// Service selection logic
+function handleServiceSelection(buttons, hiddenInput) {
+  let selectedServices = [];
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const service = button.getAttribute("data-value");
+      if (selectedServices.includes(service)) {
+        selectedServices = selectedServices.filter((s) => s !== service);
+        button.classList.remove("selected");
+      } else {
+        selectedServices.push(service);
+        button.classList.add("selected");
+      }
+      hiddenInput.value = selectedServices.join(", ");
+      console.log("Updated hidden input value:", hiddenInput.value);
+    });
+  });
+}
+
+// Handle main form services
+const mainButtons = document.querySelectorAll(".option-button");
+const mainHiddenInput = document.getElementById("selected-services");
+handleServiceSelection(mainButtons, mainHiddenInput);
+
+// Handle popup form services
+const popupButtons = document.querySelectorAll(".popup-option-button");
+const popupHiddenInput = document.getElementById("popup-selected-services");
+handleServiceSelection(popupButtons, popupHiddenInput);
+
+// Handle main form submission
+// Function to display error messages
+function showError(inputElement, message) {
+  // Remove any existing error message for the input
+  inputElement.parentNode.querySelectorAll(".error-message").forEach((el) => el.remove());
+
+  // Create a new error message
+  let errorElement = document.createElement("div");
+  errorElement.className = "error-message";
+  errorElement.textContent = message;
+
+  // Append the error message
+  inputElement.parentNode.appendChild(errorElement);
+}
+
+// Validation logic for both forms
+function validateForm(form, nameInput, phoneInput, emailInput) {
+  let isValid = true;
+
+  // Remove existing error messages
+  form.querySelectorAll(".error-message").forEach((el) => el.remove());
+
+  // Validate name (must be more than 3 characters)
+  if (nameInput.value.trim().length <= 3) {
+    isValid = false;
+    showError(nameInput, "Name must be more than 3 characters.");
+  }
+
+  // Validate phone number (must be exactly 10 digits)
+  if (!/^\d{10}$/.test(phoneInput.value.trim())) {
+    isValid = false;
+    showError(phoneInput, "Contact Number must be exactly 10 digits.");
+  }
+
+  // Validate email (must end with @gmail.com)
+  if (!/^[a-zA-Z0-9._%+-]+@gmail\.com$/.test(emailInput.value.trim())) {
+    isValid = false;
+    showError(emailInput, "Email must be a valid @gmail.com address.");
+  }
+
+  return isValid;
+}
+
+// Main form submission
+let mainForm = document.getElementById("web_form");
+mainForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  let nameInput = document.getElementById("username");
+  let phoneInput = document.getElementById("contact-number");
+  let emailInput = document.getElementById("email");
+
+  if (validateForm(mainForm, nameInput, phoneInput, emailInput)) {
+    let formData = new FormData(mainForm);
+
+    fetch(url, {
+      method: "POST",
+      body: formData,
+    })
+      .then((response) => response.text())
+      .then((finalRes) => {
+        alert("Form submitted successfully!");
+        mainForm.reset();
+        mainHiddenInput.value = "";
+        mainButtons.forEach((button) => button.classList.remove("selected"));
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        alert("Error submitting the form. Please try again.");
+      });
+  }
+});
+
+// Popup form submission
+let popupForm = document.querySelector("#popup-form form");
+popupForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  let nameInput = popupForm.querySelector("[name='name']");
+  let phoneInput = popupForm.querySelector("[name='phone']");
+  let emailInput = popupForm.querySelector("[name='email']");
+
+  if (validateForm(popupForm, nameInput, phoneInput, emailInput)) {
+    let formData = new FormData(popupForm);
+
+    fetch(url, {
+      method: "POST",
+      body: formData,
+    })
+      .then((response) => response.text())
+      .then((finalRes) => {
+        alert("Popup form submitted successfully!");
+        popupForm.reset();
+        popupHiddenInput.value = "";
+        popupButtons.forEach((button) => button.classList.remove("selected"));
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        alert("Error submitting the popup form. Please try again.");
+      });
+  }
+});
+
+
+// let url = "https://script.google.com/macros/s/AKfycby8Ui-9DaG7k412MXnWVRV1hIJLJKVMlWamSzSVI5z6b3hUXk07E-WxlA08TGLre43j/exec";
+
+// // Function to show error message
+// function showError(inputElement, message) {
+//   inputElement.parentNode.querySelectorAll(".error-message").forEach((el) => el.remove());
+  
+//   let errorElement = document.createElement("div");
+//   errorElement.className = "error-message";
+//   errorElement.textContent = message;
+  
+//   inputElement.parentNode.appendChild(errorElement);
+// }
+
+// // Validation logic for both forms
+// function validateForm(form, nameInput, phoneInput, emailInput) {
+//   let isValid = true;
+  
+//   form.querySelectorAll(".error-message").forEach((el) => el.remove());
+  
+//   if (nameInput.value.trim().length <= 3) {
+//     isValid = false;
+//     showError(nameInput, "Name must be more than 3 characters.");
+//   }
+  
+//   if (!/^\d{10}$/.test(phoneInput.value.trim())) {
+//     isValid = false;
+//     showError(phoneInput, "Contact Number must be exactly 10 digits.");
+//   }
+  
+//   if (!/^[a-zA-Z0-9._%+-]+@gmail\.com$/.test(emailInput.value.trim())) {
+//     isValid = false;
+//     showError(emailInput, "Email must be a valid @gmail.com address.");
+//   }
+  
+//   return isValid;
+// }
+
+// // Service selection logic
+// function handleServiceSelection(buttons, hiddenInput) {
+//   let selectedServices = [];
+//   buttons.forEach((button) => {
+//     button.addEventListener("click", () => {
+//       const service = button.getAttribute("data-value");
+//       if (selectedServices.includes(service)) {
+//         selectedServices = selectedServices.filter((s) => s !== service);
+//         button.classList.remove("selected");
+//       } else {
+//         selectedServices.push(service);
+//         button.classList.add("selected");
+//       }
+//       hiddenInput.value = selectedServices.join(", ");
+//       console.log("Updated hidden input value:", hiddenInput.value);
+//     });
+//   });
+// }
+
+// // Handle main form services
+// const mainButtons = document.querySelectorAll(".option-button");
+// const mainHiddenInput = document.getElementById("selected-services");
+// handleServiceSelection(mainButtons, mainHiddenInput);
+
+// // Handle popup form services
+// const popupButtons = document.querySelectorAll(".popup-option-button");
+// const popupHiddenInput = document.getElementById("popup-selected-services");
+// handleServiceSelection(popupButtons, popupHiddenInput);
+
+// // Function to check if the data already exists in Google Sheets
+// // Function to check if the data already exists in Google Sheets
+// function checkExistingData(formData, formType) {
+//   fetch(url, {
+//     method: 'GET',  // Use GET to check data first (no data to submit)
+//     headers: {
+//       'Content-Type': 'application/json',
+//     }
+//   })
+//   .then((response) => response.json())
+//   .then((data) => {
+//     let isDuplicate = false;
+
+//     for (let record of data) {
+//       if (
+//         (record.email === formData.email || record.phone === formData.phone)
+//       ) {
+//         isDuplicate = true;
+//         break;
+//       }
+//     }
+
+//     if (isDuplicate) {
+//       alert("You are already registered.");
+//     } else {
+//       submitFormData(formData, formType);  // If no duplicate, submit form data
+//     }
+//   })
+//   .catch((error) => {
+//     console.error("Error fetching data from Google Sheets:", error);
+//     alert("Error checking registration status. Please try again.");
+//   });
+// }
+
+
+// // Function to submit data to Google Sheets
+// function submitFormData(formData, formType) {
+//   const dataToSend = new FormData();
+//   dataToSend.append("name", formData.name);
+//   dataToSend.append("phone", formData.phone);
+//   dataToSend.append("email", formData.email);
+//   dataToSend.append("organization_name", formData.organization_name);
+//   dataToSend.append("web_link", formData.web_link);
+//   dataToSend.append("services", formData.services);
+  
+//   fetch(url, {
+//     method: "POST",
+//     body: dataToSend,
+//     headers: {
+//       "Content-Type": "application/x-www-form-urlencoded",
+//     },
+//   })
+//   .then((response) => response.text())
+//   .then((finalRes) => {
+//     alert("Registered successfully!");
+//     if (formType === "popup") {
+//       document.querySelector("#popup-form form").reset();
+//     } else {
+//       document.getElementById("web_form").reset();
+//     }
+//   })
+//   .catch((error) => {
+//     console.error("Error submitting form data:", error);
+//     alert("There was an error submitting the form. Please try again.");
+//   });
+  
+// }
+
+// // Main form submission
+// let mainForm = document.getElementById("web_form");
+// mainForm.addEventListener("submit", (e) => {
+//   e.preventDefault();
+  
+//   let nameInput = document.getElementById("username");
+//   let phoneInput = document.getElementById("contact-number");
+//   let emailInput = document.getElementById("email");
+  
+//   if (validateForm(mainForm, nameInput, phoneInput, emailInput)) {
+//     let formData = {
+//       name: nameInput.value.trim(),
+//       phone: phoneInput.value.trim(),
+//       email: emailInput.value.trim(),
+//       organization_name: document.getElementById("organization").value.trim(),
+//       web_link: document.getElementById("website").value.trim(),
+//       services: mainHiddenInput.value.trim(),
+//     };
+
+//     checkExistingData(formData, "main");
+//   }
+// });
+
+// // Popup form submission
+// let popupForm = document.querySelector("#popup-form form");
+// popupForm.addEventListener("submit", (e) => {
+//   e.preventDefault();
+
+//   let nameInput = popupForm.querySelector("[name='name']");
+//   let phoneInput = popupForm.querySelector("[name='phone']");
+//   let emailInput = popupForm.querySelector("[name='email']");
+  
+//   if (validateForm(popupForm, nameInput, phoneInput, emailInput)) {
+//     let formData = {
+//       name: nameInput.value.trim(),
+//       phone: phoneInput.value.trim(),
+//       email: emailInput.value.trim(),
+//       organization_name: popupForm.querySelector("[name='organization_name']").value.trim(),
+//       web_link: popupForm.querySelector("[name='web_link']").value.trim(),
+//       services: popupHiddenInput.value.trim(),
+//     };
+
+//     checkExistingData(formData, "popup");
+//   }
+// });
