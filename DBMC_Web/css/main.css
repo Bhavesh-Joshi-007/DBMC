@@ -105,20 +105,11 @@ nav {
   padding: 0.45rem 2rem;
   position: fixed;
   width: 100%;
+  height: 100px;
   top: 0;
   z-index: 1000;
   background-color: rgba(0, 0, 0, 0.8);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.logo-container {
-  width: 150px;
-  height: 80px;
-  border-radius: 10px;
-  background-image: url("./images/DBMC-logo (1).png");
-  background-color: rgb(234, 165, 27);
-  background-position: center;
-  background-size: cover;
 }
 
 .dbmc-logo {
@@ -138,7 +129,6 @@ nav {
 
 .nav-linked a {
   position: relative;
-  right: 15%;
   color: white;
   text-decoration: none;
   font-weight: 500;
@@ -152,9 +142,65 @@ nav {
   border-radius: 4px;
 }
 
-
 .btn-wrap {
   margin-left: auto;
+}
+
+.menu-opener {
+  display: none;
+}
+
+.nav-linked {
+  display: flex;
+}
+
+@media (max-width: 768px) {
+  .nav-linked {
+    position: relative;
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 1rem;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-linked a {
+    padding: 1rem 0;
+    text-align: center;
+    font-size: 1.2rem;
+    width: 100%;
+  }
+  .dbmc-logo{
+   position: absolute;
+   top: 25px;
+    left: 0;
+  }
+
+  .menu-opener {
+    display: block;
+    cursor: pointer;
+  }
+
+  .menu-opener .close-icon {
+    display: none;
+  }
+
+  .menu-opener.active .menu-icon {
+    display: none;
+  }
+
+  .menu-opener.active .close-icon {
+    display: block;
+  }
+
+  .nav-linked.active {
+    display: flex;
+  }
 }
 
 
@@ -223,13 +269,6 @@ nav {
   transition: width 0.70s ease;
 }
 
-
-.title {
-  text-transform: uppercase;
-  font-size: 1rem;
-  line-height: 1.2;
-}
-
 .right-content {
   flex: 1;
 }
@@ -241,24 +280,11 @@ nav {
   border-radius: 10px;
 }
 
-@media (max-width: 768px) {
-  nav {
-    flex-direction: column;
-    padding: 1rem;
-  }
 
-  .nav-links {
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .content-wrapper {
-    flex-direction: column;
-  }
-
-  .title {
-    font-size: 2.5rem;
-  }
+.title {
+  text-transform: uppercase;
+  font-size: 1rem;
+  line-height: 1.2;
 }
 
 html {
