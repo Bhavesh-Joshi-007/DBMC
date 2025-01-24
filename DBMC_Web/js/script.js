@@ -7,6 +7,17 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+
+// navlink 
+
+const menuOpener = document.querySelector('.menu-opener');
+  const navLinks = document.querySelector('.nav-linked');
+  
+  menuOpener.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+    menuOpener.classList.toggle('active');
+  });
+
 // popup form js 
 
 const popupFormSection = document.querySelector(".popup-form-section");
@@ -177,84 +188,84 @@ document.addEventListener("DOMContentLoaded", () => {
 
 const menuData = {
   'Regional': {
-    image: 'https://images.unsplash.com/photo-1516534775068-ba3e7458af70',
+    image: './images/circle_people_image.jpg',
     followers: [
-      { name: 'LocalMemes', count: '5.2M', image: 'https://images.unsplash.com/photo-1511367461989-f85a21fda167' },
-      { name: 'RegionalHumor', count: '3.8M', image: 'https://images.unsplash.com/photo-1542103749-8ef59b94f47e' },
-      { name: 'StateComedy', count: '2.4M', image: 'https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f' },
-      { name: 'CityGiggles', count: '1.5M', image: 'https://images.unsplash.com/photo-1542219559-928dafa01bbd' }
+      { name: 'LocalMemes', count: '5.2M', image: './images/demo_service_section_img.jpg'},
+      { name: 'RegionalHumor', count: '3.8M', image: './images/demo_service_section_img.jpg' },
+      { name: 'StateComedy', count: '2.4M', image:'./images/demo_service_section_img.jpg'},
+      { name: 'CityGiggles', count: '1.5M', image: './images/demo_service_section_img.jpg'}
     ]
   },
   'Premium Meme': {
-    image: 'https://images.unsplash.com/photo-1531259683007-016a7b628fc3',
+    image: './images/circle_people_image.jpg',
     followers: [
-      { name: 'Sarcastic_us', count: '10.1M', image: 'https://images.unsplash.com/photo-1531427186611-ecfd6d936c79' },
-      { name: 'Clips', count: '14.7M', image: 'https://images.unsplash.com/photo-1542103749-8ef59b94f47e' },
-      { name: 'LaughPremium', count: '9.2M', image: 'https://images.unsplash.com/photo-1564869730597-e96c6a2a7543' },
-      { name: 'TopHumor', count: '12.3M', image: 'https://images.unsplash.com/photo-1531925470850-1b5893569f8d' }
+      { name: 'Sarcastic_us', count: '10.1M', image:'./images/demo_service_section_img.jpg'},
+      { name: 'Clips', count: '14.7M', image: './images/demo_service_section_img.jpg'},
+      { name: 'LaughPremium', count: '9.2M', image: './images/demo_service_section_img.jpg'},
+      { name: 'TopHumor', count: '12.3M', image: './images/demo_service_section_img.jpg'}
     ]
   },
   'Tech & Coding': {
-    image: 'https://images.unsplash.com/photo-1526378720209-9aece41f11c6',
+    image: './images/circle_people_image.jpg',
     followers: [
-      { name: 'CodeHumor', count: '8.4M', image: 'https://images.unsplash.com/photo-1554184732-dc44c2f0dc56' },
-      { name: 'DevMemez', count: '6.3M', image: 'https://images.unsplash.com/photo-1582719478250-c89f3d3f1e5e' },
-      { name: 'ProgramLaughs', count: '7.8M', image: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c' },
-      { name: 'TechGiggles', count: '5.4M', image: 'https://images.unsplash.com/photo-1518770660439-4636190af475' }
+      { name: 'CodeHumor', count: '8.4M', image: './images/demo_service_section_img.jpg'},
+      { name: 'DevMemez', count: '6.3M', image: './images/demo_service_section_img.jpg'},
+      { name: 'ProgramLaughs', count: '7.8M', image:  './images/demo_service_section_img.jpg'},
+      { name: 'TechGiggles', count: '5.4M', image: './images/demo_service_section_img.jpg' }
     ]
   },
   'Fitness Memes': {
-    image: 'https://images.unsplash.com/photo-1518972559570-8dcc1487ff22',
+    image: './images/circle_people_image.jpg',
     followers: [
-      { name: 'GymLaughs', count: '4.7M', image: 'https://images.unsplash.com/photo-1502767089025-6572583495b4' },
-      { name: 'LiftHumor', count: '5.9M', image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330' },
-      { name: 'WorkoutJokes', count: '3.2M', image: 'https://images.unsplash.com/photo-1518128954654-0f1e9874971b' },
-      { name: 'HealthFails', count: '2.8M', image: 'https://images.unsplash.com/photo-1531497865142-41b6c3b6d0a7' }
+      { name: 'GymLaughs', count: '4.7M', image:  './images/demo_service_section_img.jpg'},
+      { name: 'LiftHumor', count: '5.9M', image:  './images/demo_service_section_img.jpg'},
+      { name: 'WorkoutJokes', count: '3.2M', image:  './images/demo_service_section_img.jpg'},
+      { name: 'HealthFails', count: '2.8M', image:  './images/demo_service_section_img.jpg'}
     ]
   },
   'Travel & Adventure': {
-    image: 'https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0',
+    image: './images/circle_people_image.jpg',
     followers: [
-      { name: 'TravelJokes', count: '2.3M', image: 'https://images.unsplash.com/photo-1527980965255-d3b416303d12' },
-      { name: 'WanderHumor', count: '3.1M', image: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee' },
-      { name: 'AdventureFails', count: '2.5M', image: 'https://images.unsplash.com/photo-1556910103-1e84c6e0836b' },
-      { name: 'GlobeLaughs', count: '1.9M', image: 'https://images.unsplash.com/photo-1503443207922-dff7d543fd0e' }
+      { name: 'TravelJokes', count: '2.3M', image:  './images/demo_service_section_img.jpg'},
+      { name: 'WanderHumor', count: '3.1M', image:  './images/demo_service_section_img.jpg'},
+      { name: 'AdventureFails', count: '2.5M', image: './images/demo_service_section_img.jpg'},
+      { name: 'GlobeLaughs', count: '1.9M', image:  './images/demo_service_section_img.jpg' }
     ]
   },
   'Foodies Unite': {
-    image: 'https://images.unsplash.com/photo-1529070538774-1843cb3265df',
+    image:'./images/circle_people_image.jpg',
     followers: [
-      { name: 'FoodLaughs', count: '7.5M', image: 'https://images.unsplash.com/photo-1525755662778-989d0524087e' },
-      { name: 'RecipeFails', count: '6.8M', image: 'https://images.unsplash.com/photo-1551024601-bec78aea704b' },
-      { name: 'ChefLOL', count: '4.1M', image: 'https://images.unsplash.com/photo-1533777857889-4be7c70b33f7' },
-      { name: 'DishHumor', count: '3.9M', image: 'https://images.unsplash.com/photo-1510626176961-4b67d3cb2352' }
+      { name: 'FoodLaughs', count: '7.5M', image: './images/demo_service_section_img.jpg'},
+      { name: 'RecipeFails', count: '6.8M', image:  './images/demo_service_section_img.jpg'},
+      { name: 'ChefLOL', count: '4.1M', image: './images/demo_service_section_img.jpg'},
+      { name: 'DishHumor', count: '3.9M', image: './images/demo_service_section_img.jpg'}
     ]
   },
   'Relationship Humor': {
-    image: 'https://images.unsplash.com/photo-1521133573898-74653402cdb5',
+    image: './images/circle_people_image.jpg',
     followers: [
-      { name: 'CoupleFails', count: '12.1M', image: 'https://images.unsplash.com/photo-1517841905240-472988babdf9' },
-      { name: 'DatingLOL', count: '9.8M', image: 'https://images.unsplash.com/photo-1526045612212-70caf35c14df' },
-      { name: 'LoveLaughs', count: '8.4M', image: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1' },
-      { name: 'BreakupGiggles', count: '6.3M', image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2' }
+      { name: 'CoupleFails', count: '12.1M', image: './images/demo_service_section_img.jpg'},
+      { name: 'DatingLOL', count: '9.8M', image:  './images/demo_service_section_img.jpg'},
+      { name: 'LoveLaughs', count: '8.4M', image:  './images/demo_service_section_img.jpg'},
+      { name: 'BreakupGiggles', count: '6.3M', image:  './images/demo_service_section_img.jpg'}
     ]
   },
   'Student Life': {
-    image: 'https://images.unsplash.com/photo-1517486808906-6ca8b3f04846',
+    image: './images/circle_people_image.jpg',
     followers: [
-      { name: 'StudyLaughs', count: '11.4M', image: 'https://images.unsplash.com/photo-1529070538774-1843cb3265df' },
-      { name: 'ExamFails', count: '8.6M', image: 'https://images.unsplash.com/photo-1554151228-14d9def656e4' },
-      { name: 'CampusGiggles', count: '5.8M', image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4' },
-      { name: 'HostelHumor', count: '6.2M', image: 'https://images.unsplash.com/photo-1529333166433-975d3a385a8a' }
+      { name: 'StudyLaughs', count: '11.4M', image:  './images/demo_service_section_img.jpg'},
+      { name: 'ExamFails', count: '8.6M', image:  './images/demo_service_section_img.jpg'},
+      { name: 'CampusGiggles', count: '5.8M', image:  './images/demo_service_section_img.jpg'},
+      { name: 'HostelHumor', count: '6.2M', image:  './images/demo_service_section_img.jpg'}
     ]
   },
   'Advertise': {
-    image: 'https://images.unsplash.com/photo-1517486808906-6ca8b3f04846',
+    image: './images/circle_people_image.jpg',
     followers: [
-      { name: 'StudyLaughs', count: '11.4M', image: 'https://images.unsplash.com/photo-1529070538774-1843cb3265df' },
-      { name: 'ExamFails', count: '8.6M', image: 'https://images.unsplash.com/photo-1554151228-14d9def656e4' },
-      { name: 'CampusGiggles', count: '5.8M', image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4' },
-      { name: 'HostelHumor', count: '6.2M', image: 'https://images.unsplash.com/photo-1529333166433-975d3a385a8a' }
+      { name: 'StudyLaughs', count: '11.4M', image:  './images/demo_service_section_img.jpg'},
+      { name: 'ExamFails', count: '8.6M', image:  './images/demo_service_section_img.jpg'},
+      { name: 'CampusGiggles', count: '5.8M', image:  './images/demo_service_section_img.jpg'},
+      { name: 'HostelHumor', count: '6.2M', image:  './images/demo_service_section_img.jpg'}
     ]
   },
 };
@@ -451,37 +462,29 @@ document.querySelectorAll('.option-button').forEach(button => {
 let url = "https://script.google.com/macros/s/AKfycby_q8zim1wei8g09rFLDvhAXkFh9IIhZpO_f83Uv6omN4i4s9LsNeETmryTZ1-lPcyP/exec";
 
 function showError(inputElement, message) {
-  // Remove any existing error message for the input
   inputElement.parentNode.querySelectorAll(".error-message").forEach((el) => el.remove());
 
-  // Create a new error message
   let errorElement = document.createElement("div");
   errorElement.className = "error-message";
   errorElement.textContent = message;
 
-  // Append the error message
   inputElement.parentNode.appendChild(errorElement);
 }
-// Validation logic for both forms
 function validateForm(form, nameInput, phoneInput, emailInput) {
   let isValid = true;
 
-  // Remove existing error messages
   form.querySelectorAll(".error-message").forEach((el) => el.remove());
 
-  // Validate name (must be more than 3 characters)
   if (nameInput.value.trim().length <= 3) {
     isValid = false;
     showError(nameInput, "Name must be more than 3 characters.");
   }
 
-  // Validate phone number (must be exactly 10 digits)
   if (!/^\d{10}$/.test(phoneInput.value.trim())) {
     isValid = false;
     showError(phoneInput, "Contact Number must be exactly 10 digits.");
   }
 
-  // Validate email (must end with @gmail.com)
   if (!/^[a-zA-Z0-9._%+-]+@gmail\.com$/.test(emailInput.value.trim())) {
     isValid = false;
     showError(emailInput, "Email must be a valid @gmail.com address.");
@@ -520,41 +523,31 @@ const popupButtons = document.querySelectorAll(".popup-option-button");
 const popupHiddenInput = document.getElementById("popup-selected-services");
 handleServiceSelection(popupButtons, popupHiddenInput);
 
-// Handle main form submission
-// Function to display error messages
 function showError(inputElement, message) {
-  // Remove any existing error message for the input
   inputElement.parentNode.querySelectorAll(".error-message").forEach((el) => el.remove());
 
-  // Create a new error message
   let errorElement = document.createElement("div");
   errorElement.className = "error-message";
   errorElement.textContent = message;
 
-  // Append the error message
   inputElement.parentNode.appendChild(errorElement);
 }
 
-// Validation logic for both forms
 function validateForm(form, nameInput, phoneInput, emailInput) {
   let isValid = true;
 
-  // Remove existing error messages
   form.querySelectorAll(".error-message").forEach((el) => el.remove());
 
-  // Validate name (must be more than 3 characters)
   if (nameInput.value.trim().length <= 3) {
     isValid = false;
     showError(nameInput, "Name must be more than 3 characters.");
   }
 
-  // Validate phone number (must be exactly 10 digits)
   if (!/^\d{10}$/.test(phoneInput.value.trim())) {
     isValid = false;
     showError(phoneInput, "Contact Number must be exactly 10 digits.");
   }
 
-  // Validate email (must end with @gmail.com)
   if (!/^[a-zA-Z0-9._%+-]+@gmail\.com$/.test(emailInput.value.trim())) {
     isValid = false;
     showError(emailInput, "Email must be a valid @gmail.com address.");
@@ -563,7 +556,6 @@ function validateForm(form, nameInput, phoneInput, emailInput) {
   return isValid;
 }
 
-// Main form submission
 let mainForm = document.getElementById("web_form");
 mainForm.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -593,7 +585,6 @@ mainForm.addEventListener("submit", (e) => {
   }
 });
 
-// Popup form submission
 let popupForm = document.querySelector("#popup-form form");
 popupForm.addEventListener("submit", (e) => {
   e.preventDefault();
