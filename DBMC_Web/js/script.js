@@ -121,49 +121,6 @@ window.addEventListener("scroll", () => {
   }
 });
 
-// ------- form -------
-
-// document.addEventListener("DOMContentLoaded", function () {
-//   const form = document.getElementById("contact-form");
-//   const submitButton = document.querySelector(".submit-btn");
-
-//   function validateForm() {
-//     const name = document.getElementById("name").value.trim();
-//     const phoneNumber = document.getElementById("phone_number").value.trim();
-//     const email = document.getElementById("email").value.trim();
-//     const inquiryFrom = document.getElementById("inquiry_from").value;
-//     const budget = document.getElementById("budget").value;
-
-
-//     return (
-//       name !== "" &&
-//       phoneNumber !== "" &&
-//       email !== "" &&
-//       inquiryFrom !== "" &&
-//       budget !== ""
-//     );
-//   }
-
-//   // Event listener for button hover
-//   submitButton.addEventListener("mouseenter", function () {
-//     if (!validateForm()) {
-//       const container = submitButton.parentElement;
-//       const randomX = Math.random() * 400 - 150; // Random X-axis position
-//       const randomY = Math.random() * 100 - 50; // Random Y-axis position
-//       container.style.transform = `translate(${randomX}px, ${randomY}px)`;
-//     }
-//   });
-
-//   // Event listener for form submission
-//   form.addEventListener("submit", function (event) {
-//     if (!validateForm()) {
-//       event.preventDefault();
-//       alert("Please fill out all required fields!");
-//     }
-//   });
-// });
-
-
 // case staduy carousel effect 
 
 const swiper = new Swiper('.swiper-container', {
@@ -196,32 +153,26 @@ const swiper = new Swiper('.swiper-container', {
 });
 
 //------ service expert js ---------
+document.addEventListener("DOMContentLoaded", () => {
+  gsap.registerPlugin(ScrollTrigger);
 
-const servicesContainer = document.querySelector(".two-cols");
+  const scrollWrapper = document.querySelector(".scroll-wrapper");
+  const twoCols = document.querySelector(".two-cols");
 
-function calculateScrollAmount() {
-  let containerWidth = servicesContainer.scrollWidth;
-  let visibleWidth = window.innerWidth;
-  return -(containerWidth - visibleWidth);
-}
-
-const scrollTween = gsap.to(servicesContainer, {
-  x: calculateScrollAmount,
-  duration: 3,
-  ease: "none",
+  gsap.to(twoCols, {
+    x: () => -(twoCols.scrollWidth - scrollWrapper.offsetWidth) + "px",
+    ease: "power1.inOut",
+    scrollTrigger: {
+      trigger: scrollWrapper,
+      start: "top 20%",
+      end: () => "+=" + (twoCols.scrollWidth - scrollWrapper.offsetWidth),
+      scrub: true,
+      pin: true,
+      // markers: true,
+    },
+  });
+  AOS.refresh();
 });
-
-ScrollTrigger.create({
-  trigger: ".scroll-wrapper",
-  start: "top 20%",
-  end: () => `+=${calculateScrollAmount() * -2}`,
-  pin: true,
-  animation: scrollTween,
-  scrub: 1.5,
-  invalidateOnRefresh: true,
-  // markers: true,
-});
-
 // service section js 
 
 const menuData = {
@@ -433,8 +384,6 @@ function autoChangeMenuItem() {
 
   currentIndex = (currentIndex + 1) % menuItems.length;
 }
-
-// Initial setup function
 function initializeMenu() {
   createMenuItems();
 
@@ -456,48 +405,38 @@ initializeMenu();
 
 //----------- popup holder js ---------------
 
-const exploreButtons = document.querySelectorAll(".explore-btn");
+const showcaseBlocks = document.querySelectorAll(".showcase-block");
 
-exploreButtons.forEach(button => {
-  button.addEventListener("click", () => {
-    const targetPopupId = button.getAttribute("data-target");
-    const popup = document.querySelector(targetPopupId);
-
-
-    if (popup) {
-      document.querySelectorAll(".popup-holder").forEach(p => {
-        p.style.display = "none";
-      });
-
-      popup.style.display = "block";
-
-      const showcaseBlock = button.closest(".showcase-block");
-      showcaseBlock.style.position = "relative";
-      popup.style.position = "absolute";
-      popup.style.zIndex = "1000";
-    }
-  });
+function openPopup(image) {
+  const targetPopupId = image.getAttribute("data-target"); 
+  const popup = document.querySelector(targetPopupId); 
+  if (popup) {
+    document.querySelectorAll(".popup-holder").forEach(p => {
+      p.style.display = "none"; 
+    });
+    popup.style.display = "block";
+  }
+}
+showcaseBlocks.forEach(block => {
+  const image = block.querySelector("img");
+  if (image) {
+    image.addEventListener("click", () => {
+      openPopup(image);
+    });
+  } 
 });
 
-// popup form js 
+// Close popup when clicking outside
+document.addEventListener("click", (e) => {
+  const isPopupClick = e.target.closest(".popup-holder"); 
+  const isImageClick = e.target.closest(".showcase-block img"); 
 
-document.addEventListener("click", event => {
-  const isPopup = event.target.closest(".popup-holder");
-  const isButton = event.target.classList.contains("explore-btn");
-
-  if (!isPopup && !isButton) {
+  if (!isPopupClick && !isImageClick) {
     document.querySelectorAll(".popup-holder").forEach(popup => {
-      popup.style.display = "none"; // Hide all popups
+      popup.style.display = "none"; 
     });
   }
 });
-
-document.querySelectorAll('.popup-option-button').forEach(button => {
-  button.addEventListener('click', function () {
-    this.classList.toggle('selected');
-  });
-});
-
 
 
 // ---------------main form -----------
