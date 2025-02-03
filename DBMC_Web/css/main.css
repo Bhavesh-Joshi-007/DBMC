@@ -541,6 +541,22 @@ nav {
     left: -20vw; 
   }
 }
+@media screen and (max-width: 430px){
+  .content-wrapper{
+    margin-top: 50%;
+  }
+  .text-wrapper .style-DBMC {
+    left: -20vw; 
+  }
+}
+@media screen and (max-width: 390px){
+  .content-wrapper{
+    margin-top: 50%;
+  }
+  .text-wrapper .style-DBMC {
+    left: -24vw; 
+  }
+}
 
 
 /* about section css */
