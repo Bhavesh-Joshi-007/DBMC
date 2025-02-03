@@ -30,7 +30,7 @@ setTimeout(() => {
   popupFormSection.style.display = "block";
   overlay.style.display = "block";
   body.classList.add("no-scroll");
-}, 5000);
+}, 8000);
 
 closeBtn.addEventListener("click", () => {
   popupFormSection.style.display = "none";
@@ -42,34 +42,73 @@ closeBtn.addEventListener("click", () => {
 gsap.registerPlugin();
 
 // GSAP animations for the highlight and text
-
 document.addEventListener("DOMContentLoaded", () => {
-  const highlight = document.querySelector('.highlight');
-  const textDBMC = document.querySelectorAll('.text-style')[1]; // "DBMC" text
+  const mainContainerPreloader = document.querySelector(".main_container_preloader");
+  const preloader = document.querySelector(".preloader");
+  const percentageText = document.querySelector(".percentage");
+  const heroSection = document.querySelector(".main-container-section");
 
-  const tl = gsap.timeline();
+  // Initially hide the hero section
+  heroSection.style.opacity = "0";
 
-  tl.to(
-    textDBMC,
-    {
-      x: 150,
-      duration: 1,
-      ease: "power2.out",
-    },
-    0.2
-  );
+  // GSAP Timeline for Preloader
+  const tlPreloader = gsap.timeline();
+  let percentage = 0;
 
-  tl.to(
-    highlight,
-    {
-      width: '10vw',
-      height: '13vh',
-      duration: 1,
-      ease: "power2.ease",
-    },
-    "-=1.45"
-  );
+  const interval = setInterval(() => {
+    if (percentage < 100) {
+      percentage++;
+      percentageText.textContent = `${percentage}%`;
+    } else {
+      clearInterval(interval);
+      // Fade out the preloader and its container
+      tlPreloader.to(mainContainerPreloader, {
+        opacity: 0,
+        duration: 0.8,
+        onComplete: () => {
+          mainContainerPreloader.style.display = "none"; // Completely hide the preloader container
+          // Fade in the hero section
+          gsap.to(heroSection, {
+            opacity: 1,
+            duration: 1,
+            onComplete: () => startHeroAnimation(),
+          });
+        },
+      });
+    }
+  }, 30);
+
+  // Hero Section Animation
+  const startHeroAnimation = () => {
+    const highlight = document.querySelector(".highlight");
+    const textDBMC = document.querySelectorAll(".text-style")[1]; // "DBMC" text
+
+    const tlHero = gsap.timeline();
+
+    tlHero
+      .to(
+        textDBMC,
+        {
+          x: 150,
+          duration: 1,
+          ease: "power2.out",
+        },
+        0.2
+      )
+      .to(
+        highlight,
+        {
+          width: "10vw",
+          height: "13vh",
+          duration: 1,
+          ease: "power2.ease",
+        },
+        "-=1.45"
+      );
+  };
 });
+
+
 
 // smooth scroll effect 
 
@@ -153,14 +192,50 @@ const swiper = new Swiper('.swiper-container', {
   breakpoints: {
     1024: {
       slidesPerView: 3,
+      spaceBetween: 30,
+      on: {
+        init: function () {
+          console.log('Breakpoint: 1024px - 3 slides per view');
+        },
+      },
     },
     768: {
       slidesPerView: 2,
+      spaceBetween: 20,
+      on: {
+        init: function () {
+          console.log('Breakpoint: 768px - 2 slides per view');
+        },
+      },
     },
     480: {
       slidesPerView: 1,
-    }
-  }
+      spaceBetween: 10,
+      on: {
+        init: function () {
+          console.log('Breakpoint: 480px - 1 slide per view');
+        },
+      },
+    },
+    390: {
+      slidesPerView: 1,
+      spaceBetween: 10,
+      on: {
+        init: function () {
+          console.log('Breakpoint: 480px - 1 slide per view');
+        },
+      },
+    },
+    260: {
+      slidesPerView: 1,
+      spaceBetween: 10,
+      on: {
+        init: function () {
+          console.log('Breakpoint: 480px - 1 slide per view');
+        },
+      },
+    },
+  },
 });
 
 //------ service expert js ---------
@@ -794,3 +869,41 @@ popupForm.addEventListener("submit", (e) => {
 //     checkExistingData(formData, "popup");
 //   }
 // });
+
+
+// price section js
+
+const toggle = document.getElementById('billingToggle');
+const prices = document.querySelectorAll('.price');
+const billingPeriods = document.querySelectorAll('.billing-period:not(:first-child)');
+const plans = document.querySelectorAll('.plan');
+
+// Initialize the middle card as active
+plans[1].classList.add('active');
+
+// Add click event listeners to plans
+plans.forEach(plan => {
+    plan.addEventListener('click', () => {
+        // Remove active class from all plans
+        plans.forEach(p => p.classList.remove('active'));
+        // Add active class to clicked plan
+        plan.classList.add('active');
+    });
+});
+
+toggle.addEventListener('click', () => {
+    toggle.classList.toggle('yearly');
+    const isYearly = toggle.classList.contains('yearly');
+
+    prices.forEach(price => {
+        const monthlyPrice = price.getAttribute('data-monthly');
+        const yearlyPrice = price.getAttribute('data-yearly');
+        price.textContent = isYearly ? yearlyPrice : monthlyPrice;
+    });
+
+    billingPeriods.forEach(period => {
+        const monthlyText = period.getAttribute('data-monthly');
+        const yearlyText = period.getAttribute('data-yearly');
+        period.textContent = isYearly ? yearlyText : monthlyText;
+    });
+});
