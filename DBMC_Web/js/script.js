@@ -85,26 +85,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const tlHero = gsap.timeline();
 
-  tlHero
-    .to(
-      textDBMC,
-      {
-        x: '10vw', // Responsive slide distance
-        duration: 1,
-        ease: "power2.out",
-      },
-      0.2
-    )
-    .to(
-      highlight,
-      {
-        width: "9vw", // Responsive width
-        height: "70%", // Responsive height
-        duration: 1,
-        ease: "power2.ease",
-      },
-      "-=1.45"
-    );
+    tlHero
+      .to(
+        textDBMC,
+        {
+          x: '10vw', // Responsive slide distance
+          duration: 1,
+          ease: "power2.out",
+        },
+        0.2
+      )
+      .to(
+        highlight,
+        {
+          width: "9vw", // Responsive width
+          height: "70%", // Responsive height
+          duration: 1,
+          ease: "power2.ease",
+        },
+        "-=1.45"
+      );
 
   };
 });
@@ -681,215 +681,151 @@ toggle.addEventListener('click', () => {
   });
 });
 
+// our buddies card carousel 
+document.addEventListener('DOMContentLoaded', function () {
+  const cards = document.querySelectorAll('.testimonial-card');
+  const nextBtn = document.querySelector('.next');
+  const prevBtn = document.querySelector('.prev');
+  const profileCards = document.querySelectorAll(".profile-card");
 
+  let currentIndex = 0;
+  let isAnimating = false;
+  let autoSlideInterval; 
 
+  const profiles = [
+    [
+      { name: "TravelJokes", followers: "2.3M Followers", image: "./image/demo_img1.jpg" },
+      { name: "WanderHumor", followers: "3.1M Followers", image: "./image/img_2.jpeg" },
+      { name: "AdventureFails", followers: "2.5M Followers", image: "./image/demo_img1.jpg" },
+      { name: "GlobalLaughs", followers: "1.9M Followers", image: "./image/demo_img1.jpg" }
+    ],
+    [
+      { name: "HappyTravels", followers: "3.8M Followers", image: "https://source.unsplash.com/100x100/?happy,face" },
+      { name: "GlobeTrotter", followers: "2.1M Followers", image: "https://source.unsplash.com/100x100/?smile,face" },
+      { name: "ComedyNomad", followers: "4.0M Followers", image: "https://source.unsplash.com/100x100/?laugh,face" },
+      { name: "FunExplorer", followers: "1.5M Followers", image: "https://source.unsplash.com/100x100/?explorer,face" }
+    ],
+    [
+      { name: "NomadJoker", followers: "3.2M Followers", image: "https://source.unsplash.com/100x100/?joker,face" },
+      { name: "HumorGlider", followers: "2.9M Followers", image: "https://source.unsplash.com/100x100/?humor,face" },
+      { name: "GiggleTrekkers", followers: "2.7M Followers", image: "https://source.unsplash.com/100x100/?trekker,face" },
+      { name: "RoamLaughs", followers: "3.5M Followers", image: "https://source.unsplash.com/100x100/?roam,face" }
+    ]
+  ];
 
+  function updateProfileCards(index) {
+    const selectedProfiles = profiles[index % profiles.length];
 
+    profileCards.forEach((card, i) => {
+      if (selectedProfiles[i]) {
+        card.classList.remove('active');
+        card.classList.add('exit');
 
+        setTimeout(() => {
+          card.querySelector(".profile-image img").src = selectedProfiles[i].image;
+          card.querySelector(".profile-name").textContent = selectedProfiles[i].name;
+          card.querySelector(".profile-followers").textContent = selectedProfiles[i].followers;
 
+          card.classList.remove('exit');
+          card.classList.add('enter');
 
-
-    // // Previous JavaScript code remains exactly the same
-    // document.addEventListener('DOMContentLoaded', function() {
-    //     const cards = document.querySelectorAll('.testimonial-card');
-    //     const nextBtn = document.querySelector('.next');
-    //     const prevBtn = document.querySelector('.prev');
-    //     let currentIndex = 0;
-    //     let isAnimating = false;
-
-    //     function initializeCards() {
-    //         cards[currentIndex].classList.add('active');
-    //         cards[(currentIndex + 1) % cards.length].classList.add('prev');
-    //         cards[(currentIndex + 2) % cards.length].classList.add('next');
-    //     }
-
-    //     function updateCards(direction) {
-    //         if (isAnimating) return;
-    //         isAnimating = true;
-
-    //         const currentCard = cards[currentIndex];
-    //         const nextIndex = direction === 'next' 
-    //             ? (currentIndex - 1 + cards.length) % cards.length 
-    //             : (currentIndex + 1) % cards.length;
-    //         const nextCard = cards[nextIndex];
-
-    //         cards.forEach(card => {
-    //             card.classList.remove('active', 'prev', 'next');
-    //         });
-
-    //         if (direction === 'next') {
-    //             currentCard.classList.add('slide-next-out');
-    //             nextCard.classList.add('slide-next-in');
-    //         } else {
-    //             currentCard.classList.add('slide-prev-out');
-    //             nextCard.classList.add('slide-prev-in');
-    //         }
-
-    //         setTimeout(() => {
-    //             nextCard.classList.remove(direction === 'next' ? 'slide-next-in' : 'slide-prev-in');
-    //             nextCard.classList.add('active');
-                
-    //             currentIndex = nextIndex;
-                
-    //             cards[(currentIndex + 1) % cards.length].classList.add('prev');
-    //             cards[(currentIndex + 2) % cards.length].classList.add('next');
-
-    //             setTimeout(() => {
-    //                 currentCard.classList.remove(direction === 'next' ? 'slide-next-out' : 'slide-prev-out');
-    //                 isAnimating = false;
-    //             }, 600);
-    //         }, 50);
-    //     }
-
-    //     nextBtn.addEventListener('click', () => updateCards('next'));
-    //     prevBtn.addEventListener('click', () => updateCards('prev'));
-
-    //     let touchStartX = 0;
-    //     let touchEndX = 0;
-
-    //     document.addEventListener('touchstart', e => {
-    //         touchStartX = e.touches[0].clientX;
-    //     });
-
-    //     document.addEventListener('touchend', e => {
-    //         touchEndX = e.changedTouches[0].clientX;
-    //         handleSwipe();
-    //     });
-
-    //     function handleSwipe() {
-    //         const swipeThreshold = 50;
-    //         const swipeDistance = touchEndX - touchStartX;
-            
-    //         if (Math.abs(swipeDistance) > swipeThreshold) {
-    //             if (swipeDistance > 0) {
-    //                 updateCards('prev');
-    //             } else {
-    //                 updateCards('next');
-    //             }
-    //         }
-    //     }
-
-    //     initializeCards();
-    // });
-
-
-    document.addEventListener('DOMContentLoaded', function() {
-      const cards = document.querySelectorAll('.testimonial-card');
-      const nextBtn = document.querySelector('.next');
-      const prevBtn = document.querySelector('.prev');
-      const profileCards = document.querySelectorAll(".profile-card");
-      
-      let currentIndex = 0;
-      let isAnimating = false;
-  
-      const profiles = [
-          [
-              { name: "TravelJokes", followers: "2.3M Followers", image: "./image/demo_img1.jpg" },
-              { name: "WanderHumor", followers: "3.1M Followers", image: "./image/img_2.jpeg" },
-              { name: "AdventureFails", followers: "2.5M Followers", image: "./image/demo_img1.jpg" },
-              { name: "GlobalLaughs", followers: "1.9M Followers", image: "./image/demo_img1.jpg" }
-          ],
-          [
-              { name: "HappyTravels", followers: "3.8M Followers", image: "https://source.unsplash.com/100x100/?happy,face" },
-              { name: "GlobeTrotter", followers: "2.1M Followers", image: "https://source.unsplash.com/100x100/?smile,face" },
-              { name: "ComedyNomad", followers: "4.0M Followers", image: "https://source.unsplash.com/100x100/?laugh,face" },
-              { name: "FunExplorer", followers: "1.5M Followers", image: "https://source.unsplash.com/100x100/?explorer,face" }
-          ],
-          [
-              { name: "NomadJoker", followers: "3.2M Followers", image: "https://source.unsplash.com/100x100/?joker,face" },
-              { name: "HumorGlider", followers: "2.9M Followers", image: "https://source.unsplash.com/100x100/?humor,face" },
-              { name: "GiggleTrekkers", followers: "2.7M Followers", image: "https://source.unsplash.com/100x100/?trekker,face" },
-              { name: "RoamLaughs", followers: "3.5M Followers", image: "https://source.unsplash.com/100x100/?roam,face" }
-          ]
-      ];
-  
-      function updateProfileCards(index) {
-          const selectedProfiles = profiles[index % profiles.length];
-  
-          profileCards.forEach((card, i) => {
-              if (selectedProfiles[i]) {
-                  card.querySelector(".profile-image img").src = selectedProfiles[i].image;
-                  card.querySelector(".profile-name").textContent = selectedProfiles[i].name;
-                  card.querySelector(".profile-followers").textContent = selectedProfiles[i].followers;
-              }
-          });
-      }
-  
-      function initializeCards() {
-          cards[currentIndex].classList.add('active');
-          cards[(currentIndex + 1) % cards.length].classList.add('prev');
-          cards[(currentIndex + 2) % cards.length].classList.add('next');
-          updateProfileCards(currentIndex); // Initialize profile section with first card
-      }
-  
-      function updateCards(direction) {
-          if (isAnimating) return;
-          isAnimating = true;
-  
-          const currentCard = cards[currentIndex];
-          const nextIndex = direction === 'next' 
-              ? (currentIndex + 1) % cards.length 
-              : (currentIndex - 1 + cards.length) % cards.length;
-          const nextCard = cards[nextIndex];
-  
-          cards.forEach(card => {
-              card.classList.remove('active', 'prev', 'next');
-          });
-  
-          if (direction === 'next') {
-              currentCard.classList.add('slide-next-out');
-              nextCard.classList.add('slide-next-in');
-          } else {
-              currentCard.classList.add('slide-prev-out');
-              nextCard.classList.add('slide-prev-in');
-          }
-  
           setTimeout(() => {
-              nextCard.classList.remove(direction === 'next' ? 'slide-next-in' : 'slide-prev-in');
-              nextCard.classList.add('active');
-              
-              currentIndex = nextIndex;
-              
-              cards[(currentIndex + 1) % cards.length].classList.add('prev');
-              cards[(currentIndex + 2) % cards.length].classList.add('next');
-  
-              updateProfileCards(currentIndex); // Update profile section when card changes
-  
-              setTimeout(() => {
-                  currentCard.classList.remove(direction === 'next' ? 'slide-next-out' : 'slide-prev-out');
-                  isAnimating = false;
-              }, 600);
-          }, 50);
+            card.classList.remove('enter');
+            card.classList.add('active');
+          }, 500);
+        }, 500);
       }
-  
-      nextBtn.addEventListener('click', () => updateCards('next'));
-      prevBtn.addEventListener('click', () => updateCards('prev'));
-  
-      let touchStartX = 0;
-      let touchEndX = 0;
-  
-      document.addEventListener('touchstart', e => {
-          touchStartX = e.touches[0].clientX;
-      });
-  
-      document.addEventListener('touchend', e => {
-          touchEndX = e.changedTouches[0].clientX;
-          handleSwipe();
-      });
-  
-      function handleSwipe() {
-          const swipeThreshold = 50;
-          const swipeDistance = touchEndX - touchStartX;
-          
-          if (Math.abs(swipeDistance) > swipeThreshold) {
-              if (swipeDistance > 0) {
-                  updateCards('prev');
-              } else {
-                  updateCards('next');
-              }
-          }
-      }
-  
-      initializeCards();
+    });
+  }
+
+  function initializeCards() {
+    cards[currentIndex].classList.add('active');
+    cards[(currentIndex + 1) % cards.length].classList.add('prev');
+    cards[(currentIndex + 2) % cards.length].classList.add('next');
+    updateProfileCards(currentIndex);
+    startAutoSlide(); 
+  }
+
+  function updateCards(direction) {
+    if (isAnimating) return;
+    isAnimating = true;
+    stopAutoSlide(); 
+
+    const currentCard = cards[currentIndex];
+    const nextIndex = direction === 'next'
+      ? (currentIndex + 1) % cards.length
+      : (currentIndex - 1 + cards.length) % cards.length;
+    const nextCard = cards[nextIndex];
+
+    cards.forEach(card => {
+      card.classList.remove('active', 'prev', 'next');
+    });
+
+    if (direction === 'next') {
+      currentCard.classList.add('slide-next-out');
+      nextCard.classList.add('slide-next-in');
+    } else {
+      currentCard.classList.add('slide-prev-out');
+      nextCard.classList.add('slide-prev-in');
+    }
+
+    setTimeout(() => {
+      nextCard.classList.remove(direction === 'next' ? 'slide-next-in' : 'slide-prev-in');
+      nextCard.classList.add('active');
+
+      currentIndex = nextIndex;
+
+      cards[(currentIndex + 1) % cards.length].classList.add('prev');
+      cards[(currentIndex + 2) % cards.length].classList.add('next');
+
+      updateProfileCards(currentIndex);
+
+      setTimeout(() => {
+        currentCard.classList.remove(direction === 'next' ? 'slide-next-out' : 'slide-prev-out');
+        isAnimating = false;
+      }, 600);
+
+      startAutoSlide(); 
+    }, 50);
+  }
+
+  function startAutoSlide() {
+    autoSlideInterval = setInterval(() => {
+      updateCards('next');
+    }, 5000); 
+  }
+
+  function stopAutoSlide() {
+    clearInterval(autoSlideInterval);
+  }
+
+  nextBtn.addEventListener('click', () => updateCards('next'));
+  prevBtn.addEventListener('click', () => updateCards('prev'));
+
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  document.addEventListener('touchstart', e => {
+    touchStartX = e.touches[0].clientX;
   });
-  
+
+  document.addEventListener('touchend', e => {
+    touchEndX = e.changedTouches[0].clientX;
+    handleSwipe();
+  });
+
+  function handleSwipe() {
+    const swipeThreshold = 50;
+    const swipeDistance = touchEndX - touchStartX;
+
+    if (Math.abs(swipeDistance) > swipeThreshold) {
+      if (swipeDistance > 0) {
+        updateCards('prev');
+      } else {
+        updateCards('next');
+      }
+    }
+  }
+
+  initializeCards();
+});
