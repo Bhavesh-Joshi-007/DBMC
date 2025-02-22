@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-
 // navlink 
 
 const menuOpener = document.querySelector('.menu-opener');
@@ -18,98 +17,189 @@ menuOpener.addEventListener('click', () => {
   menuOpener.classList.toggle('active');
 });
 
-// popup form js 
 
-const popupFormSection = document.querySelector(".popup-form-section");
-const overlay = document.querySelector(".overlay");
-const closeBtn = document.getElementById("close");
-const body = document.body;
+// hero section code and preloader js code 
 
-
-setTimeout(() => {
-  popupFormSection.style.display = "block";
-  overlay.style.display = "block";
-  body.classList.add("no-scroll");
-}, 8000);
-
-closeBtn.addEventListener("click", () => {
-  popupFormSection.style.display = "none";
-  overlay.style.display = "none";
-  body.classList.remove("no-scroll");
-});
-
-
-gsap.registerPlugin();
-
-// GSAP animations for the highlight and text
 document.addEventListener("DOMContentLoaded", () => {
-  const mainContainerPreloader = document.querySelector(".main_container_preloader");
-  const preloader = document.querySelector(".preloader");
-  const percentageText = document.querySelector(".percentage");
+
+
+  const body = document.body;
   const heroSection = document.querySelector(".main-container-section");
+  const popupFormSection = document.querySelector(".popup-form-section");
+  const overlay = document.querySelector(".overlay");
+  const closeBtn = document.getElementById("close");
+  const preloader = document.querySelector(".pre-loader");
 
-  // Initially hide the hero section
-  heroSection.style.opacity = "0";
+  // Initial Setup
+  gsap.set([heroSection, overlay, popupFormSection], { opacity: 0 });
+  gsap.set(body, { overflow: "hidden" });
+  gsap.set(".left-content, .right-content", { x: "0%", opacity: 1 }); // Reset for reload
+  gsap.set(preloader, { height: "100vh", display: "block" }); // Ensure preloader is visible
+  gsap.set(".orange", { height: "0%", top: "100%" }); // Reset orange div
 
-  // GSAP Timeline for Preloader
-  const tlPreloader = gsap.timeline();
-  let percentage = 0;
-
-  const interval = setInterval(() => {
-    if (percentage < 100) {
-      percentage++;
-      percentageText.textContent = `${percentage}%`;
-    } else {
-      clearInterval(interval);
-      // Fade out the preloader and its container
-      tlPreloader.to(mainContainerPreloader, {
-        opacity: 0,
-        duration: 0.8,
-        onComplete: () => {
-          mainContainerPreloader.style.display = "none"; // Completely hide the preloader container
-          // Fade in the hero section
-          gsap.to(heroSection, {
-            opacity: 1,
-            duration: 1,
-            onComplete: () => startHeroAnimation(),
-          });
-        },
-      });
-    }
-  }, 30);
-
-  // Hero Section Animation
-  const startHeroAnimation = () => {
-    const highlight = document.querySelector(".highlight");
-    const textDBMC = document.querySelectorAll(".text-style")[1]; // "DBMC" text
-
-    const tlHero = gsap.timeline();
-
-    tlHero
-      .to(
-        textDBMC,
-        {
-          x: '10vw', // Responsive slide distance
-          duration: 1,
-          ease: "power2.out",
-        },
-        0.2
-      )
-      .to(
-        highlight,
-        {
-          width: "9vw", // Responsive width
-          height: "70%", // Responsive height
-          duration: 1,
-          ease: "power2.ease",
-        },
-        "-=1.45"
-      );
-
+  // Function to enable scrolling
+  const enableScroll = () => {
+    body.style.overflow = "auto";
   };
+
+  // Function to disable scrolling
+  const disableScroll = () => {
+    body.style.overflow = "hidden";
+  };
+
+  // Text reveal setup
+  const initAnimations = () => {
+    document.querySelectorAll(".pre-reveal").forEach((elem) => {
+      const parent = document.createElement("span");
+      const child = document.createElement("span");
+      parent.className = "parent";
+      child.className = "child";
+      child.innerHTML = elem.innerHTML;
+      parent.appendChild(child);
+      elem.innerHTML = "";
+      elem.appendChild(parent);
+    });
+  };
+
+  // Hero section animation
+  const startHeroAnimation = () => {
+    const tl = gsap.timeline();
+
+    // Show hero section
+    tl.to(heroSection, {
+      opacity: 1,
+      duration: 1,
+      ease: "power2.inOut",
+    });
+
+    // Animate left and right content
+    tl.fromTo(
+      ".left-content",
+      { x: "-100%", opacity: 0 }, // Left content starts from the left
+      {
+        x: "0%",
+        opacity: 1,
+        duration: 1.2,
+        ease: "power2.out",
+      },
+      0.2 // Delay
+    );
+    
+    tl.fromTo(
+      ".right-content",
+      { x: "100%", opacity: 0 }, // Right content starts from the right
+      {
+        x: "0%",
+        opacity: 1,
+        duration: 1.2,
+        ease: "power2.out",
+      },
+      0.2 // Delay
+    );
+
+    // Highlight animation
+    tl.to(
+      ".highlight",
+      {
+        width: "9vw",
+        height: "70%",
+        duration: 1,
+        ease: "power2.inOut",
+      },
+      1
+    );
+
+    // Move "DBMC" text
+    tl.to(
+      ".style-DBMC",
+      {
+        x: "10vw",
+        duration: 1,
+        ease: "power2.out",
+      },
+      "-=1"
+    );
+  };
+
+  // Preloader animation
+  const loaderAnimation = () => {
+    const tl = gsap.timeline();
+
+    // Text animation
+    tl.from(".parent .child span", {
+      x: 200,
+      stagger: 0.2,
+      duration: 1.1,
+      ease: "power3.out",
+    });
+
+    // Text move up
+    tl.to(".parent .child", {
+      y: "-100%",
+      duration: 1,
+      ease: "circ.out",
+    });
+
+    // Orange background expansion
+    tl.fromTo(
+      ".orange",
+      { height: "0%", top: "100%" },
+      {
+        height: "100%",
+        top: "0%",
+        duration: 1.2,
+        ease: "power2.inOut",
+      },
+      0
+    );
+
+    // Hide preloader and collapse orange
+    tl.to(
+      [preloader, ".orange"],
+      {
+        height: "0%",
+        duration: 1.5,
+        ease: "expo.inOut",
+        onComplete: () => {
+          preloader.style.display = "none"; // Hide preloader
+          enableScroll(); // Enable scrolling
+          startHeroAnimation(); // Start hero animation
+        },
+      },
+      "-=0.5"
+    );
+  };
+
+  // Close popup form
+  closeBtn.addEventListener("click", () => {
+    gsap.to([popupFormSection, overlay], {
+      opacity: 0,
+      duration: 0.5,
+      onComplete: () => {
+        popupFormSection.style.display = "none";
+        overlay.style.display = "none";
+        enableScroll(); // Enable scrolling after closing popup
+      },
+    });
+  });
+
+  // Initialize animations
+  initAnimations();
+  loaderAnimation();
+
+  // Show popup form after 10 seconds
+  setTimeout(() => {
+    gsap.to([popupFormSection, overlay], {
+      opacity: 1,
+      duration: 0.5,
+      onStart: () => {
+        popupFormSection.style.display = "block";
+        overlay.style.display = "block";
+        disableScroll(); // Disable scrolling when popup is shown
+      },
+    });
+  }, 10000);
 });
-
-
 
 // smooth scroll effect 
 
@@ -135,9 +225,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-
 // ------------number count-------------- 
-
 
 const counters = document.querySelectorAll(".num span");
 let activated = false;
@@ -240,24 +328,65 @@ const swiper = new Swiper('.swiper-container', {
 });
 
 //------ service expert js ---------
+// document.addEventListener("DOMContentLoaded", () => {
+//   gsap.registerPlugin(ScrollTrigger);
+
+//   const scrollWrapper = document.querySelector(".scroll-wrapper");
+//   const twoCols = document.querySelector(".two-cols");
+
+//   gsap.to(twoCols, {
+//     x: () => -(twoCols.scrollWidth - scrollWrapper.offsetWidth) + "px",
+//     ease: "power1.inOut",
+//     scrollTrigger: {
+//       trigger: scrollWrapper,
+//       start: "top 20%",
+//       end: () => "+=" + (twoCols.scrollWidth - scrollWrapper.offsetWidth),
+//       scrub: true,
+//       pin: true,
+//       // markers: true,
+//     },
+//   });
+//   AOS.refresh();
+// });
+
 document.addEventListener("DOMContentLoaded", () => {
   gsap.registerPlugin(ScrollTrigger);
 
-  const scrollWrapper = document.querySelector(".scroll-wrapper");
-  const twoCols = document.querySelector(".two-cols");
+  const mm = gsap.matchMedia();
 
-  gsap.to(twoCols, {
-    x: () => -(twoCols.scrollWidth - scrollWrapper.offsetWidth) + "px",
-    ease: "power1.inOut",
-    scrollTrigger: {
-      trigger: scrollWrapper,
-      start: "top 20%",
-      end: () => "+=" + (twoCols.scrollWidth - scrollWrapper.offsetWidth),
-      scrub: true,
-      pin: true,
-      // markers: true,
-    },
+  // For desktop/laptop devices (min-width: 768px)
+  mm.add("(min-width: 768px)", () => {
+    const scrollWrapper = document.querySelector(".scroll-wrapper");
+    const twoCols = document.querySelector(".two-cols");
+
+    // Create horizontal scroll animation for larger screens
+    const scrollTween = gsap.to(twoCols, {
+      x: () => -(twoCols.scrollWidth - scrollWrapper.offsetWidth) + "px",
+      ease: "power1.inOut",
+      scrollTrigger: {
+        trigger: scrollWrapper,
+        start: "top 20%",
+        end: () => "+=" + (twoCols.scrollWidth - scrollWrapper.offsetWidth),
+        scrub: true,
+        pin: true,
+        // markers: true,
+      },
+    });
+
+    // Cleanup function: when media query no longer matches, kill the animation and trigger.
+    return () => {
+      scrollTween.kill();
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    };
   });
+
+  // For mobile devices (max-width: 767px) — no horizontal scroll effect.
+  mm.add("(max-width: 767px)", () => {
+    // Optionally refresh triggers or reset styles if needed.
+    ScrollTrigger.refresh();
+  });
+
+  // Refresh AOS if you're using it
   AOS.refresh();
 });
 
@@ -463,187 +592,6 @@ popupForm.addEventListener("submit", (e) => {
 });
 
 
-// let url = "https://script.google.com/macros/s/AKfycby8Ui-9DaG7k412MXnWVRV1hIJLJKVMlWamSzSVI5z6b3hUXk07E-WxlA08TGLre43j/exec";
-
-// // Function to show error message
-// function showError(inputElement, message) {
-//   inputElement.parentNode.querySelectorAll(".error-message").forEach((el) => el.remove());
-
-//   let errorElement = document.createElement("div");
-//   errorElement.className = "error-message";
-//   errorElement.textContent = message;
-
-//   inputElement.parentNode.appendChild(errorElement);
-// }
-
-// // Validation logic for both forms
-// function validateForm(form, nameInput, phoneInput, emailInput) {
-//   let isValid = true;
-
-//   form.querySelectorAll(".error-message").forEach((el) => el.remove());
-
-//   if (nameInput.value.trim().length <= 3) {
-//     isValid = false;
-//     showError(nameInput, "Name must be more than 3 characters.");
-//   }
-
-//   if (!/^\d{10}$/.test(phoneInput.value.trim())) {
-//     isValid = false;
-//     showError(phoneInput, "Contact Number must be exactly 10 digits.");
-//   }
-
-//   if (!/^[a-zA-Z0-9._%+-]+@gmail\.com$/.test(emailInput.value.trim())) {
-//     isValid = false;
-//     showError(emailInput, "Email must be a valid @gmail.com address.");
-//   }
-
-//   return isValid;
-// }
-
-// // Service selection logic
-// function handleServiceSelection(buttons, hiddenInput) {
-//   let selectedServices = [];
-//   buttons.forEach((button) => {
-//     button.addEventListener("click", () => {
-//       const service = button.getAttribute("data-value");
-//       if (selectedServices.includes(service)) {
-//         selectedServices = selectedServices.filter((s) => s !== service);
-//         button.classList.remove("selected");
-//       } else {
-//         selectedServices.push(service);
-//         button.classList.add("selected");
-//       }
-//       hiddenInput.value = selectedServices.join(", ");
-//       console.log("Updated hidden input value:", hiddenInput.value);
-//     });
-//   });
-// }
-
-// // Handle main form services
-// const mainButtons = document.querySelectorAll(".option-button");
-// const mainHiddenInput = document.getElementById("selected-services");
-// handleServiceSelection(mainButtons, mainHiddenInput);
-
-// // Handle popup form services
-// const popupButtons = document.querySelectorAll(".popup-option-button");
-// const popupHiddenInput = document.getElementById("popup-selected-services");
-// handleServiceSelection(popupButtons, popupHiddenInput);
-
-// // Function to check if the data already exists in Google Sheets
-// // Function to check if the data already exists in Google Sheets
-// function checkExistingData(formData, formType) {
-//   fetch(url, {
-//     method: 'GET',  // Use GET to check data first (no data to submit)
-//     headers: {
-//       'Content-Type': 'application/json',
-//     }
-//   })
-//   .then((response) => response.json())
-//   .then((data) => {
-//     let isDuplicate = false;
-
-//     for (let record of data) {
-//       if (
-//         (record.email === formData.email || record.phone === formData.phone)
-//       ) {
-//         isDuplicate = true;
-//         break;
-//       }
-//     }
-
-//     if (isDuplicate) {
-//       alert("You are already registered.");
-//     } else {
-//       submitFormData(formData, formType);  // If no duplicate, submit form data
-//     }
-//   })
-//   .catch((error) => {
-//     console.error("Error fetching data from Google Sheets:", error);
-//     alert("Error checking registration status. Please try again.");
-//   });
-// }
-
-
-// // Function to submit data to Google Sheets
-// function submitFormData(formData, formType) {
-//   const dataToSend = new FormData();
-//   dataToSend.append("name", formData.name);
-//   dataToSend.append("phone", formData.phone);
-//   dataToSend.append("email", formData.email);
-//   dataToSend.append("organization_name", formData.organization_name);
-//   dataToSend.append("web_link", formData.web_link);
-//   dataToSend.append("services", formData.services);
-
-//   fetch(url, {
-//     method: "POST",
-//     body: dataToSend,
-//     headers: {
-//       "Content-Type": "application/x-www-form-urlencoded",
-//     },
-//   })
-//   .then((response) => response.text())
-//   .then((finalRes) => {
-//     alert("Registered successfully!");
-//     if (formType === "popup") {
-//       document.querySelector("#popup-form form").reset();
-//     } else {
-//       document.getElementById("web_form").reset();
-//     }
-//   })
-//   .catch((error) => {
-//     console.error("Error submitting form data:", error);
-//     alert("There was an error submitting the form. Please try again.");
-//   });
-
-// }
-
-// // Main form submission
-// let mainForm = document.getElementById("web_form");
-// mainForm.addEventListener("submit", (e) => {
-//   e.preventDefault();
-
-//   let nameInput = document.getElementById("username");
-//   let phoneInput = document.getElementById("contact-number");
-//   let emailInput = document.getElementById("email");
-
-//   if (validateForm(mainForm, nameInput, phoneInput, emailInput)) {
-//     let formData = {
-//       name: nameInput.value.trim(),
-//       phone: phoneInput.value.trim(),
-//       email: emailInput.value.trim(),
-//       organization_name: document.getElementById("organization").value.trim(),
-//       web_link: document.getElementById("website").value.trim(),
-//       services: mainHiddenInput.value.trim(),
-//     };
-
-//     checkExistingData(formData, "main");
-//   }
-// });
-
-// // Popup form submission
-// let popupForm = document.querySelector("#popup-form form");
-// popupForm.addEventListener("submit", (e) => {
-//   e.preventDefault();
-
-//   let nameInput = popupForm.querySelector("[name='name']");
-//   let phoneInput = popupForm.querySelector("[name='phone']");
-//   let emailInput = popupForm.querySelector("[name='email']");
-
-//   if (validateForm(popupForm, nameInput, phoneInput, emailInput)) {
-//     let formData = {
-//       name: nameInput.value.trim(),
-//       phone: phoneInput.value.trim(),
-//       email: emailInput.value.trim(),
-//       organization_name: popupForm.querySelector("[name='organization_name']").value.trim(),
-//       web_link: popupForm.querySelector("[name='web_link']").value.trim(),
-//       services: popupHiddenInput.value.trim(),
-//     };
-
-//     checkExistingData(formData, "popup");
-//   }
-// });
-
-
 // price section js
 
 const toggle = document.getElementById('billingToggle');
@@ -690,7 +638,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   let currentIndex = 0;
   let isAnimating = false;
-  let autoSlideInterval; 
+  let autoSlideInterval;
 
   const profiles = [
     [
@@ -743,13 +691,13 @@ document.addEventListener('DOMContentLoaded', function () {
     cards[(currentIndex + 1) % cards.length].classList.add('prev');
     cards[(currentIndex + 2) % cards.length].classList.add('next');
     updateProfileCards(currentIndex);
-    startAutoSlide(); 
+    startAutoSlide();
   }
 
   function updateCards(direction) {
     if (isAnimating) return;
     isAnimating = true;
-    stopAutoSlide(); 
+    stopAutoSlide();
 
     const currentCard = cards[currentIndex];
     const nextIndex = direction === 'next'
@@ -785,14 +733,14 @@ document.addEventListener('DOMContentLoaded', function () {
         isAnimating = false;
       }, 600);
 
-      startAutoSlide(); 
+      startAutoSlide();
     }, 50);
   }
 
   function startAutoSlide() {
     autoSlideInterval = setInterval(() => {
       updateCards('next');
-    }, 5000); 
+    }, 5000);
   }
 
   function stopAutoSlide() {
