@@ -290,10 +290,10 @@ nav {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 30%;
-    margin-top: -3rem;
+    width: 18%;
+    margin-top: -2rem;
     position: relative;
-    right: 100px;
+    right: 269px;
   }
 
   .btn-enquire {
@@ -331,6 +331,34 @@ nav {
 
   .nav-linked.active {
     display: flex;
+  }
+}
+
+@media (max-width: 620px) {
+  .dbmc-logo {
+    width: 105px;
+    height: 38px;
+  }
+
+  .dbmc-logo img {
+    width: 152px;
+    height: 68px;
+  }
+}
+
+@media (max-width: 440px) {
+  .btn-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36%;
+    margin-top: -2rem;
+    position: relative;
+    right: 81px;
+  }
+
+  .nav-linked {
+    gap: 0.88rem;
   }
 }
 
@@ -539,12 +567,14 @@ nav {
     line-height: clamp(1rem, 6vw, 4rem);
   }
 }
+
 @media screen and (max-width: 336px) {
   .text-style {
-      font-size: clamp(2.45rem, -18vw, -8rem);
-      line-height: clamp(0rem, 1vw, -1rem);
+    font-size: clamp(2.45rem, -18vw, -8rem);
+    line-height: clamp(0rem, 1vw, -1rem);
   }
 }
+
 .text-wrapper .style-DBMC {
   position: relative;
   left: 0vw;
@@ -2547,7 +2577,7 @@ html {
   justify-content: center;
   align-items: center;
   position: relative;
-    bottom: 61px;
+  bottom: 61px;
 }
 
 .bunny_img {
@@ -2627,21 +2657,23 @@ html {
   .why_dbmc_para {
     font-size: 1rem;
     margin-top: 43px;
-}
+  }
 }
 
 @media (max-width: 340px) {
   .bunny_img {
-      position: absolute;
-      max-width: 74px;
-      top: 50px;
-      left: 38px;
+    position: absolute;
+    max-width: 74px;
+    top: 50px;
+    left: 38px;
   }
+
   .why_dbmc_para {
     font-size: 1rem;
     margin-top: 20px;
+  }
 }
-}
+
 /*------------- tag section --------  */
 
 .tags-section {
@@ -2793,8 +2825,9 @@ html {
   position: relative;
   left: 60px;
 }
-.social-icons a{
-text-decoration: none;
+
+.social-icons a {
+  text-decoration: none;
 }
 
 /* Responsive adjustments */
@@ -2941,6 +2974,7 @@ text-decoration: none;
   visibility: hidden;
   background-size: cover;
   background-position: center;
+  object-fit: contain;
 }
 
 .testimonial-card.active {
@@ -2978,12 +3012,14 @@ text-decoration: none;
 .testimonial-card.next {
   opacity: 0.4;
   visibility: visible;
-  transform: translateX(-45px) translateY(-40px) scale(0.9) rotate(-10deg);
+  transform: translateX(-30px) translateY(-10px) scale(0.9) rotate(5deg);
   z-index: 1;
 }
 
 .testimonial-card.slide-next-out {
-  transform: translateX(-100%) translateY(50%) scale(0.8) rotate(-15deg);
+  opacity: 0.6;
+  visibility: visible;
+  transform: translateX(-100%) translateY(50%) scale(0.8) rotate(-5deg);
 }
 
 .testimonial-card.slide-next-in {
@@ -2998,13 +3034,14 @@ text-decoration: none;
   transform: translateX(-100%) translateY(50%) scale(0.8) rotate(-15deg);
 }
 
-@media (max-width: 480px){
+@media (max-width: 480px) {
   .testimonial-card.prev {
     opacity: 0.7;
     visibility: visible;
     transform: translateX(-12px) translateY(-20px) scale(0.95) rotate(-5deg);
     z-index: 2;
   }
+
   /* .testimonial-card.next {
     opacity: 0.4;
     visibility: visible;
@@ -3020,8 +3057,9 @@ text-decoration: none;
   padding: 20px;
   border-radius: 10px;
 }
-@media (max-width: 350px){
-  .card-content{
+
+@media (max-width: 350px) {
+  .card-content {
     padding: 6px;
   }
 }
@@ -3177,23 +3215,17 @@ text-decoration: none;
 
 .profile-card.active {
   opacity: 1;
-  /* Fully visible when active */
   transform: translateY(0);
-  /* Move to the center */
 }
 
 .profile-card.exit {
   opacity: 0;
-  /* Fade out */
   transform: translateY(100%);
-  /* Move to the bottom */
 }
 
 .profile-card.enter {
   opacity: 0;
-  /* Start with opacity 0 */
   transform: translateY(-100%);
-  /* Start from the top */
 }
 
 .profile-image {
@@ -3229,7 +3261,6 @@ text-decoration: none;
   font-size: 0.9rem;
   color: #666;
 }
-
 
 
 /* Responsive Design */
@@ -3348,10 +3379,12 @@ text-decoration: none;
   .clients-wrap .slider {
     height: 24vh;
   }
+
   .clients-section .heading-area h2 {
     font-size: 30px;
   }
 }
+
 @media (max-width: 350px) {
   .clients-wrap .slider {
     height: 27vh;
@@ -3360,7 +3393,8 @@ text-decoration: none;
   .clients-section .heading-area h2 {
     font-size: 27px;
   }
-  .clients-section .stars img{
+
+  .clients-section .stars img {
     display: none;
   }
 }
@@ -3773,6 +3807,7 @@ textarea:focus {
   .form-section {
     padding: 5px;
   }
+
   .options-container {
     display: flex;
     flex-wrap: wrap;

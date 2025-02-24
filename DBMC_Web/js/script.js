@@ -328,26 +328,6 @@ const swiper = new Swiper('.swiper-container', {
 });
 
 //------ service expert js ---------
-// document.addEventListener("DOMContentLoaded", () => {
-//   gsap.registerPlugin(ScrollTrigger);
-
-//   const scrollWrapper = document.querySelector(".scroll-wrapper");
-//   const twoCols = document.querySelector(".two-cols");
-
-//   gsap.to(twoCols, {
-//     x: () => -(twoCols.scrollWidth - scrollWrapper.offsetWidth) + "px",
-//     ease: "power1.inOut",
-//     scrollTrigger: {
-//       trigger: scrollWrapper,
-//       start: "top 20%",
-//       end: () => "+=" + (twoCols.scrollWidth - scrollWrapper.offsetWidth),
-//       scrub: true,
-//       pin: true,
-//       // markers: true,
-//     },
-//   });
-//   AOS.refresh();
-// });
 
 document.addEventListener("DOMContentLoaded", () => {
   gsap.registerPlugin(ScrollTrigger);
@@ -469,8 +449,6 @@ function validateForm(form, nameInput, phoneInput, emailInput) {
 
   return isValid;
 }
-
-
 // Service selection logic
 function handleServiceSelection(buttons, hiddenInput) {
   let selectedServices = [];
@@ -489,7 +467,6 @@ function handleServiceSelection(buttons, hiddenInput) {
     });
   });
 }
-
 // Handle main form services
 const mainButtons = document.querySelectorAll(".option-button");
 const mainHiddenInput = document.getElementById("selected-services");
@@ -630,6 +607,172 @@ toggle.addEventListener('click', () => {
 });
 
 // our buddies card carousel 
+// document.addEventListener('DOMContentLoaded', function () {
+//   const cards = document.querySelectorAll('.testimonial-card');
+//   const nextBtn = document.querySelector('.next');
+//   const prevBtn = document.querySelector('.prev');
+//   const profileCards = document.querySelectorAll(".profile-card");
+
+//   let currentIndex = 0;
+//   let isAnimating = false;
+//   let autoSlideInterval;
+
+//   const profiles = [
+//     [
+//       { name: "ghantaa", followers: "2.3M Followers", image: "./image/demo_img1.jpg" },
+//       { name: "laughtercolours", followers: "3.1M Followers", image: "./image/img_2.jpeg" },
+//       { name: "adultsociety", followers: "2.5M Followers", image: "./image/demo_img1.jpg" },
+//       { name: "trolls_official", followers: "1.9M Followers", image: "./image/demo_img1.jpg" },
+//       { name: "_adultgram_", followers: "1.9M Followers", image: "./image/demo_img1.jpg" }
+//     ],
+//     [
+//       { name: "HappyTravels", followers: "3.8M Followers", image: "https://source.unsplash.com/100x100/?happy,face" },
+//       { name: "GlobeTrotter", followers: "2.1M Followers", image: "https://source.unsplash.com/100x100/?smile,face" },
+//       { name: "ComedyNomad", followers: "4.0M Followers", image: "https://source.unsplash.com/100x100/?laugh,face" },
+//       { name: "FunExplorer", followers: "1.5M Followers", image: "https://source.unsplash.com/100x100/?explorer,face" },
+//       { name: "FunExplorer", followers: "1.5M Followers", image: "https://source.unsplash.com/100x100/?explorer,face" }
+//     ],
+//     [
+//       { name: "NomadJoker", followers: "3.2M Followers", image: "https://source.unsplash.com/100x100/?joker,face" },
+//       { name: "HumorGlider", followers: "2.9M Followers", image: "https://source.unsplash.com/100x100/?humor,face" },
+//       { name: "GiggleTrekkers", followers: "2.7M Followers", image: "https://source.unsplash.com/100x100/?trekker,face" },
+//       { name: "RoamLaughs", followers: "3.5M Followers", image: "https://source.unsplash.com/100x100/?roam,face" },
+//       { name: "RoamLaughs", followers: "3.5M Followers", image: "https://source.unsplash.com/100x100/?roam,face" }
+//     ],
+//     [
+//       { name: "NomadJoker", followers: "3.2M Followers", image: "https://source.unsplash.com/100x100/?joker,face" },
+//       { name: "HumorGlider", followers: "2.9M Followers", image: "https://source.unsplash.com/100x100/?humor,face" },
+//       { name: "GiggleTrekkers", followers: "2.7M Followers", image: "https://source.unsplash.com/100x100/?trekker,face" },
+//       { name: "RoamLaughs", followers: "3.5M Followers", image: "https://source.unsplash.com/100x100/?roam,face" },
+//       { name: "RoamLaughs", followers: "3.5M Followers", image: "https://source.unsplash.com/100x100/?roam,face" }
+//     ],
+//     [
+//       { name: "NomadJoker", followers: "3.2M Followers", image: "https://source.unsplash.com/100x100/?joker,face" },
+//       { name: "HumorGlider", followers: "2.9M Followers", image: "https://source.unsplash.com/100x100/?humor,face" },
+//       { name: "GiggleTrekkers", followers: "2.7M Followers", image: "https://source.unsplash.com/100x100/?trekker,face" },
+//       { name: "RoamLaughs", followers: "3.5M Followers", image: "https://source.unsplash.com/100x100/?roam,face" },
+//       { name: "RoamLaughs", followers: "3.5M Followers", image: "https://source.unsplash.com/100x100/?roam,face" }
+//     ],
+//   ];
+
+//   function updateProfileCards(index) {
+//     const selectedProfiles = profiles[index % profiles.length];
+
+//     profileCards.forEach((card, i) => {
+//       if (selectedProfiles[i]) {
+//         card.classList.remove('active');
+//         card.classList.add('exit');
+
+//         setTimeout(() => {
+//           card.querySelector(".profile-image img").src = selectedProfiles[i].image;
+//           card.querySelector(".profile-name").textContent = selectedProfiles[i].name;
+//           card.querySelector(".profile-followers").textContent = selectedProfiles[i].followers;
+
+//           card.classList.remove('exit');
+//           card.classList.add('enter');
+
+//           setTimeout(() => {
+//             card.classList.remove('enter');
+//             card.classList.add('active');
+//           }, 500);
+//         }, 500);
+//       }
+//     });
+//   }
+
+//   function initializeCards() {
+//     cards[currentIndex].classList.add('active');
+//     cards[(currentIndex + 1) % cards.length].classList.add('prev');
+//     cards[(currentIndex + 2) % cards.length].classList.add('next');
+//     updateProfileCards(currentIndex);
+//     startAutoSlide();
+//   }
+
+//   function updateCards(direction) {
+//     if (isAnimating) return;
+//     isAnimating = true;
+//     stopAutoSlide();
+
+//     const currentCard = cards[currentIndex];
+//     const nextIndex = direction === 'next'
+//       ? (currentIndex + 1) % cards.length
+//       : (currentIndex - 1 + cards.length) % cards.length;
+//     const nextCard = cards[nextIndex];
+
+//     cards.forEach(card => {
+//       card.classList.remove('active', 'prev', 'next');
+//     });
+
+//     if (direction === 'next') {
+//       currentCard.classList.add('slide-next-out');
+//       nextCard.classList.add('slide-next-in');
+//     } else {
+//       currentCard.classList.add('slide-prev-out');
+//       nextCard.classList.add('slide-prev-in');
+//     }
+
+//     setTimeout(() => {
+//       nextCard.classList.remove(direction === 'next' ? 'slide-next-in' : 'slide-prev-in');
+//       nextCard.classList.add('active');
+
+//       currentIndex = nextIndex;
+
+//       cards[(currentIndex + 1) % cards.length].classList.add('prev');
+//       cards[(currentIndex + 2) % cards.length].classList.add('next');
+
+//       updateProfileCards(currentIndex);
+
+//       setTimeout(() => {
+//         currentCard.classList.remove(direction === 'next' ? 'slide-next-out' : 'slide-prev-out');
+//         isAnimating = false;
+//       }, 600);
+
+//       startAutoSlide();
+//     }, 50);
+//   }
+
+//   function startAutoSlide() {
+//     autoSlideInterval = setInterval(() => {
+//       updateCards('next');
+//     }, 5000);
+//   }
+
+//   function stopAutoSlide() {
+//     clearInterval(autoSlideInterval);
+//   }
+
+//   nextBtn.addEventListener('click', () => updateCards('next'));
+//   prevBtn.addEventListener('click', () => updateCards('prev'));
+
+//   let touchStartX = 0;
+//   let touchEndX = 0;
+
+//   document.addEventListener('touchstart', e => {
+//     touchStartX = e.touches[0].clientX;
+//   });
+
+//   document.addEventListener('touchend', e => {
+//     touchEndX = e.changedTouches[0].clientX;
+//     handleSwipe();
+//   });
+
+//   function handleSwipe() {
+//     const swipeThreshold = 50;
+//     const swipeDistance = touchEndX - touchStartX;
+
+//     if (Math.abs(swipeDistance) > swipeThreshold) {
+//       if (swipeDistance > 0) {
+//         updateCards('prev');
+//       } else {
+//         updateCards('next');
+//       }
+//     }
+//   }
+
+//   initializeCards();
+// });
+
+
 document.addEventListener('DOMContentLoaded', function () {
   const cards = document.querySelectorAll('.testimonial-card');
   const nextBtn = document.querySelector('.next');
@@ -641,110 +784,127 @@ document.addEventListener('DOMContentLoaded', function () {
   let autoSlideInterval;
 
   const profiles = [
-    [
-      { name: "TravelJokes", followers: "2.3M Followers", image: "./image/demo_img1.jpg" },
-      { name: "WanderHumor", followers: "3.1M Followers", image: "./image/img_2.jpeg" },
-      { name: "AdventureFails", followers: "2.5M Followers", image: "./image/demo_img1.jpg" },
-      { name: "GlobalLaughs", followers: "1.9M Followers", image: "./image/demo_img1.jpg" }
-    ],
-    [
-      { name: "HappyTravels", followers: "3.8M Followers", image: "https://source.unsplash.com/100x100/?happy,face" },
-      { name: "GlobeTrotter", followers: "2.1M Followers", image: "https://source.unsplash.com/100x100/?smile,face" },
-      { name: "ComedyNomad", followers: "4.0M Followers", image: "https://source.unsplash.com/100x100/?laugh,face" },
-      { name: "FunExplorer", followers: "1.5M Followers", image: "https://source.unsplash.com/100x100/?explorer,face" }
-    ],
-    [
-      { name: "NomadJoker", followers: "3.2M Followers", image: "https://source.unsplash.com/100x100/?joker,face" },
-      { name: "HumorGlider", followers: "2.9M Followers", image: "https://source.unsplash.com/100x100/?humor,face" },
-      { name: "GiggleTrekkers", followers: "2.7M Followers", image: "https://source.unsplash.com/100x100/?trekker,face" },
-      { name: "RoamLaughs", followers: "3.5M Followers", image: "https://source.unsplash.com/100x100/?roam,face" }
-    ]
+      [
+          { name: "ghantaa", followers: "8.8M Followers", image: "./images/Profile_section_img/ghanta.jpg" },
+          { name: "laughtercolours", followers: "4.4M Followers", image: "./images/Profile_section_img/laughtercolours.jpg" },
+          { name: "adultsociety", followers: "7.3M Followers", image: "./images/Profile_section_img/adultsociety.jpg" },
+          { name: "trolls_official", followers: "10.6M Followers", image: "./images/Profile_section_img/trolls_official.jpg" },
+          { name: "_adultgram_", followers: "5.5M Followers", image: "./images/Profile_section_img/Adultgram.jpg" }
+      ],
+      [
+          { name: "worldcinemalife", followers: "439k Followers", image: "./images/Profile_section_img/world_cinema.jpg" },
+          { name: "relatablehaiboss", followers: "565k Followers", image: "./images/Profile_section_img/relatable.jpg" },
+          { name: "popinions", followers: "1M Followers", image: "./images/Profile_section_img/popIn.jpg" },
+          { name: "the.indian.films", followers: "935k Followers", image: "./images/Profile_section_img/the_indian_film.jpg" },
+          { name: "thescribbledstories", followers: "5.1M Followers", image: "./images/Profile_section_img/scribled_strories.jpg" }
+      ],
+      [
+          { name: "classywomenn", followers: "1.2M Followers", image: "./images/Profile_section_img/classy_women.jpg" },
+          { name: "Real.Woman.", followers: "1.7M Followers", image: "./images/Profile_section_img/Rw.jpg" },
+          { name: "Sarifgirls", followers: "630k Followers", image: "./images/Profile_section_img/sarif_Girls.jpg" },
+          { name: "thewomanempire", followers: "521k Followers", image: "./images/Profile_section_img/womanEmpire.jpg" },
+          { name: "The.Girls.Kingdom", followers: "508k Followers", image: "./images/Profile_section_img/girl_kingdom.jpg" }
+      ],
+      [
+          { name: "indiastalents", followers: "1M Followers", image: "./images/Profile_section_img/indiaTalent.jpg" },
+          { name: "Wakeupdansin ", followers: "660k Followers", image: "./images/Profile_section_img/wakeup.jpg" },
+          { name: "singing__lovers__", followers: "508k Followers", image: "./images/Profile_section_img/singing_lover.jpg" },
+          { name: "Thesingercafe", followers: "478k Followers", image: "./images/Profile_section_img/singer_cafe.jpg" },
+          { name: "randommusicrecommendation", followers: "3.5M Followers", image: "./images/Profile_section_img/girl_kingdom.jpg" }
+      ],
+      [
+          { name: "Rebellouz edits", followers: "403k Followers", image: "./images/Profile_section_img/fox.jpg" },
+          { name: "lofii.ediitz", followers: "307k Followers", image: "./images/Profile_section_img/lofii.jpg" },
+          { name: "crazyycrossovers", followers: "113k Followers", image: "./images/Profile_section_img/crazyycrossovers.jpg" },
+          { name: "infiniteeditsss_", followers: "100k Followers", image: "./images/Profile_section_img/infinite.jpg" },
+          { name: "emptiness_xd", followers: "1.1M Followers", image: "./images/Profile_section_img/emptiness.jpg" }
+      ],
   ];
 
   function updateProfileCards(index) {
-    const selectedProfiles = profiles[index % profiles.length];
+      const selectedProfiles = profiles[index % profiles.length];
 
-    profileCards.forEach((card, i) => {
-      if (selectedProfiles[i]) {
-        card.classList.remove('active');
-        card.classList.add('exit');
+      profileCards.forEach((card, i) => {
+          if (selectedProfiles[i]) {
+              card.classList.remove('active');
+              card.classList.add('exit');
 
-        setTimeout(() => {
-          card.querySelector(".profile-image img").src = selectedProfiles[i].image;
-          card.querySelector(".profile-name").textContent = selectedProfiles[i].name;
-          card.querySelector(".profile-followers").textContent = selectedProfiles[i].followers;
+              setTimeout(() => {
+                  card.querySelector(".profile-image img").src = selectedProfiles[i].image;
+                  card.querySelector(".profile-name").textContent = selectedProfiles[i].name;
+                  card.querySelector(".profile-followers").textContent = selectedProfiles[i].followers;
 
-          card.classList.remove('exit');
-          card.classList.add('enter');
+                  card.classList.remove('exit');
+                  card.classList.add('enter');
 
-          setTimeout(() => {
-            card.classList.remove('enter');
-            card.classList.add('active');
-          }, 500);
-        }, 500);
-      }
-    });
+                  setTimeout(() => {
+                      card.classList.remove('enter');
+                      card.classList.add('active');
+                  }, 500);
+              }, 500);
+          }
+      });
   }
 
   function initializeCards() {
-    cards[currentIndex].classList.add('active');
-    cards[(currentIndex + 1) % cards.length].classList.add('prev');
-    cards[(currentIndex + 2) % cards.length].classList.add('next');
-    updateProfileCards(currentIndex);
-    startAutoSlide();
+      cards[currentIndex].classList.add('active');
+      cards[(currentIndex + 1) % cards.length].classList.add('prev');
+      cards[(currentIndex + 2) % cards.length].classList.add('next');
+      updateProfileCards(currentIndex);
+      startAutoSlide();
   }
 
   function updateCards(direction) {
-    if (isAnimating) return;
-    isAnimating = true;
-    stopAutoSlide();
+      if (isAnimating) return;
+      isAnimating = true;
+      stopAutoSlide();
 
-    const currentCard = cards[currentIndex];
-    const nextIndex = direction === 'next'
-      ? (currentIndex + 1) % cards.length
-      : (currentIndex - 1 + cards.length) % cards.length;
-    const nextCard = cards[nextIndex];
+      const currentCard = cards[currentIndex];
+      const nextIndex = direction === 'next'
+          ? (currentIndex + 1) % cards.length
+          : (currentIndex - 1 + cards.length) % cards.length;
+      const nextCard = cards[nextIndex];
 
-    cards.forEach(card => {
-      card.classList.remove('active', 'prev', 'next');
-    });
+      cards.forEach(card => {
+          card.classList.remove('active', 'prev', 'next');
+      });
 
-    if (direction === 'next') {
-      currentCard.classList.add('slide-next-out');
-      nextCard.classList.add('slide-next-in');
-    } else {
-      currentCard.classList.add('slide-prev-out');
-      nextCard.classList.add('slide-prev-in');
-    }
-
-    setTimeout(() => {
-      nextCard.classList.remove(direction === 'next' ? 'slide-next-in' : 'slide-prev-in');
-      nextCard.classList.add('active');
-
-      currentIndex = nextIndex;
-
-      cards[(currentIndex + 1) % cards.length].classList.add('prev');
-      cards[(currentIndex + 2) % cards.length].classList.add('next');
-
-      updateProfileCards(currentIndex);
+      if (direction === 'next') {
+          currentCard.classList.add('slide-next-out');
+          nextCard.classList.add('slide-next-in');
+      } else {
+          currentCard.classList.add('slide-prev-out');
+          nextCard.classList.add('slide-prev-in');
+      }
 
       setTimeout(() => {
-        currentCard.classList.remove(direction === 'next' ? 'slide-next-out' : 'slide-prev-out');
-        isAnimating = false;
-      }, 600);
+          nextCard.classList.remove(direction === 'next' ? 'slide-next-in' : 'slide-prev-in');
+          nextCard.classList.add('active');
 
-      startAutoSlide();
-    }, 50);
+          currentIndex = nextIndex;
+
+          cards[(currentIndex + 1) % cards.length].classList.add('prev');
+          cards[(currentIndex + 2) % cards.length].classList.add('next');
+
+          updateProfileCards(currentIndex);
+
+          setTimeout(() => {
+              currentCard.classList.remove(direction === 'next' ? 'slide-next-out' : 'slide-prev-out');
+              isAnimating = false;
+          }, 600);
+
+          startAutoSlide();
+      }, 50);
   }
 
   function startAutoSlide() {
-    autoSlideInterval = setInterval(() => {
-      updateCards('next');
-    }, 5000);
+      autoSlideInterval = setInterval(() => {
+          updateCards('next');
+      }, 5000);
   }
 
   function stopAutoSlide() {
-    clearInterval(autoSlideInterval);
+      clearInterval(autoSlideInterval);
   }
 
   nextBtn.addEventListener('click', () => updateCards('next'));
@@ -754,25 +914,25 @@ document.addEventListener('DOMContentLoaded', function () {
   let touchEndX = 0;
 
   document.addEventListener('touchstart', e => {
-    touchStartX = e.touches[0].clientX;
+      touchStartX = e.touches[0].clientX;
   });
 
   document.addEventListener('touchend', e => {
-    touchEndX = e.changedTouches[0].clientX;
-    handleSwipe();
+      touchEndX = e.changedTouches[0].clientX;
+      handleSwipe();
   });
 
   function handleSwipe() {
-    const swipeThreshold = 50;
-    const swipeDistance = touchEndX - touchStartX;
+      const swipeThreshold = 50;
+      const swipeDistance = touchEndX - touchStartX;
 
-    if (Math.abs(swipeDistance) > swipeThreshold) {
-      if (swipeDistance > 0) {
-        updateCards('prev');
-      } else {
-        updateCards('next');
+      if (Math.abs(swipeDistance) > swipeThreshold) {
+          if (swipeDistance > 0) {
+              updateCards('prev');
+          } else {
+              updateCards('next');
+          }
       }
-    }
   }
 
   initializeCards();
