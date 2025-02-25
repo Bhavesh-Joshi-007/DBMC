@@ -226,10 +226,14 @@ nav {
   align-items: center;
   justify-content: center;
   width: 150px;
-  height: 50px;
   border-radius: 5px;
+  margin-top: 21px;
 }
+.dbmc-logo img {
+  width: 200px;
+  height: 200px;
 
+}
 .nav-linked {
   display: flex;
   gap: 1.5rem;
@@ -261,6 +265,54 @@ nav {
 
 .nav-linked {
   display: flex;
+}
+
+@media (max-width: 1024px){
+  .nav-linked a{
+    font-size: 1rem;
+  }
+}
+@media (max-width: 1015px){
+  .nav-linked a{
+    font-size: 1rem;
+  }
+}
+@media (max-width: 933px){
+  .nav-linked a{
+    font-size: 0.89rem;
+  }
+}
+@media (max-width: 935px){
+  .nav-linked a{
+    font-size: 0.89rem;
+  }
+}
+@media (max-width: 884px){
+  .nav-linked{
+    gap: 1rem;
+  }
+  .nav-linked a{
+    font-size: 0.79rem;
+    gap: 10px;
+  }
+}
+@media (max-width: 800px){
+  .nav-linked{
+    gap: 1rem;
+  }
+  .nav-linked a{
+    font-size: 0.75rem;
+    gap: 10px;
+  }
+}
+@media (max-width: 795px){
+  .nav-linked{
+    gap: 1rem;
+  }
+  .nav-linked a{
+    font-size: 0.69rem;
+    gap: 10px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -308,13 +360,21 @@ nav {
 
   .dbmc-logo {
     position: absolute;
-    top: 25px;
-    left: 0;
+    left: 19px;
+  }
+  .dbmc-logo img{
+    width: 150px;
+    height: 150px;
   }
 
   .menu-opener {
-    display: block;
-    cursor: pointer;
+    display: block !important; /* Ensure it is forced to be visible */
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 999; /* Ensure it's above other elements */
+    font-size: 24px;
+    color: white;
   }
 
   .menu-opener .close-icon {
@@ -341,8 +401,8 @@ nav {
   }
 
   .dbmc-logo img {
-    width: 152px;
-    height: 68px;
+    width: 146px;
+        height: 136px;
   }
 }
 
@@ -360,8 +420,23 @@ nav {
   .nav-linked {
     gap: 0.88rem;
   }
+  .dbmc-logo {
+    width: 66px;
+    height: 25px;
+  }
+
+  .dbmc-logo img {
+    width: 112px;
+    height: 111px;
+  }
 }
 
+@media (max-width: 580px){
+  .nav-linked a{
+    font-size: 0.93rem;
+    gap: 10px;
+  }
+}
 
 /* main contaier hero section  */
 
@@ -428,6 +503,7 @@ nav {
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
+  object-fit: contain;
   height: 3em;
   z-index: 1;
   width: 0;
@@ -2714,23 +2790,11 @@ html {
   margin: 0 auto;
 }
 
-.logo-section {
-  display: flex;
-  flex-direction: column;
-}
-
-.logo {
-  font-family: serif;
-  font-style: italic;
-  font-weight: bold;
-  font-size: 24px;
-  color: white;
-  margin-bottom: 20px;
-}
-
-.logo span {
-  font-weight: normal;
-}
+  .logo-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
 
 .footer-text {
   font-size: 14px;
@@ -2783,9 +2847,14 @@ html {
 }
 
 .footer-logo {
-  height: 85px;
-  position: relative;
-  right: 30px;
+  max-height: 62px;
+    position: relative;
+    right: 20px;
+    bottom: 38px;
+}
+.footer-logo img{
+  height: 174px;
+  width: 174px;
 }
 
 .footer-btn-wrap a {
