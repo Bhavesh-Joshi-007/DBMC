@@ -3419,7 +3419,7 @@ html {
   display: flex;
   align-items: center;
   gap: 2px;
-  background: #f0f0f0; 
+  background: #ffffff; 
   border-radius: 12px; 
   overflow: hidden; 
   height: 110px; 
@@ -3429,7 +3429,16 @@ html {
   visibility: hidden; 
   transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out, visibility 0.5s ease-in-out; 
 }
-
+.fifth_card{
+  position: relative;
+  left: 120px;
+}
+@media (max-width: 500px){
+  .fifth_card{
+    position: relative;
+    left: 0px;
+  }
+}
 .profile-image {
   width: 70px; 
   height: 70px; 
