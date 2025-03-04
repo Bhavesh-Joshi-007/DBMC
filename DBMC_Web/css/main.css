@@ -84,6 +84,17 @@ optgroup {
 /* preloader css  */
 
 
+
+
+/* .pre-loader {
+  z-index: 9999;
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  background-color: #111;
+  color: white;
+} */
+
 .preloader-main {
   font-family: 'Anton';
   width: 100%;
@@ -91,13 +102,38 @@ optgroup {
 
 .pre-loader {
   z-index: 9999;
-  /* display: none; */
   position: absolute;
   width: 100%;
   height: 100vh;
   background-color: #111;
   color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; 
 }
+
+
+/* .preloader-video {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+} */
+
+/* .orange {
+  z-index: 999;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  height: 0%;
+  background-color: rgb(232, 140, 48);
+} */
+
+
 
 .pre-loader .pre-top_heading {
   position: absolute;
@@ -113,7 +149,6 @@ optgroup {
 }
 
 .pre-reveal .parent {
-  /* background-color: #97a3f3; */
   width: 100%;
   display: flex;
   justify-content: center;
@@ -154,6 +189,7 @@ optgroup {
   height: 0;
   background-color: rgb(232, 140, 48);
 }
+
 
 
 @media (max-width: 1024px) {
@@ -1617,6 +1653,7 @@ html {
   font-size: 26px;
   line-height: 28px;
   position: relative;
+  top: 16px;
   display: block;
   -webkit-transition: all 0.4s ease;
   -o-transition: all 0.4s ease;
@@ -2203,12 +2240,8 @@ html {
 }
 
 /* ------ our-team-section css ----------- */
-.our-team-section {
-  font-family: "Anton";
-  position: relative;
-  padding: 115px 0 0;
-}
 
+/* 
 @media (max-width: 1499px) {
   .our-team-section {
     padding: 85px 0 0;
@@ -2254,6 +2287,84 @@ html {
   display: block;
   width: 100%;
   height: auto;
+} */
+
+/* Video Section */
+.dbmc-gif {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+  background-color: #000;
+}
+
+/* Video Container */
+/* .video-container {
+  width: 80%;
+  max-width: 900px; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.video-container video {
+  width: 100%;
+  height: auto;
+  object-fit: cover; 
+  border-radius: 10px; 
+} */
+
+.video-container {
+  position: relative;
+  width: 80%;
+  max-width: 900px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.video-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.video-container video {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  position: relative;
+  z-index: 2;
+  /* filter: sepia(10%) hue-rotate(200deg) brightness(1); */
+
+}
+
+
+/* 🔹 Responsive Adjustments */
+@media (max-width: 1024px) {
+  .video-container {
+    width: 90%;
+  }
+}
+
+@media (max-width: 768px) {
+  .video-container {
+    width: 95%;
+  }
+}
+
+@media (max-width: 480px) {
+  .video-container {
+    width: 100%;
+    padding: 0 10px; /* Add padding for small screens */
+  }
 }
 
 
@@ -2354,7 +2465,7 @@ html {
   left: 20%;
   flex: 0 0 55%;
   scroll-snap-align: center;
-  width: 75%;
+  width: 65%;
   padding: 0 33px;
   margin: 0 0 55px;
 }
@@ -2389,9 +2500,8 @@ html {
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  font-size: 15px;
-  height: 90%;
-  font: 500 15px/20px "Poppins", sans-serif;
+  font-size: 20px;
+  height: 85%;
 }
 
 .article-services.bg-green {
@@ -2408,6 +2518,9 @@ html {
 
 .article-services.bg-pink {
   background: #97a3f3;
+}
+.article-services.bg-vilot {
+  background: #7054b8;
 }
 
 .article-services.bg-yellow {
@@ -2610,8 +2723,11 @@ html {
 
 /*---------- why dbmc css -------------- */
 .pioneers-sections {
+  /* background-color: #1877F2; */
   width: 100vw;
-  padding: 40px 5%;
+  height: auto;
+  padding-top: 100px;
+  padding: 0px 5%;
 }
 
 .article-pioneers {
@@ -2644,6 +2760,8 @@ html {
   flex: 3;
   font-size: 1.5rem;
   line-height: 1.4;
+  position: relative;
+   bottom: 54px;
 }
 
 /* Image Container */
@@ -2660,6 +2778,8 @@ html {
   width: 100%;
   max-width: 300px;
   height: auto;
+  position: relative;
+    bottom: 56px;
 }
 
 /* Responsive Adjustments */
@@ -2670,6 +2790,10 @@ html {
 
   .why_dbmc_para {
     font-size: 1.3rem;
+    bottom: 0;
+  }
+  .bunny_img{
+    bottom: 0;
   }
 }
 
@@ -2777,6 +2901,7 @@ html {
 
 
 .footer {
+  font-family: 'Anton';
   color: #6c7279;
   padding: 60px 40px 20px;
   width: 100%;
@@ -2801,6 +2926,9 @@ html {
   line-height: 1.5;
   color: #6c7279;
   max-width: 350px;
+}
+.footer_txt{
+  font-size: 20px;
 }
 
 .footer-heading {
@@ -2898,6 +3026,21 @@ html {
 .social-icons a {
   text-decoration: none;
 }
+.ri-twitter-fill:hover{
+  color: #1DA1F2;
+}
+.ri-linkedin-fill:hover{
+  color: #0077B5;
+}
+.ri-instagram-fill:hover{
+  color: #E4405F;
+}
+.ri-facebook-fill:hover{
+  color: #1877F2;
+}
+.ri-discord-fill:hover{
+  color: #7289DA;
+}
 
 /* Responsive adjustments */
 @media (max-width: 800px) {
@@ -2933,6 +3076,12 @@ html {
 }
 
 /* ----------Our Buddies ---------- */
+
+.buddies_container{
+  position: relative;
+  bottom: 80px;
+}
+
 
 .head_buddies {
   position: relative;
@@ -3062,6 +3211,7 @@ html {
   bottom: 0;
   background: rgba(57, 55, 55, 0.85);
   z-index: 0;
+  border-radius: 12px;
 }
 
 .testimonial-card.active {
@@ -3246,131 +3396,84 @@ html {
     right: 30px;
   }
 }
+/* profile css  */
 
-
-.profile_main_container {
+.profile-container {
   width: 100%;
-  max-width: 600px;
-  margin-top: 20px;
+  max-width: 600px; /* Adjust as needed */
+  margin: 20px auto;
   position: relative;
-
 }
 
-.profiles-section {
+/* Profile Cards Grid Layout */
+.profile-cards-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(194px, 2fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px; /* Space between cards */
   justify-content: center;
-  width: 100%;
   padding: 20px;
-  position: relative;
 }
+
 
 .profile-card {
-  background: white;
-  border-radius: 12px;
-  padding: 2rem 1rem;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  text-align: center;
-  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  gap: 2px;
+  background: #f0f0f0; 
+  border-radius: 12px; 
+  overflow: hidden; 
+  height: 110px; 
   position: relative;
-  opacity: 0;
-  /* Start with opacity 0 */
-  transform: translateY(-100%);
-  /* Start from the top */
-}
-
-.profile-card.active {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.profile-card.exit {
-  opacity: 0;
-  transform: translateY(100%);
-}
-
-.profile-card.enter {
-  opacity: 0;
-  transform: translateY(-100%);
+  opacity: 0; 
+  transform: translateY(-100%); 
+  visibility: hidden; 
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out, visibility 0.5s ease-in-out; 
 }
 
 .profile-image {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
+  width: 70px; 
+  height: 70px; 
+  border-radius: 50%; 
   overflow: hidden;
-  position: absolute;
-  top: -20px;
-  left: 50%;
-  transform: translateX(-50%);
-  border: 2px solid black;
+  border: 4px solid #fff; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+  margin-left: 2px; 
 }
 
 .profile-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  border-radius: 50%;
+  object-fit: cover; 
 }
 
-.profile-info {
-  margin-top: 20px;
+.background-image {
+  flex: 1; 
+  height: 100%; 
+  background-repeat: no-repeat;
+  background-size: contain; 
+  background-position:center; 
+  border-radius: 0 12px 12px 0; 
 }
 
-.profile-name {
-  color: black;
-  font-size: 1rem;
-  font-weight: bold;
+.profile-card.active {
+  opacity: 1; 
+  transform: translateY(0); 
+  visibility: visible; 
 }
 
-.profile-followers {
-  font-size: 0.9rem;
-  color: #666;
+.profile-card.exit {
+  opacity: 0;
+  transform: translateY(100%); 
+  visibility: hidden; 
 }
 
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .card_section {
-    flex-direction: column;
-    padding: -1px;
-  }
-
-  .slider-container {
-    width: 100%;
-    max-width: 100%;
-    padding: 15px;
-  }
-
-  .testimonial-stack {
-    height: 350px;
-  }
-
-  .profile_main_container {
-    max-width: 100%;
-  }
+.profile-card.enter {
+  opacity: 0; 
+  transform: translateY(-100%); 
+  visibility: hidden; 
 }
-
-@media (max-width: 480px) {
-  .testimonial-stack {
-    height: 300px;
-  }
-
-  .profiles-section {
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  }
-
-  .profile-card {
-    padding: 1.5rem 0.5rem;
-  }
-}
-
 
 /* client css  */
-
 
 .clients-section {
   position: relative;
@@ -3473,7 +3576,7 @@ html {
   display: inline-block;
   vertical-align: top;
   width: 80px;
-  margin: -40px 0 0 40px;
+  margin:-11px 0 0 -9px;
 }
 
 @media (max-width: 1023px) {
@@ -3493,6 +3596,7 @@ html {
   width: 100%;
   height: auto;
   vertical-align: top;
+  
 }
 
 .slider {
@@ -4017,13 +4121,6 @@ body.no-scroll {
   transform: translate(2px, -3px);
 }
 
-/* .popup-form-heading {
-  font-size: 30px;
-  line-height: 1.1;
-  margin-bottom: 5px;
-  font-weight: bold;
-  text-transform: uppercase;
-} */
 .popup-form-heading {
   font-size: 24px;
   text-align: center;
@@ -4071,6 +4168,7 @@ body.no-scroll {
 }
 
 .popup-select-container h2 {
+  font-family: 'Anton';
   width: 95%;
   padding-bottom: 3px;
   border-bottom: 1px solid rgb(110, 108, 108);
@@ -4239,6 +4337,7 @@ input[type="password"] {
   outline: none;
   border: 1px solid #6c6868;
   background: none;
+  font-family: "Anton";
 }
 
 @media (max-width: 1499px) {
@@ -4293,11 +4392,12 @@ input::placeholder {
 
 /* price section  */
 .price_section {
+  /* background-color: #1DA1F2; */
   font-family: "Anton";
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0rem 1rem;
+  /* padding: 0rem 1rem; */
 }
 
 .price-header {

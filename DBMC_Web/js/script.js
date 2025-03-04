@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
       },
       0.2 // Delay
     );
-    
+
     tl.fromTo(
       ".right-content",
       { x: "100%", opacity: 0 }, // Right content starts from the right
@@ -260,8 +260,8 @@ window.addEventListener("scroll", () => {
   }
 });
 
-// case staduy carousel effect 
 
+// case staduy carousel effect 
 const swiper = new Swiper('.swiper-container', {
   slidesPerView: 3,
   spaceBetween: 30,
@@ -282,50 +282,68 @@ const swiper = new Swiper('.swiper-container', {
     1024: {
       slidesPerView: 3,
       spaceBetween: 30,
-      on: {
-        init: function () {
-          console.log('Breakpoint: 1024px - 3 slides per view');
-        },
-      },
     },
     768: {
       slidesPerView: 2,
       spaceBetween: 20,
-      on: {
-        init: function () {
-          console.log('Breakpoint: 768px - 2 slides per view');
-        },
-      },
     },
     480: {
       slidesPerView: 1,
       spaceBetween: 10,
-      on: {
-        init: function () {
-          console.log('Breakpoint: 480px - 1 slide per view');
-        },
-      },
     },
     390: {
       slidesPerView: 1,
       spaceBetween: 10,
-      on: {
-        init: function () {
-          console.log('Breakpoint: 480px - 1 slide per view');
-        },
-      },
     },
     260: {
       slidesPerView: 1,
       spaceBetween: 10,
-      on: {
-        init: function () {
-          console.log('Breakpoint: 480px - 1 slide per view');
-        },
-      },
     },
   },
 });
+
+const showcaseBlocks = document.querySelectorAll(".showcase-block");
+
+// Function to open popup and stop Swiper autoplay
+function openPopup(image) {
+  const targetPopupId = image.getAttribute("data-target");
+  const popup = document.querySelector(targetPopupId);
+  if (popup) {
+    document.querySelectorAll(".popup-holder").forEach(p => {
+      p.style.display = "none";
+    });
+    popup.style.display = "block";
+    
+    // Stop Swiper autoplay when popup opens
+    swiper.autoplay.stop();
+  }
+}
+
+// Attach click event to each showcase block image
+showcaseBlocks.forEach(block => {
+  const image = block.querySelector("img");
+  if (image) {
+    image.addEventListener("click", () => {
+      openPopup(image);
+    });
+  }
+});
+
+// Close popup when clicking outside & restart Swiper autoplay
+document.addEventListener("click", (e) => {
+  const isPopupClick = e.target.closest(".popup-holder");
+  const isImageClick = e.target.closest(".showcase-block img");
+
+  if (!isPopupClick && !isImageClick) {
+    document.querySelectorAll(".popup-holder").forEach(popup => {
+      popup.style.display = "none";
+    });
+
+    // Restart Swiper autoplay when popup closes
+    swiper.autoplay.start();
+  }
+});
+
 
 //------ service expert js ---------
 
@@ -369,43 +387,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // Refresh AOS if you're using it
   AOS.refresh();
 });
-
-
-//----------- popup holder js ---------------
-
-const showcaseBlocks = document.querySelectorAll(".showcase-block");
-
-function openPopup(image) {
-  const targetPopupId = image.getAttribute("data-target");
-  const popup = document.querySelector(targetPopupId);
-  if (popup) {
-    document.querySelectorAll(".popup-holder").forEach(p => {
-      p.style.display = "none";
-    });
-    popup.style.display = "block";
-  }
-}
-showcaseBlocks.forEach(block => {
-  const image = block.querySelector("img");
-  if (image) {
-    image.addEventListener("click", () => {
-      openPopup(image);
-    });
-  }
-});
-
-// Close popup when clicking outside
-document.addEventListener("click", (e) => {
-  const isPopupClick = e.target.closest(".popup-holder");
-  const isImageClick = e.target.closest(".showcase-block img");
-
-  if (!isPopupClick && !isImageClick) {
-    document.querySelectorAll(".popup-holder").forEach(popup => {
-      popup.style.display = "none";
-    });
-  }
-});
-
 
 // ---------------main form -----------
 
@@ -606,7 +587,9 @@ toggle.addEventListener('click', () => {
   });
 });
 
-// our buddies card carousel 
+
+//  our buddies js 
+
 // document.addEventListener('DOMContentLoaded', function () {
 //   const cards = document.querySelectorAll('.testimonial-card');
 //   const nextBtn = document.querySelector('.next');
@@ -619,39 +602,39 @@ toggle.addEventListener('click', () => {
 
 //   const profiles = [
 //     [
-//       { name: "ghantaa", followers: "2.3M Followers", image: "./image/demo_img1.jpg" },
-//       { name: "laughtercolours", followers: "3.1M Followers", image: "./image/img_2.jpeg" },
-//       { name: "adultsociety", followers: "2.5M Followers", image: "./image/demo_img1.jpg" },
-//       { name: "trolls_official", followers: "1.9M Followers", image: "./image/demo_img1.jpg" },
-//       { name: "_adultgram_", followers: "1.9M Followers", image: "./image/demo_img1.jpg" }
+//       { name: "ghantaa", followers: "8.8M Followers", image: "./images/Profile_section_img/ghanta.jpg" },
+//       { name: "laughtercolours", followers: "4.4M Followers", image: "./images/Profile_section_img/laughtercolours.jpg" },
+//       { name: "adultsociety", followers: "7.3M Followers", image: "./images/Profile_section_img/adultsociety.jpg" },
+//       { name: "trolls_official", followers: "10.6M Followers", image: "./images/Profile_section_img/trolls_official.jpg" },
+//       { name: "_adultgram_", followers: "5.5M Followers", image: "./images/Profile_section_img/Adultgram.jpg" }
 //     ],
 //     [
-//       { name: "HappyTravels", followers: "3.8M Followers", image: "https://source.unsplash.com/100x100/?happy,face" },
-//       { name: "GlobeTrotter", followers: "2.1M Followers", image: "https://source.unsplash.com/100x100/?smile,face" },
-//       { name: "ComedyNomad", followers: "4.0M Followers", image: "https://source.unsplash.com/100x100/?laugh,face" },
-//       { name: "FunExplorer", followers: "1.5M Followers", image: "https://source.unsplash.com/100x100/?explorer,face" },
-//       { name: "FunExplorer", followers: "1.5M Followers", image: "https://source.unsplash.com/100x100/?explorer,face" }
+//       { name: "worldcinemalife", followers: "439k Followers", image: "./images/Profile_section_img/world_cinema.jpg" },
+//       { name: "relatablehaiboss", followers: "565k Followers", image: "./images/Profile_section_img/relatable.jpg" },
+//       { name: "popinions", followers: "1M Followers", image: "./images/Profile_section_img/popIn.jpg" },
+//       { name: "the.indian.films", followers: "935k Followers", image: "./images/Profile_section_img/the_indian_film.jpg" },
+//       { name: "thescribbledstories", followers: "5.1M Followers", image: "./images/Profile_section_img/scribled_strories.jpg" }
 //     ],
 //     [
-//       { name: "NomadJoker", followers: "3.2M Followers", image: "https://source.unsplash.com/100x100/?joker,face" },
-//       { name: "HumorGlider", followers: "2.9M Followers", image: "https://source.unsplash.com/100x100/?humor,face" },
-//       { name: "GiggleTrekkers", followers: "2.7M Followers", image: "https://source.unsplash.com/100x100/?trekker,face" },
-//       { name: "RoamLaughs", followers: "3.5M Followers", image: "https://source.unsplash.com/100x100/?roam,face" },
-//       { name: "RoamLaughs", followers: "3.5M Followers", image: "https://source.unsplash.com/100x100/?roam,face" }
+//       { name: "classywomenn", followers: "1.2M Followers", image: "./images/Profile_section_img/classy_women.jpg" },
+//       { name: "Real.Woman.", followers: "1.7M Followers", image: "./images/Profile_section_img/Rw.jpg" },
+//       { name: "Sarifgirls", followers: "630k Followers", image: "./images/Profile_section_img/sarif_Girls.jpg" },
+//       { name: "thewomanempire", followers: "521k Followers", image: "./images/Profile_section_img/womanEmpire.jpg" },
+//       { name: "The.Girls.Kingdom", followers: "508k Followers", image: "./images/Profile_section_img/girl_kingdom.jpg" }
 //     ],
 //     [
-//       { name: "NomadJoker", followers: "3.2M Followers", image: "https://source.unsplash.com/100x100/?joker,face" },
-//       { name: "HumorGlider", followers: "2.9M Followers", image: "https://source.unsplash.com/100x100/?humor,face" },
-//       { name: "GiggleTrekkers", followers: "2.7M Followers", image: "https://source.unsplash.com/100x100/?trekker,face" },
-//       { name: "RoamLaughs", followers: "3.5M Followers", image: "https://source.unsplash.com/100x100/?roam,face" },
-//       { name: "RoamLaughs", followers: "3.5M Followers", image: "https://source.unsplash.com/100x100/?roam,face" }
+//       { name: "indiastalents", followers: "1M Followers", image: "./images/Profile_section_img/indiaTalent.jpg" },
+//       { name: "Wakeupdansin ", followers: "660k Followers", image: "./images/Profile_section_img/wakeup.jpg" },
+//       { name: "singing__lovers__", followers: "508k Followers", image: "./images/Profile_section_img/singing_lover.jpg" },
+//       { name: "Thesingercafe", followers: "478k Followers", image: "./images/Profile_section_img/singer_cafe.jpg" },
+//       { name: "randommusicrecommendation", followers: "3.5M Followers", image: "./images/Profile_section_img/girl_kingdom.jpg" }
 //     ],
 //     [
-//       { name: "NomadJoker", followers: "3.2M Followers", image: "https://source.unsplash.com/100x100/?joker,face" },
-//       { name: "HumorGlider", followers: "2.9M Followers", image: "https://source.unsplash.com/100x100/?humor,face" },
-//       { name: "GiggleTrekkers", followers: "2.7M Followers", image: "https://source.unsplash.com/100x100/?trekker,face" },
-//       { name: "RoamLaughs", followers: "3.5M Followers", image: "https://source.unsplash.com/100x100/?roam,face" },
-//       { name: "RoamLaughs", followers: "3.5M Followers", image: "https://source.unsplash.com/100x100/?roam,face" }
+//       { name: "Rebellouz edits", followers: "403k Followers", image: "./images/Profile_section_img/fox.jpg" },
+//       { name: "lofii.ediitz", followers: "307k Followers", image: "./images/Profile_section_img/lofii.jpg" },
+//       { name: "crazyycrossovers", followers: "113k Followers", image: "./images/Profile_section_img/crazyycrossovers.jpg" },
+//       { name: "infiniteeditsss_", followers: "100k Followers", image: "./images/Profile_section_img/infinite.jpg" },
+//       { name: "emptiness_xd", followers: "1.1M Followers", image: "./images/Profile_section_img/emptiness.jpg" }
 //     ],
 //   ];
 
@@ -772,7 +755,6 @@ toggle.addEventListener('click', () => {
 //   initializeCards();
 // });
 
-
 document.addEventListener('DOMContentLoaded', function () {
   const cards = document.querySelectorAll('.testimonial-card');
   const nextBtn = document.querySelector('.next');
@@ -783,157 +765,149 @@ document.addEventListener('DOMContentLoaded', function () {
   let isAnimating = false;
   let autoSlideInterval;
 
+  // Profile data containing profile images and background images for 5 cards
   const profiles = [
-      [
-          { name: "ghantaa", followers: "8.8M Followers", image: "./images/Profile_section_img/ghanta.jpg" },
-          { name: "laughtercolours", followers: "4.4M Followers", image: "./images/Profile_section_img/laughtercolours.jpg" },
-          { name: "adultsociety", followers: "7.3M Followers", image: "./images/Profile_section_img/adultsociety.jpg" },
-          { name: "trolls_official", followers: "10.6M Followers", image: "./images/Profile_section_img/trolls_official.jpg" },
-          { name: "_adultgram_", followers: "5.5M Followers", image: "./images/Profile_section_img/Adultgram.jpg" }
-      ],
-      [
-          { name: "worldcinemalife", followers: "439k Followers", image: "./images/Profile_section_img/world_cinema.jpg" },
-          { name: "relatablehaiboss", followers: "565k Followers", image: "./images/Profile_section_img/relatable.jpg" },
-          { name: "popinions", followers: "1M Followers", image: "./images/Profile_section_img/popIn.jpg" },
-          { name: "the.indian.films", followers: "935k Followers", image: "./images/Profile_section_img/the_indian_film.jpg" },
-          { name: "thescribbledstories", followers: "5.1M Followers", image: "./images/Profile_section_img/scribled_strories.jpg" }
-      ],
-      [
-          { name: "classywomenn", followers: "1.2M Followers", image: "./images/Profile_section_img/classy_women.jpg" },
-          { name: "Real.Woman.", followers: "1.7M Followers", image: "./images/Profile_section_img/Rw.jpg" },
-          { name: "Sarifgirls", followers: "630k Followers", image: "./images/Profile_section_img/sarif_Girls.jpg" },
-          { name: "thewomanempire", followers: "521k Followers", image: "./images/Profile_section_img/womanEmpire.jpg" },
-          { name: "The.Girls.Kingdom", followers: "508k Followers", image: "./images/Profile_section_img/girl_kingdom.jpg" }
-      ],
-      [
-          { name: "indiastalents", followers: "1M Followers", image: "./images/Profile_section_img/indiaTalent.jpg" },
-          { name: "Wakeupdansin ", followers: "660k Followers", image: "./images/Profile_section_img/wakeup.jpg" },
-          { name: "singing__lovers__", followers: "508k Followers", image: "./images/Profile_section_img/singing_lover.jpg" },
-          { name: "Thesingercafe", followers: "478k Followers", image: "./images/Profile_section_img/singer_cafe.jpg" },
-          { name: "randommusicrecommendation", followers: "3.5M Followers", image: "./images/Profile_section_img/girl_kingdom.jpg" }
-      ],
-      [
-          { name: "Rebellouz edits", followers: "403k Followers", image: "./images/Profile_section_img/fox.jpg" },
-          { name: "lofii.ediitz", followers: "307k Followers", image: "./images/Profile_section_img/lofii.jpg" },
-          { name: "crazyycrossovers", followers: "113k Followers", image: "./images/Profile_section_img/crazyycrossovers.jpg" },
-          { name: "infiniteeditsss_", followers: "100k Followers", image: "./images/Profile_section_img/infinite.jpg" },
-          { name: "emptiness_xd", followers: "1.1M Followers", image: "./images/Profile_section_img/emptiness.jpg" }
-      ],
+    [
+      { profileImage: "./images/Profile_section_img/ghanta.jpg", backgroundImage: "./images/bg_profileCard_img/ghanta.png" },
+      { profileImage: "./images/Profile_section_img/laughtercolours.jpg", backgroundImage: "./images/bg_profileCard_img/loughterColors.png" },
+      { profileImage: "./images/Profile_section_img/adultsociety.jpg", backgroundImage: "./images/bg_profileCard_img/adultsociety.png" },
+      { profileImage: "./images/Profile_section_img/trolls_official.jpg", backgroundImage: "./images/bg_profileCard_img/troll_official.png" },
+      { profileImage: "./images/Profile_section_img/adultgram.jpg", backgroundImage: "./images/bg_profileCard_img/adultgram.png" }
+    ],
+    [
+      { profileImage: "./images/Profile_section_img/world_cinema.jpg", backgroundImage: "./images/bg_profileCard_img/world_cinema.png" },
+      { profileImage: "./images/Profile_section_img/relatable.jpg", backgroundImage: "./images/bg_profileCard_img/relatable.png" },
+      { profileImage: "./images/Profile_section_img/popIn.jpg", backgroundImage: "./images/bg_profileCard_img/popins.png" },
+      { profileImage: "./images/Profile_section_img/the_indian_film.jpg", backgroundImage: "./images/bg_profileCard_img/indiafilm.png" },
+      { profileImage: "./images/Profile_section_img/scribled_strories.jpg", backgroundImage: "./images/bg_profileCard_img/scribled.png" }
+    ],
+    [
+      { profileImage: "./images/Profile_section_img/classy_women.jpg", backgroundImage: "./images/bg_profileCard_img/classyWomen.png" },
+      { profileImage: "./images/Profile_section_img/Rw.jpg", backgroundImage: "./images/bg_profileCard_img/real_women.png" },
+      { profileImage: "./images/Profile_section_img/sarif_Girls.jpg", backgroundImage: "./images/bg_profileCard_img/sarifGril.png" },
+      { profileImage: "./images/Profile_section_img/womanEmpire.jpg", backgroundImage: "./images/bg_profileCard_img/women_empire.png" },
+      { profileImage: "./images/Profile_section_img/girl_kingdom.jpg", backgroundImage: "./images/bg_profileCard_img/girl_Kingdom.png" }
+    ],
+    [
+      { profileImage: "./images/Profile_section_img/indiaTalent.jpg", backgroundImage: "./images/bg_profileCard_img/india_talent.png" },
+      { profileImage: "./images/Profile_section_img/wakeup.jpg", backgroundImage: "./images/bg_profileCard_img/wake_up.png" },
+      { profileImage: "./images/Profile_section_img/singing_lover.jpg", backgroundImage: "./images/bg_profileCard_img/singing_lover.png" },
+      { profileImage: "./images/Profile_section_img/singer_cafe.jpg", backgroundImage: "./images/bg_profileCard_img/singerCafe.png" },
+      { profileImage: "./images/Profile_section_img/girl_kingdom.jpg", backgroundImage: "./images/bg_profileCard_img/indianIdot.png" }
+    ],
+    [
+      { profileImage: "./images/Profile_section_img/fox.jpg", backgroundImage: "./images/bg_profileCard_img/fox.png" },
+      { profileImage: "./images/Profile_section_img/lofii.jpg", backgroundImage: "./images/bg_profileCard_img/lofi.png" },
+      { profileImage: "./images/Profile_section_img/crazyycrossovers.jpg", backgroundImage: "./images/bg_profileCard_img/crazy.png" },
+      { profileImage: "./images/Profile_section_img/infinite.jpg", backgroundImage: "./images/bg_profileCard_img/infinite.png" },
+      { profileImage: "./images/Profile_section_img/emptiness.jpg", backgroundImage: "./images/bg_profileCard_img/emptiness.png" }
+    ],
+
   ];
 
+  // Function to update the profile cards with the current set of profiles
   function updateProfileCards(index) {
-      const selectedProfiles = profiles[index % profiles.length];
+    const selectedProfiles = profiles[index % profiles.length];
 
-      profileCards.forEach((card, i) => {
-          if (selectedProfiles[i]) {
-              card.classList.remove('active');
-              card.classList.add('exit');
+    profileCards.forEach((card, i) => {
+      if (selectedProfiles[i]) {
+        // Add exit animation to the current active card
+        if (card.classList.contains('active')) {
+          card.classList.remove('active');
+          card.classList.add('exit');
+        }
 
-              setTimeout(() => {
-                  card.querySelector(".profile-image img").src = selectedProfiles[i].image;
-                  card.querySelector(".profile-name").textContent = selectedProfiles[i].name;
-                  card.querySelector(".profile-followers").textContent = selectedProfiles[i].followers;
+        // Update the profile image and background image
+        const profileImage = card.querySelector(".profile-image img");
+        const backgroundImage = card.querySelector(".background-image");
 
-                  card.classList.remove('exit');
-                  card.classList.add('enter');
+        profileImage.src = selectedProfiles[i].profileImage;
+        backgroundImage.style.backgroundImage = `url(${selectedProfiles[i].backgroundImage})`;
 
-                  setTimeout(() => {
-                      card.classList.remove('enter');
-                      card.classList.add('active');
-                  }, 500);
-              }, 500);
-          }
-      });
+        // Add a delay to allow the exit animation to complete before starting the enter animation
+        setTimeout(() => {
+          card.classList.remove('exit');
+          card.classList.add('enter');
+
+          // After the enter animation completes, remove the enter class and add active
+          setTimeout(() => {
+            card.classList.remove('enter');
+            card.classList.add('active');
+          }, 500); // Adjust the delay to match the duration of the enter animation
+        }, 500); // Adjust the delay to match the duration of the exit animation
+      }
+    });
   }
 
+  // Function to initialize the cards
   function initializeCards() {
-      cards[currentIndex].classList.add('active');
+    cards[currentIndex].classList.add('active');
+    cards[(currentIndex + 1) % cards.length].classList.add('prev');
+    cards[(currentIndex + 2) % cards.length].classList.add('next');
+    updateProfileCards(currentIndex); // Initialize profile section with the first set of 5 cards
+    startAutoSlide(); // Start auto-slide
+  }
+
+  // Function to update the cards when next/prev is clicked
+  function updateCards(direction) {
+    if (isAnimating) return;
+    isAnimating = true;
+    stopAutoSlide(); // Stop auto-slide during manual navigation
+
+    const currentCard = cards[currentIndex];
+    const nextIndex = direction === 'next'
+      ? (currentIndex + 1) % cards.length
+      : (currentIndex - 1 + cards.length) % cards.length;
+    const nextCard = cards[nextIndex];
+
+    cards.forEach(card => {
+      card.classList.remove('active', 'prev', 'next');
+    });
+
+    if (direction === 'next') {
+      currentCard.classList.add('slide-next-out');
+      nextCard.classList.add('slide-next-in');
+    } else {
+      currentCard.classList.add('slide-prev-out');
+      nextCard.classList.add('slide-prev-in');
+    }
+
+    setTimeout(() => {
+      nextCard.classList.remove(direction === 'next' ? 'slide-next-in' : 'slide-prev-in');
+      nextCard.classList.add('active');
+
+      currentIndex = nextIndex;
+
       cards[(currentIndex + 1) % cards.length].classList.add('prev');
       cards[(currentIndex + 2) % cards.length].classList.add('next');
-      updateProfileCards(currentIndex);
-      startAutoSlide();
-  }
 
-  function updateCards(direction) {
-      if (isAnimating) return;
-      isAnimating = true;
-      stopAutoSlide();
-
-      const currentCard = cards[currentIndex];
-      const nextIndex = direction === 'next'
-          ? (currentIndex + 1) % cards.length
-          : (currentIndex - 1 + cards.length) % cards.length;
-      const nextCard = cards[nextIndex];
-
-      cards.forEach(card => {
-          card.classList.remove('active', 'prev', 'next');
-      });
-
-      if (direction === 'next') {
-          currentCard.classList.add('slide-next-out');
-          nextCard.classList.add('slide-next-in');
-      } else {
-          currentCard.classList.add('slide-prev-out');
-          nextCard.classList.add('slide-prev-in');
-      }
+      updateProfileCards(currentIndex); // Update profile section with the next set of 5 cards
 
       setTimeout(() => {
-          nextCard.classList.remove(direction === 'next' ? 'slide-next-in' : 'slide-prev-in');
-          nextCard.classList.add('active');
+        currentCard.classList.remove(direction === 'next' ? 'slide-next-out' : 'slide-prev-out');
+        isAnimating = false;
+      }, 600);
 
-          currentIndex = nextIndex;
-
-          cards[(currentIndex + 1) % cards.length].classList.add('prev');
-          cards[(currentIndex + 2) % cards.length].classList.add('next');
-
-          updateProfileCards(currentIndex);
-
-          setTimeout(() => {
-              currentCard.classList.remove(direction === 'next' ? 'slide-next-out' : 'slide-prev-out');
-              isAnimating = false;
-          }, 600);
-
-          startAutoSlide();
-      }, 50);
+      startAutoSlide(); // Restart auto-slide after manual navigation
+    }, 50);
   }
 
+  // Function to start auto-slide
   function startAutoSlide() {
-      autoSlideInterval = setInterval(() => {
-          updateCards('next');
-      }, 5000);
+    autoSlideInterval = setInterval(() => {
+      updateCards('next');
+    }, 50000); // Change card every 5 seconds
   }
 
+  // Function to stop auto-slide
   function stopAutoSlide() {
-      clearInterval(autoSlideInterval);
+    clearInterval(autoSlideInterval);
   }
 
+  // Add event listeners for next/prev buttons
   nextBtn.addEventListener('click', () => updateCards('next'));
   prevBtn.addEventListener('click', () => updateCards('prev'));
 
-  let touchStartX = 0;
-  let touchEndX = 0;
-
-  document.addEventListener('touchstart', e => {
-      touchStartX = e.touches[0].clientX;
-  });
-
-  document.addEventListener('touchend', e => {
-      touchEndX = e.changedTouches[0].clientX;
-      handleSwipe();
-  });
-
-  function handleSwipe() {
-      const swipeThreshold = 50;
-      const swipeDistance = touchEndX - touchStartX;
-
-      if (Math.abs(swipeDistance) > swipeThreshold) {
-          if (swipeDistance > 0) {
-              updateCards('prev');
-          } else {
-              updateCards('next');
-          }
-      }
-  }
-
+  // Initialize the first set of cards
   initializeCards();
 });
