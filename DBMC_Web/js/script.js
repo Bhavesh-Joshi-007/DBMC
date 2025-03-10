@@ -817,15 +817,15 @@ document.addEventListener('DOMContentLoaded', function () {
           card.classList.add('exit');
         }
 
-        // Update the profile image and background image
-        const profileImage = card.querySelector(".profile-image img");
-        const backgroundImage = card.querySelector(".background-image");
-
-        profileImage.src = selectedProfiles[i].profileImage;
-        backgroundImage.style.backgroundImage = `url(${selectedProfiles[i].backgroundImage})`;
-
-        // Add a delay to allow the exit animation to complete before starting the enter animation
+        // Update the profile image and background image after the exit animation starts
         setTimeout(() => {
+          const profileImage = card.querySelector(".profile-image img");
+          const backgroundImage = card.querySelector(".background-image");
+
+          profileImage.src = selectedProfiles[i].profileImage;
+          backgroundImage.style.backgroundImage = `url(${selectedProfiles[i].backgroundImage})`;
+
+          // Add the enter animation after updating the content
           card.classList.remove('exit');
           card.classList.add('enter');
 
@@ -896,7 +896,7 @@ document.addEventListener('DOMContentLoaded', function () {
   function startAutoSlide() {
     autoSlideInterval = setInterval(() => {
       updateCards('next');
-    }, 50000); // Change card every 5 seconds
+    }, 5000); // Change card every 5 seconds
   }
 
   // Function to stop auto-slide
