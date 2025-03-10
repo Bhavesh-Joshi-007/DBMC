@@ -3214,7 +3214,7 @@ html {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(57, 55, 55, 0.85);
+  background: rgba(57, 55, 55, 0.5);
   z-index: 0;
   border-radius: 12px;
 }
