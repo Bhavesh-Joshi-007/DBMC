@@ -117,7 +117,7 @@ document.addEventListener("DOMContentLoaded", () => {
         duration: 1,
         ease: "power2.out",
       },
-      "-=1"
+      "-=0.35"
     );
   };
 
