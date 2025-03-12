@@ -20,9 +20,187 @@ menuOpener.addEventListener('click', () => {
 
 // hero section code and preloader js code 
 
+// document.addEventListener("DOMContentLoaded", () => {
+
+//   const body = document.body;
+//   const heroSection = document.querySelector(".main-container-section");
+//   const popupFormSection = document.querySelector(".popup-form-section");
+//   const overlay = document.querySelector(".overlay");
+//   const closeBtn = document.getElementById("close");
+//   const preloader = document.querySelector(".pre-loader");
+
+//   // Initial Setup
+//   gsap.set([heroSection, overlay, popupFormSection], { opacity: 0 });
+//   gsap.set(body, { overflow: "hidden" });
+//   gsap.set(".left-content, .right-content", { x: "0%", opacity: 1 }); // Reset for reload
+//   gsap.set(preloader, { height: "100vh", display: "block" }); // Ensure preloader is visible
+//   gsap.set(".orange", { height: "0%", top: "100%" }); // Reset orange div
+
+//   // Function to enable scrolling
+//   const enableScroll = () => {
+//     body.style.overflow = "auto";
+//   };
+
+//   // Function to disable scrolling
+//   const disableScroll = () => {
+//     body.style.overflow = "hidden";
+//   };
+
+//   // Text reveal setup
+//   const initAnimations = () => {
+//     document.querySelectorAll(".pre-reveal").forEach((elem) => {
+//       const parent = document.createElement("span");
+//       const child = document.createElement("span");
+//       parent.className = "parent";
+//       child.className = "child";
+//       child.innerHTML = elem.innerHTML;
+//       parent.appendChild(child);
+//       elem.innerHTML = "";
+//       elem.appendChild(parent);
+//     });
+//   };
+
+//   // Hero section animation
+//   const startHeroAnimation = () => {
+//     const tl = gsap.timeline();
+
+//     // Show hero section
+//     tl.to(heroSection, {
+//       opacity: 1,
+//       duration: 1,
+//       ease: "power2.inOut",
+//     });
+
+//     // Animate left and right content
+//     tl.fromTo(
+//       ".left-content",
+//       { x: "-100%", opacity: 0 }, // Left content starts from the left
+//       {
+//         x: "0%",
+//         opacity: 1,
+//         duration: 1.2,
+//         ease: "power2.out",
+//       },
+//       0.2 // Delay
+//     );
+
+//     tl.fromTo(
+//       ".right-content",
+//       { x: "100%", opacity: 0 }, // Right content starts from the right
+//       {
+//         x: "0%",
+//         opacity: 1,
+//         duration: 1.2,
+//         ease: "power2.out",
+//       },
+//       0.2 // Delay
+//     );
+
+//     // Highlight animation
+//     tl.to(
+//       ".highlight",
+//       {
+//         width: "9vw",
+//         height: "78%",
+//         duration: 1,
+//         ease: "power2.inOut",
+//       },
+//       1
+//     );
+
+//     // Move "DBMC" text
+//     tl.to(
+//       ".style-DBMC",
+//       {
+//         x: "10vw",
+//         duration: 1,
+//         ease: "power2.out",
+//       },
+//       "-=0.35"
+//     );
+//   };
+
+//   // Preloader animation
+//   const loaderAnimation = () => {
+//     const tl = gsap.timeline();
+
+//     // Text animation
+//     tl.from(".parent .child span", {
+//       x: 200,
+//       stagger: 0.2,
+//       duration: 1.1,
+//       ease: "power3.out",
+//     });
+
+//     // Text move up
+//     tl.to(".parent .child", {
+//       y: "-100%",
+//       duration: 1,
+//       ease: "circ.out",
+//     });
+
+//     // Orange background expansion
+//     tl.fromTo(
+//       ".orange",
+//       { height: "0%", top: "100%" },
+//       {
+//         height: "100%",
+//         top: "0%",
+//         duration: 1.2,
+//         ease: "power2.inOut",
+//       },
+//       0
+//     );
+
+//     // Hide preloader and collapse orange
+//     tl.to(
+//       [preloader, ".orange"],
+//       {
+//         height: "0%",
+//         duration: 1.5,
+//         ease: "expo.inOut",
+//         onComplete: () => {
+//           preloader.style.display = "none"; // Hide preloader
+//           enableScroll(); // Enable scrolling
+//           startHeroAnimation(); // Start hero animation
+//         },
+//       },
+//       "-=0.5"
+//     );
+//   };
+
+//   // Close popup form
+//   closeBtn.addEventListener("click", () => {
+//     gsap.to([popupFormSection, overlay], {
+//       opacity: 0,
+//       duration: 0.5,
+//       onComplete: () => {
+//         popupFormSection.style.display = "none";
+//         overlay.style.display = "none";
+//         enableScroll(); // Enable scrolling after closing popup
+//       },
+//     });
+//   });
+
+//   // Initialize animations
+//   initAnimations();
+//   loaderAnimation();
+
+//   // Show popup form after 10 seconds
+//   setTimeout(() => {
+//     gsap.to([popupFormSection, overlay], {
+//       opacity: 1,
+//       duration: 0.5,
+//       onStart: () => {
+//         popupFormSection.style.display = "block";
+//         overlay.style.display = "block";
+//         disableScroll(); // Disable scrolling when popup is shown
+//       },
+//     });
+//   }, 10000);
+// });
+
 document.addEventListener("DOMContentLoaded", () => {
-
-
   const body = document.body;
   const heroSection = document.querySelector(".main-container-section");
   const popupFormSection = document.querySelector(".popup-form-section");
@@ -30,24 +208,20 @@ document.addEventListener("DOMContentLoaded", () => {
   const closeBtn = document.getElementById("close");
   const preloader = document.querySelector(".pre-loader");
 
-  // Initial Setup
   gsap.set([heroSection, overlay, popupFormSection], { opacity: 0 });
   gsap.set(body, { overflow: "hidden" });
-  gsap.set(".left-content, .right-content", { x: "0%", opacity: 1 }); // Reset for reload
-  gsap.set(preloader, { height: "100vh", display: "block" }); // Ensure preloader is visible
-  gsap.set(".orange", { height: "0%", top: "100%" }); // Reset orange div
+  gsap.set(".left-content, .right-content", { x: "0%", opacity: 1 });
+  gsap.set(preloader, { height: "100vh", display: "block" });
+  gsap.set(".orange", { height: "0%", top: "100%" });
 
-  // Function to enable scrolling
   const enableScroll = () => {
     body.style.overflow = "auto";
   };
 
-  // Function to disable scrolling
   const disableScroll = () => {
     body.style.overflow = "hidden";
   };
 
-  // Text reveal setup
   const initAnimations = () => {
     document.querySelectorAll(".pre-reveal").forEach((elem) => {
       const parent = document.createElement("span");
@@ -61,116 +235,45 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   };
 
-  // Hero section animation
   const startHeroAnimation = () => {
     const tl = gsap.timeline();
-
-    // Show hero section
-    tl.to(heroSection, {
-      opacity: 1,
-      duration: 1,
-      ease: "power2.inOut",
-    });
-
-    // Animate left and right content
-    tl.fromTo(
-      ".left-content",
-      { x: "-100%", opacity: 0 }, // Left content starts from the left
-      {
-        x: "0%",
-        opacity: 1,
-        duration: 1.2,
-        ease: "power2.out",
-      },
-      0.2 // Delay
-    );
-
-    tl.fromTo(
-      ".right-content",
-      { x: "100%", opacity: 0 }, // Right content starts from the right
-      {
-        x: "0%",
-        opacity: 1,
-        duration: 1.2,
-        ease: "power2.out",
-      },
-      0.2 // Delay
-    );
-
-    // Highlight animation
-    tl.to(
-      ".highlight",
-      {
-        width: "9vw",
-        height: "70%",
-        duration: 1,
-        ease: "power2.inOut",
-      },
-      1
-    );
-
-    // Move "DBMC" text
-    tl.to(
-      ".style-DBMC",
-      {
-        x: "10vw",
-        duration: 1,
-        ease: "power2.out",
-      },
-      "-=0.35"
-    );
+    tl.to(heroSection, { opacity: 1, duration: 1, ease: "power2.inOut" });
+    tl.fromTo(".left-content", { x: "-100%", opacity: 0 }, { x: "0%", opacity: 1, duration: 1.2, ease: "power2.out" }, 0.2);
+    tl.fromTo(".right-content", { x: "100%", opacity: 0 }, { x: "0%", opacity: 1, duration: 1.2, ease: "power2.out" }, 0.2);
+    tl.to(".highlight", { width: "9vw", height: "78%", duration: 1, ease: "power2.inOut" }, 1);
+    tl.to(".style-DBMC", { x: "10vw", duration: 1, ease: "power2.out" }, "-=0.35");
   };
 
-  // Preloader animation
   const loaderAnimation = () => {
     const tl = gsap.timeline();
-
-    // Text animation
-    tl.from(".parent .child span", {
-      x: 200,
-      stagger: 0.2,
-      duration: 1.1,
-      ease: "power3.out",
-    });
-
-    // Text move up
-    tl.to(".parent .child", {
-      y: "-100%",
-      duration: 1,
-      ease: "circ.out",
-    });
-
-    // Orange background expansion
-    tl.fromTo(
-      ".orange",
-      { height: "0%", top: "100%" },
-      {
-        height: "100%",
-        top: "0%",
-        duration: 1.2,
-        ease: "power2.inOut",
+    tl.from(".parent .child span", { x: 200, stagger: 0.2, duration: 1.1, ease: "power3.out" });
+    tl.to(".parent .child", { y: "-100%", duration: 1, ease: "circ.out" });
+    tl.fromTo(".orange", { height: "0%", top: "100%" }, { height: "100%", top: "0%", duration: 1.2, ease: "power2.inOut" }, 0);
+    tl.to([preloader, ".orange"], {
+      height: "0%",
+      duration: 1.5,
+      ease: "expo.inOut",
+      onComplete: () => {
+        preloader.style.display = "none";
+        enableScroll();
+        startHeroAnimation();
+        
+        // Show popup form after 10 seconds only after preloader is completed
+        setTimeout(() => {
+          gsap.to([popupFormSection, overlay], {
+            opacity: 1,
+            duration: 0.5,
+            onStart: () => {
+              popupFormSection.style.display = "block";
+              overlay.style.display = "block";
+              disableScroll();
+            },
+          });
+        }, 10000);
       },
-      0
-    );
-
-    // Hide preloader and collapse orange
-    tl.to(
-      [preloader, ".orange"],
-      {
-        height: "0%",
-        duration: 1.5,
-        ease: "expo.inOut",
-        onComplete: () => {
-          preloader.style.display = "none"; // Hide preloader
-          enableScroll(); // Enable scrolling
-          startHeroAnimation(); // Start hero animation
-        },
-      },
-      "-=0.5"
-    );
+    }, "-=0.5");
   };
 
-  // Close popup form
   closeBtn.addEventListener("click", () => {
     gsap.to([popupFormSection, overlay], {
       opacity: 0,
@@ -178,30 +281,14 @@ document.addEventListener("DOMContentLoaded", () => {
       onComplete: () => {
         popupFormSection.style.display = "none";
         overlay.style.display = "none";
-        enableScroll(); // Enable scrolling after closing popup
+        enableScroll();
       },
     });
   });
 
-  // Initialize animations
   initAnimations();
   loaderAnimation();
-
-  // Show popup form after 10 seconds
-  setTimeout(() => {
-    gsap.to([popupFormSection, overlay], {
-      opacity: 1,
-      duration: 0.5,
-      onStart: () => {
-        popupFormSection.style.display = "block";
-        overlay.style.display = "block";
-        disableScroll(); // Disable scrolling when popup is shown
-      },
-    });
-  }, 10000);
 });
-
-// smooth scroll effect 
 
 document.addEventListener("DOMContentLoaded", () => {
   const smoothLinks = document.querySelectorAll(".smooth");
@@ -209,16 +296,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
   smoothLinks.forEach((link) => {
     link.addEventListener("click", (event) => {
-      event.preventDefault(); // Prevent default anchor behavior
+      event.preventDefault(); 
 
       const targetId = link.getAttribute("href");
       const targetElement = document.querySelector(targetId);
 
       if (targetElement) {
-        // Smooth scroll to the target element, accounting for the offset
         window.scrollTo({
           top: targetElement.offsetTop - offset,
-          behavior: "smooth", // Smooth scrolling
+          behavior: "smooth", 
         });
       }
     });
@@ -344,8 +430,7 @@ document.addEventListener("click", (e) => {
   }
 });
 
-
-//------ service expert js ---------
+//-------- service expert js ---------
 
 document.addEventListener("DOMContentLoaded", () => {
   gsap.registerPlugin(ScrollTrigger);
@@ -371,7 +456,6 @@ document.addEventListener("DOMContentLoaded", () => {
       },
     });
 
-    // Cleanup function: when media query no longer matches, kill the animation and trigger.
     return () => {
       scrollTween.kill();
       ScrollTrigger.getAll().forEach(trigger => trigger.kill());
@@ -380,11 +464,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // For mobile devices (max-width: 767px) — no horizontal scroll effect.
   mm.add("(max-width: 767px)", () => {
-    // Optionally refresh triggers or reset styles if needed.
     ScrollTrigger.refresh();
   });
 
-  // Refresh AOS if you're using it
   AOS.refresh();
 });
 
@@ -590,171 +672,6 @@ toggle.addEventListener('click', () => {
 
 //  our buddies js 
 
-// document.addEventListener('DOMContentLoaded', function () {
-//   const cards = document.querySelectorAll('.testimonial-card');
-//   const nextBtn = document.querySelector('.next');
-//   const prevBtn = document.querySelector('.prev');
-//   const profileCards = document.querySelectorAll(".profile-card");
-
-//   let currentIndex = 0;
-//   let isAnimating = false;
-//   let autoSlideInterval;
-
-//   const profiles = [
-//     [
-//       { name: "ghantaa", followers: "8.8M Followers", image: "./images/Profile_section_img/ghanta.jpg" },
-//       { name: "laughtercolours", followers: "4.4M Followers", image: "./images/Profile_section_img/laughtercolours.jpg" },
-//       { name: "adultsociety", followers: "7.3M Followers", image: "./images/Profile_section_img/adultsociety.jpg" },
-//       { name: "trolls_official", followers: "10.6M Followers", image: "./images/Profile_section_img/trolls_official.jpg" },
-//       { name: "_adultgram_", followers: "5.5M Followers", image: "./images/Profile_section_img/Adultgram.jpg" }
-//     ],
-//     [
-//       { name: "worldcinemalife", followers: "439k Followers", image: "./images/Profile_section_img/world_cinema.jpg" },
-//       { name: "relatablehaiboss", followers: "565k Followers", image: "./images/Profile_section_img/relatable.jpg" },
-//       { name: "popinions", followers: "1M Followers", image: "./images/Profile_section_img/popIn.jpg" },
-//       { name: "the.indian.films", followers: "935k Followers", image: "./images/Profile_section_img/the_indian_film.jpg" },
-//       { name: "thescribbledstories", followers: "5.1M Followers", image: "./images/Profile_section_img/scribled_strories.jpg" }
-//     ],
-//     [
-//       { name: "classywomenn", followers: "1.2M Followers", image: "./images/Profile_section_img/classy_women.jpg" },
-//       { name: "Real.Woman.", followers: "1.7M Followers", image: "./images/Profile_section_img/Rw.jpg" },
-//       { name: "Sarifgirls", followers: "630k Followers", image: "./images/Profile_section_img/sarif_Girls.jpg" },
-//       { name: "thewomanempire", followers: "521k Followers", image: "./images/Profile_section_img/womanEmpire.jpg" },
-//       { name: "The.Girls.Kingdom", followers: "508k Followers", image: "./images/Profile_section_img/girl_kingdom.jpg" }
-//     ],
-//     [
-//       { name: "indiastalents", followers: "1M Followers", image: "./images/Profile_section_img/indiaTalent.jpg" },
-//       { name: "Wakeupdansin ", followers: "660k Followers", image: "./images/Profile_section_img/wakeup.jpg" },
-//       { name: "singing__lovers__", followers: "508k Followers", image: "./images/Profile_section_img/singing_lover.jpg" },
-//       { name: "Thesingercafe", followers: "478k Followers", image: "./images/Profile_section_img/singer_cafe.jpg" },
-//       { name: "randommusicrecommendation", followers: "3.5M Followers", image: "./images/Profile_section_img/girl_kingdom.jpg" }
-//     ],
-//     [
-//       { name: "Rebellouz edits", followers: "403k Followers", image: "./images/Profile_section_img/fox.jpg" },
-//       { name: "lofii.ediitz", followers: "307k Followers", image: "./images/Profile_section_img/lofii.jpg" },
-//       { name: "crazyycrossovers", followers: "113k Followers", image: "./images/Profile_section_img/crazyycrossovers.jpg" },
-//       { name: "infiniteeditsss_", followers: "100k Followers", image: "./images/Profile_section_img/infinite.jpg" },
-//       { name: "emptiness_xd", followers: "1.1M Followers", image: "./images/Profile_section_img/emptiness.jpg" }
-//     ],
-//   ];
-
-//   function updateProfileCards(index) {
-//     const selectedProfiles = profiles[index % profiles.length];
-
-//     profileCards.forEach((card, i) => {
-//       if (selectedProfiles[i]) {
-//         card.classList.remove('active');
-//         card.classList.add('exit');
-
-//         setTimeout(() => {
-//           card.querySelector(".profile-image img").src = selectedProfiles[i].image;
-//           card.querySelector(".profile-name").textContent = selectedProfiles[i].name;
-//           card.querySelector(".profile-followers").textContent = selectedProfiles[i].followers;
-
-//           card.classList.remove('exit');
-//           card.classList.add('enter');
-
-//           setTimeout(() => {
-//             card.classList.remove('enter');
-//             card.classList.add('active');
-//           }, 500);
-//         }, 500);
-//       }
-//     });
-//   }
-
-//   function initializeCards() {
-//     cards[currentIndex].classList.add('active');
-//     cards[(currentIndex + 1) % cards.length].classList.add('prev');
-//     cards[(currentIndex + 2) % cards.length].classList.add('next');
-//     updateProfileCards(currentIndex);
-//     startAutoSlide();
-//   }
-
-//   function updateCards(direction) {
-//     if (isAnimating) return;
-//     isAnimating = true;
-//     stopAutoSlide();
-
-//     const currentCard = cards[currentIndex];
-//     const nextIndex = direction === 'next'
-//       ? (currentIndex + 1) % cards.length
-//       : (currentIndex - 1 + cards.length) % cards.length;
-//     const nextCard = cards[nextIndex];
-
-//     cards.forEach(card => {
-//       card.classList.remove('active', 'prev', 'next');
-//     });
-
-//     if (direction === 'next') {
-//       currentCard.classList.add('slide-next-out');
-//       nextCard.classList.add('slide-next-in');
-//     } else {
-//       currentCard.classList.add('slide-prev-out');
-//       nextCard.classList.add('slide-prev-in');
-//     }
-
-//     setTimeout(() => {
-//       nextCard.classList.remove(direction === 'next' ? 'slide-next-in' : 'slide-prev-in');
-//       nextCard.classList.add('active');
-
-//       currentIndex = nextIndex;
-
-//       cards[(currentIndex + 1) % cards.length].classList.add('prev');
-//       cards[(currentIndex + 2) % cards.length].classList.add('next');
-
-//       updateProfileCards(currentIndex);
-
-//       setTimeout(() => {
-//         currentCard.classList.remove(direction === 'next' ? 'slide-next-out' : 'slide-prev-out');
-//         isAnimating = false;
-//       }, 600);
-
-//       startAutoSlide();
-//     }, 50);
-//   }
-
-//   function startAutoSlide() {
-//     autoSlideInterval = setInterval(() => {
-//       updateCards('next');
-//     }, 5000);
-//   }
-
-//   function stopAutoSlide() {
-//     clearInterval(autoSlideInterval);
-//   }
-
-//   nextBtn.addEventListener('click', () => updateCards('next'));
-//   prevBtn.addEventListener('click', () => updateCards('prev'));
-
-//   let touchStartX = 0;
-//   let touchEndX = 0;
-
-//   document.addEventListener('touchstart', e => {
-//     touchStartX = e.touches[0].clientX;
-//   });
-
-//   document.addEventListener('touchend', e => {
-//     touchEndX = e.changedTouches[0].clientX;
-//     handleSwipe();
-//   });
-
-//   function handleSwipe() {
-//     const swipeThreshold = 50;
-//     const swipeDistance = touchEndX - touchStartX;
-
-//     if (Math.abs(swipeDistance) > swipeThreshold) {
-//       if (swipeDistance > 0) {
-//         updateCards('prev');
-//       } else {
-//         updateCards('next');
-//       }
-//     }
-//   }
-
-//   initializeCards();
-// });
-
 document.addEventListener('DOMContentLoaded', function () {
   const cards = document.querySelectorAll('.testimonial-card');
   const nextBtn = document.querySelector('.next');
@@ -793,7 +710,7 @@ document.addEventListener('DOMContentLoaded', function () {
       { profileImage: "./images/Profile_section_img/wakeup.jpg", backgroundImage: "./images/bg_profileCard_img/wake_up.png" },
       { profileImage: "./images/Profile_section_img/singing_lover.jpg", backgroundImage: "./images/bg_profileCard_img/singing_lover.png" },
       { profileImage: "./images/Profile_section_img/singer_cafe.jpg", backgroundImage: "./images/bg_profileCard_img/singerCafe.png" },
-      { profileImage: "./images/Profile_section_img/girl_kingdom.jpg", backgroundImage: "./images/bg_profileCard_img/indianIdot.png" }
+      { profileImage: "./images/Profile_section_img/inianIdol.jpg", backgroundImage: "./images/bg_profileCard_img/indianIdot.png" }
     ],
     [
       { profileImage: "./images/Profile_section_img/fox.jpg", backgroundImage: "./images/bg_profileCard_img/fox.png" },
