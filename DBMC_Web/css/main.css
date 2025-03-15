@@ -420,7 +420,7 @@ nav {
 .text-structure {
   position: relative;
   width: 100%;
-  padding: 6rem 1rem;
+  padding: 6rem 0rem;
 }
 
 .masker {
@@ -445,20 +445,15 @@ nav {
   margin: 0;
 }
 
-/* .highlight {
-  position: absolute;
+.text-wrapper .style-DBMC {
+  position: relative;
+  left: 0vw;
+}
+
+.text-container{
+  position: relative;
   left: 30px;
-  background-color: rgba(228, 138, 21, 0.743);
-  background-image: url('../assets/DBMC_CARD.png');
-  background-position: center;
-  background-size: contain;
-  background-repeat: no-repeat;
-  object-fit: contain;
-  height: 3em;
-  z-index: 1;
-  width: 0;
-  transition: width 0.70s ease;
-} */
+}
 
 .highlight {
   position: absolute;
@@ -474,7 +469,6 @@ nav {
   border-radius: 15px;
 }
 
-/* 
 .right-content {
   flex: 1 1 48%;
   min-width: 300px;
@@ -488,64 +482,20 @@ nav {
   height: auto;
   object-fit: contain; 
   border-radius: 10px;
-  max-width: 800px; 
+  max-width: 900px; 
 }
 
-@media (min-width: 1025px) {
-  .right-content {
-    max-width: 50vw; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .right-content img {
-    width: 73%; 
-    height: auto;
-    max-height: 100%;
-  }
-}
-
-@media (max-width: 1024px) {
-  .right-content {
-    max-width: 100%;
-  }
-
-  .right-content img {
-    width: 100%;
-    height: auto;
-  }
-} */
-
-.right-content {
-  flex: 1 1 48%;
-  min-width: 300px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.right-content img {
-  width: 100%;
-  height: auto;
-  object-fit: contain; 
-  border-radius: 10px;
-  max-width: 900px; /* Allow image to grow larger */
-}
-
-/* ✅ Fix for Big Screens (Laptops & Desktops) */
 @media (min-width: 1280px) { 
   .right-content {
-    max-width: 60vw; /* Allows a larger image but avoids overflow */
+    max-width: 60vw; 
   }
 
   .right-content img {
     width: 73%;
-    max-width: 1100px; /* Adjust size for big screens */
+    max-width: 1100px; 
   }
 }
 
-/* ✅ Fix for Medium Screens (Tablets & Small Laptops) */
 @media (min-width: 1025px) and (max-width: 1279px) {
   .right-content {
     max-width: 50vw; 
@@ -664,6 +614,9 @@ nav {
 }
 
 @media screen and (max-width: 512px) {
+  .text-container{
+    left: 0px;
+  }
 
   .nav-head-container {
     height: 70vh;
@@ -687,10 +640,7 @@ nav {
   }
 }
 
-.text-wrapper .style-DBMC {
-  position: relative;
-  left: 0vw;
-}
+
 
 
 /* about section css */
