@@ -241,7 +241,7 @@ document.addEventListener("DOMContentLoaded", () => {
     tl.fromTo(".left-content", { x: "-100%", opacity: 0 }, { x: "0%", opacity: 1, duration: 1.2, ease: "power2.out" }, 0.2);
     tl.fromTo(".right-content", { x: "100%", opacity: 0 }, { x: "0%", opacity: 1, duration: 1.2, ease: "power2.out" }, 0.2);
     tl.to(".highlight", { width: "12vw", height: "78%", duration: 1, ease: "power2.inOut" }, 1);
-    tl.to(".style-DBMC", { x: "13vw", duration: 1, ease: "power2.out" }, "-=0.35");
+    tl.to(".style-DBMC", { x: "14vw", duration: 1, ease: "power2.out" }, "-=0.35");
   };
 
   const loaderAnimation = () => {
