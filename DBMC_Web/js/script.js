@@ -240,9 +240,16 @@ document.addEventListener("DOMContentLoaded", () => {
     tl.to(heroSection, { opacity: 1, duration: 1, ease: "power2.inOut" });
     tl.fromTo(".left-content", { x: "-100%", opacity: 0 }, { x: "0%", opacity: 1, duration: 1.2, ease: "power2.out" }, 0.2);
     tl.fromTo(".right-content", { x: "100%", opacity: 0 }, { x: "0%", opacity: 1, duration: 1.2, ease: "power2.out" }, 0.2);
-    tl.to(".highlight", { width: "12vw", height: "78%", duration: 1, ease: "power2.inOut" }, 1);
+
+    gsap.matchMedia().add("(max-width: 768px)", () => {
+        tl.to(".highlight", { width: "17vw", height: "78%", duration: 1, ease: "power2.inOut" }, 1);
+    }).add("(min-width: 769px)", () => {
+        tl.to(".highlight", { width: "12vw", height: "78%", duration: 1, ease: "power2.inOut" }, 1);
+    });
+
     tl.to(".style-DBMC", { x: "14vw", duration: 1, ease: "power2.out" }, "-=0.35");
-  };
+};
+
 
   const loaderAnimation = () => {
     const tl = gsap.timeline();

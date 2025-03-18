@@ -584,6 +584,7 @@ nav {
   }
 
   .left-content {
+    padding: 19px 0px 0px 15px;
     flex: 1 1 100%;
     min-width: auto;
     text-align: center;
@@ -606,10 +607,11 @@ nav {
   .highlight {
     left: 10px;
     height: 2em;
+    border-radius: 5px;
   }
 
   .text-wrapper .style-DBMC {
-    left: -3vw;
+    left: 5vw;
   }
 }
 
@@ -640,7 +642,11 @@ nav {
   }
 }
 
-
+@media screen and (max-width: 375px){
+  .content-wrapper{
+    bottom: 35px;
+  }
+}
 
 
 /* about section css */
@@ -2036,6 +2042,15 @@ html {
     width: 78%;
     margin-bottom: 30px;
     font-size: 1.50rem;
+  }
+}
+@media (max-width: 320px){
+  .heading-area .text {
+    width: 60%;
+    margin-bottom: 30px;
+    font-size: 1.50rem;
+    position: relative;
+    right: 5px;
   }
 }
 
