@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // navlink 
-
+// Menu Toggle Functionality
 const menuOpener = document.querySelector('.menu-opener');
 const navLinks = document.querySelector('.nav-linked');
 
@@ -17,188 +17,21 @@ menuOpener.addEventListener('click', () => {
   menuOpener.classList.toggle('active');
 });
 
+// Fixed Navbar on Scroll
+document.addEventListener('scroll', function () {
+  const navbar = document.querySelector('.navlink');
+  const body = document.body;
+  const scrollPosition = window.scrollY;
 
-// hero section code and preloader js code 
-
-// document.addEventListener("DOMContentLoaded", () => {
-
-//   const body = document.body;
-//   const heroSection = document.querySelector(".main-container-section");
-//   const popupFormSection = document.querySelector(".popup-form-section");
-//   const overlay = document.querySelector(".overlay");
-//   const closeBtn = document.getElementById("close");
-//   const preloader = document.querySelector(".pre-loader");
-
-//   // Initial Setup
-//   gsap.set([heroSection, overlay, popupFormSection], { opacity: 0 });
-//   gsap.set(body, { overflow: "hidden" });
-//   gsap.set(".left-content, .right-content", { x: "0%", opacity: 1 }); // Reset for reload
-//   gsap.set(preloader, { height: "100vh", display: "block" }); // Ensure preloader is visible
-//   gsap.set(".orange", { height: "0%", top: "100%" }); // Reset orange div
-
-//   // Function to enable scrolling
-//   const enableScroll = () => {
-//     body.style.overflow = "auto";
-//   };
-
-//   // Function to disable scrolling
-//   const disableScroll = () => {
-//     body.style.overflow = "hidden";
-//   };
-
-//   // Text reveal setup
-//   const initAnimations = () => {
-//     document.querySelectorAll(".pre-reveal").forEach((elem) => {
-//       const parent = document.createElement("span");
-//       const child = document.createElement("span");
-//       parent.className = "parent";
-//       child.className = "child";
-//       child.innerHTML = elem.innerHTML;
-//       parent.appendChild(child);
-//       elem.innerHTML = "";
-//       elem.appendChild(parent);
-//     });
-//   };
-
-//   // Hero section animation
-//   const startHeroAnimation = () => {
-//     const tl = gsap.timeline();
-
-//     // Show hero section
-//     tl.to(heroSection, {
-//       opacity: 1,
-//       duration: 1,
-//       ease: "power2.inOut",
-//     });
-
-//     // Animate left and right content
-//     tl.fromTo(
-//       ".left-content",
-//       { x: "-100%", opacity: 0 }, // Left content starts from the left
-//       {
-//         x: "0%",
-//         opacity: 1,
-//         duration: 1.2,
-//         ease: "power2.out",
-//       },
-//       0.2 // Delay
-//     );
-
-//     tl.fromTo(
-//       ".right-content",
-//       { x: "100%", opacity: 0 }, // Right content starts from the right
-//       {
-//         x: "0%",
-//         opacity: 1,
-//         duration: 1.2,
-//         ease: "power2.out",
-//       },
-//       0.2 // Delay
-//     );
-
-//     // Highlight animation
-//     tl.to(
-//       ".highlight",
-//       {
-//         width: "9vw",
-//         height: "78%",
-//         duration: 1,
-//         ease: "power2.inOut",
-//       },
-//       1
-//     );
-
-//     // Move "DBMC" text
-//     tl.to(
-//       ".style-DBMC",
-//       {
-//         x: "10vw",
-//         duration: 1,
-//         ease: "power2.out",
-//       },
-//       "-=0.35"
-//     );
-//   };
-
-//   // Preloader animation
-//   const loaderAnimation = () => {
-//     const tl = gsap.timeline();
-
-//     // Text animation
-//     tl.from(".parent .child span", {
-//       x: 200,
-//       stagger: 0.2,
-//       duration: 1.1,
-//       ease: "power3.out",
-//     });
-
-//     // Text move up
-//     tl.to(".parent .child", {
-//       y: "-100%",
-//       duration: 1,
-//       ease: "circ.out",
-//     });
-
-//     // Orange background expansion
-//     tl.fromTo(
-//       ".orange",
-//       { height: "0%", top: "100%" },
-//       {
-//         height: "100%",
-//         top: "0%",
-//         duration: 1.2,
-//         ease: "power2.inOut",
-//       },
-//       0
-//     );
-
-//     // Hide preloader and collapse orange
-//     tl.to(
-//       [preloader, ".orange"],
-//       {
-//         height: "0%",
-//         duration: 1.5,
-//         ease: "expo.inOut",
-//         onComplete: () => {
-//           preloader.style.display = "none"; // Hide preloader
-//           enableScroll(); // Enable scrolling
-//           startHeroAnimation(); // Start hero animation
-//         },
-//       },
-//       "-=0.5"
-//     );
-//   };
-
-//   // Close popup form
-//   closeBtn.addEventListener("click", () => {
-//     gsap.to([popupFormSection, overlay], {
-//       opacity: 0,
-//       duration: 0.5,
-//       onComplete: () => {
-//         popupFormSection.style.display = "none";
-//         overlay.style.display = "none";
-//         enableScroll(); // Enable scrolling after closing popup
-//       },
-//     });
-//   });
-
-//   // Initialize animations
-//   initAnimations();
-//   loaderAnimation();
-
-//   // Show popup form after 10 seconds
-//   setTimeout(() => {
-//     gsap.to([popupFormSection, overlay], {
-//       opacity: 1,
-//       duration: 0.5,
-//       onStart: () => {
-//         popupFormSection.style.display = "block";
-//         overlay.style.display = "block";
-//         disableScroll(); // Disable scrolling when popup is shown
-//       },
-//     });
-//   }, 10000);
-// });
+  if (scrollPosition > 100) {
+    navbar.classList.add('fixed-nav');
+    body.classList.add('fixed-nav-padding');
+  } else {
+    navbar.classList.remove('fixed-nav');
+    body.classList.remove('fixed-nav-padding');
+  }
+});
+// -------------- hero section and preloader----------------
 
 document.addEventListener("DOMContentLoaded", () => {
   const body = document.body;
