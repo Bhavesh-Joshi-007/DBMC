@@ -373,7 +373,7 @@ body.fixed-nav-padding {
 }
 
 .left-content {
-  flex: 1 1 43%;
+  flex: 1 1 40%;
   min-width: 300px;
   color: rgba(242, 242, 242, 0.993);
 }
@@ -3518,6 +3518,9 @@ html {
 }
 
 .card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
   position: relative;
   z-index: 1;
   background: none;
@@ -3528,6 +3531,7 @@ html {
 @media (max-width: 350px) {
   .card-content {
     padding: 6px;
+    gap: 0px;
   }
 }
 
@@ -4663,7 +4667,7 @@ input::placeholder {
 .price-header h1 {
   color: #fafbfd;
   font-size: 4rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 4rem;
 }
 
 .toggle-container {

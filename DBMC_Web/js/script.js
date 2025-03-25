@@ -474,40 +474,38 @@ popupForm.addEventListener("submit", (e) => {
 
 // price section js
 
-const toggle = document.getElementById('billingToggle');
-const prices = document.querySelectorAll('.price');
-const billingPeriods = document.querySelectorAll('.billing-period:not(:first-child)');
+// const toggle = document.getElementById('billingToggle');
+// const prices = document.querySelectorAll('.price');
+// const billingPeriods = document.querySelectorAll('.billing-period:not(:first-child)');
 const plans = document.querySelectorAll('.plan');
 
-// Initialize the middle card as active
+// // Initialize the middle card as active
 plans[1].classList.add('active');
 
-// Add click event listeners to plans
+// // Add click event listeners to plans
 plans.forEach(plan => {
   plan.addEventListener('click', () => {
-    // Remove active class from all plans
     plans.forEach(p => p.classList.remove('active'));
-    // Add active class to clicked plan
     plan.classList.add('active');
   });
 });
 
-toggle.addEventListener('click', () => {
-  toggle.classList.toggle('yearly');
-  const isYearly = toggle.classList.contains('yearly');
+// toggle.addEventListener('click', () => {
+//   toggle.classList.toggle('yearly');
+//   const isYearly = toggle.classList.contains('yearly');
 
-  prices.forEach(price => {
-    const monthlyPrice = price.getAttribute('data-monthly');
-    const yearlyPrice = price.getAttribute('data-yearly');
-    price.textContent = isYearly ? yearlyPrice : monthlyPrice;
-  });
+//   prices.forEach(price => {
+//     const monthlyPrice = price.getAttribute('data-monthly');
+//     const yearlyPrice = price.getAttribute('data-yearly');
+//     price.textContent = isYearly ? yearlyPrice : monthlyPrice;
+//   });
 
-  billingPeriods.forEach(period => {
-    const monthlyText = period.getAttribute('data-monthly');
-    const yearlyText = period.getAttribute('data-yearly');
-    period.textContent = isYearly ? yearlyText : monthlyText;
-  });
-});
+//   billingPeriods.forEach(period => {
+//     const monthlyText = period.getAttribute('data-monthly');
+//     const yearlyText = period.getAttribute('data-yearly');
+//     period.textContent = isYearly ? yearlyText : monthlyText;
+//   });
+// });
 
 
 //  our buddies js 
