@@ -75,13 +75,13 @@ document.addEventListener("DOMContentLoaded", () => {
     tl.fromTo(".right-content", { x: "100%", opacity: 0 }, { x: "0%", opacity: 1, duration: 1.2, ease: "power2.out" }, 0.2);
 
     gsap.matchMedia().add("(max-width: 768px)", () => {
-        tl.to(".highlight", { width: "17vw", height: "78%", duration: 1, ease: "power2.inOut" }, 1);
+      tl.to(".highlight", { width: "17vw", height: "78%", duration: 1, ease: "power2.inOut" }, 1);
     }).add("(min-width: 769px)", () => {
-        tl.to(".highlight", { width: "12vw", height: "78%", duration: 1, ease: "power2.inOut" }, 1);
+      tl.to(".highlight", { width: "12vw", height: "78%", duration: 1, ease: "power2.inOut" }, 1);
     });
 
-    tl.to(".style-DBMC", { x: "14vw", duration: 1, ease: "power2.out" }, "-=0.35");
-};
+    tl.to(".style-DBMC", { x: "vw", duration: 1, ease: "power2.out" }, "-=0.35");
+  };
 
 
   const loaderAnimation = () => {
@@ -97,8 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
         preloader.style.display = "none";
         enableScroll();
         startHeroAnimation();
-        
-        // Show popup form after 10 seconds only after preloader is completed
+
         setTimeout(() => {
           gsap.to([popupFormSection, overlay], {
             opacity: 1,
@@ -123,7 +122,7 @@ document.addEventListener("DOMContentLoaded", () => {
         overlay.style.display = "none";
         enableScroll();
       },
-    });
+    })
   });
 
   initAnimations();
@@ -136,7 +135,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   smoothLinks.forEach((link) => {
     link.addEventListener("click", (event) => {
-      event.preventDefault(); 
+      event.preventDefault();
 
       const targetId = link.getAttribute("href");
       const targetElement = document.querySelector(targetId);
@@ -144,7 +143,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (targetElement) {
         window.scrollTo({
           top: targetElement.offsetTop - offset,
-          behavior: "smooth", 
+          behavior: "smooth",
         });
       }
     });
@@ -239,7 +238,7 @@ function openPopup(image) {
       p.style.display = "none";
     });
     popup.style.display = "block";
-    
+
     // Stop Swiper autoplay when popup opens
     swiper.autoplay.stop();
   }
@@ -472,14 +471,8 @@ popupForm.addEventListener("submit", (e) => {
 });
 
 
-// price section js
-
-// const toggle = document.getElementById('billingToggle');
-// const prices = document.querySelectorAll('.price');
-// const billingPeriods = document.querySelectorAll('.billing-period:not(:first-child)');
 const plans = document.querySelectorAll('.plan');
 
-// // Initialize the middle card as active
 plans[1].classList.add('active');
 
 // // Add click event listeners to plans
@@ -489,23 +482,6 @@ plans.forEach(plan => {
     plan.classList.add('active');
   });
 });
-
-// toggle.addEventListener('click', () => {
-//   toggle.classList.toggle('yearly');
-//   const isYearly = toggle.classList.contains('yearly');
-
-//   prices.forEach(price => {
-//     const monthlyPrice = price.getAttribute('data-monthly');
-//     const yearlyPrice = price.getAttribute('data-yearly');
-//     price.textContent = isYearly ? yearlyPrice : monthlyPrice;
-//   });
-
-//   billingPeriods.forEach(period => {
-//     const monthlyText = period.getAttribute('data-monthly');
-//     const yearlyText = period.getAttribute('data-yearly');
-//     period.textContent = isYearly ? yearlyText : monthlyText;
-//   });
-// });
 
 
 //  our buddies js 
@@ -523,39 +499,39 @@ document.addEventListener('DOMContentLoaded', function () {
   // Profile data containing profile images and background images for 5 cards
   const profiles = [
     [
-      { profileImage: "./images/Profile_section_img/ghanta.jpg", backgroundImage: "./images/bg_profileCard_img/ghanta.png" },
-      { profileImage: "./images/Profile_section_img/laughtercolours.jpg", backgroundImage: "./images/bg_profileCard_img/loughterColors.png" },
-      { profileImage: "./images/Profile_section_img/adultsociety.jpg", backgroundImage: "./images/bg_profileCard_img/adultsociety.png" },
-      { profileImage: "./images/Profile_section_img/trolls_official.jpg", backgroundImage: "./images/bg_profileCard_img/troll_official.png" },
-      { profileImage: "./images/Profile_section_img/adultgram.jpg", backgroundImage: "./images/bg_profileCard_img/adultgram.png" }
+      { profileImage: "./images/Profile_section_img/ghanta.jpg", backgroundImage: "./images/bg_profilecard_img/ghanta.png" },
+      { profileImage: "./images/Profile_section_img/laughtercolours.jpg", backgroundImage: "./images/bg_profilecard_img/loughterColors.png" },
+      { profileImage: "./images/Profile_section_img/adultsociety.jpg", backgroundImage: "./images/bg_profilecard_img/adultsociety.png" },
+      { profileImage: "./images/Profile_section_img/trolls_official.jpg", backgroundImage: "./images/bg_profilecard_img/troll_official.png" },
+      { profileImage: "./images/Profile_section_img/adultgram.jpg", backgroundImage: "./images/bg_profilecard_img/adultgram.png" }
     ],
     [
-      { profileImage: "./images/Profile_section_img/world_cinema.jpg", backgroundImage: "./images/bg_profileCard_img/world_cinema.png" },
-      { profileImage: "./images/Profile_section_img/relatable.jpg", backgroundImage: "./images/bg_profileCard_img/relatable.png" },
-      { profileImage: "./images/Profile_section_img/popIn.jpg", backgroundImage: "./images/bg_profileCard_img/popins.png" },
-      { profileImage: "./images/Profile_section_img/the_indian_film.jpg", backgroundImage: "./images/bg_profileCard_img/indiafilm.png" },
-      { profileImage: "./images/Profile_section_img/scribled_strories.jpg", backgroundImage: "./images/bg_profileCard_img/scribled.png" }
+      { profileImage: "./images/Profile_section_img/world_cinema.jpg", backgroundImage: "./images/bg_profilecard_img/world_cinema.png" },
+      { profileImage: "./images/Profile_section_img/relatable.jpg", backgroundImage: "./images/bg_profilecard_img/relatable.png" },
+      { profileImage: "./images/Profile_section_img/popIn.jpg", backgroundImage: "./images/bg_profilecard_img/popins.png" },
+      { profileImage: "./images/Profile_section_img/the_indian_film.jpg", backgroundImage: "./images/bg_profilecard_img/indiafilm.png" },
+      { profileImage: "./images/Profile_section_img/scribled_strories.jpg", backgroundImage: "./images/bg_profilecard_img/scribled.png" }
     ],
     [
-      { profileImage: "./images/Profile_section_img/classy_women.jpg", backgroundImage: "./images/bg_profileCard_img/classyWomen.png" },
-      { profileImage: "./images/Profile_section_img/Rw.jpg", backgroundImage: "./images/bg_profileCard_img/real_women.png" },
-      { profileImage: "./images/Profile_section_img/sarif_Girls.jpg", backgroundImage: "./images/bg_profileCard_img/sarifGril.png" },
-      { profileImage: "./images/Profile_section_img/womanEmpire.jpg", backgroundImage: "./images/bg_profileCard_img/women_empire.png" },
-      { profileImage: "./images/Profile_section_img/girl_kingdom.jpg", backgroundImage: "./images/bg_profileCard_img/girl_Kingdom.png" }
+      { profileImage: "./images/Profile_section_img/classy_women.jpg", backgroundImage: "./images/bg_profilecard_img/classyWomen.png" },
+      { profileImage: "./images/Profile_section_img/Rw.jpg", backgroundImage: "./images/bg_profilecard_img/real_women.png" },
+      { profileImage: "./images/Profile_section_img/sarif_Girls.jpg", backgroundImage: "./images/bg_profilecard_img/sarifGril.png" },
+      { profileImage: "./images/Profile_section_img/womanEmpire.jpg", backgroundImage: "./images/bg_profilecard_img/women_empire.png" },
+      { profileImage: "./images/Profile_section_img/girl_kingdom.jpg", backgroundImage: "./images/bg_profilecard_img/girl_Kingdom.png" }
     ],
     [
-      { profileImage: "./images/Profile_section_img/indiaTalent.jpg", backgroundImage: "./images/bg_profileCard_img/india_talent.png" },
-      { profileImage: "./images/Profile_section_img/wakeup.jpg", backgroundImage: "./images/bg_profileCard_img/wake_up.png" },
-      { profileImage: "./images/Profile_section_img/singing_lover.jpg", backgroundImage: "./images/bg_profileCard_img/singing_lover.png" },
-      { profileImage: "./images/Profile_section_img/singer_cafe.jpg", backgroundImage: "./images/bg_profileCard_img/singerCafe.png" },
-      { profileImage: "./images/Profile_section_img/inianIdol.jpg", backgroundImage: "./images/bg_profileCard_img/indianIdot.png" }
+      { profileImage: "./images/Profile_section_img/indiaTalent.jpg", backgroundImage: "./images/bg_profilecard_img/india_talent.png" },
+      { profileImage: "./images/Profile_section_img/wakeup.jpg", backgroundImage: "./images/bg_profilecard_img/wake_up.png" },
+      { profileImage: "./images/Profile_section_img/singing_lover.jpg", backgroundImage: "./images/bg_profilecard_img/singing_lover.png" },
+      { profileImage: "./images/Profile_section_img/singer_cafe.jpg", backgroundImage: "./images/bg_profilecard_img/singerCafe.png" },
+      { profileImage: "./images/Profile_section_img/inianIdol.jpg", backgroundImage: "./images/bg_profilecard_img/indianIdot.png" }
     ],
     [
-      { profileImage: "./images/Profile_section_img/fox.jpg", backgroundImage: "./images/bg_profileCard_img/fox.png" },
-      { profileImage: "./images/Profile_section_img/lofii.jpg", backgroundImage: "./images/bg_profileCard_img/lofi.png" },
-      { profileImage: "./images/Profile_section_img/crazyycrossovers.jpg", backgroundImage: "./images/bg_profileCard_img/crazy.png" },
-      { profileImage: "./images/Profile_section_img/infinite.jpg", backgroundImage: "./images/bg_profileCard_img/infinite.png" },
-      { profileImage: "./images/Profile_section_img/emptiness.jpg", backgroundImage: "./images/bg_profileCard_img/emptiness.png" }
+      { profileImage: "./images/Profile_section_img/fox.jpg", backgroundImage: "./images/bg_profilecard_img/fox.png" },
+      { profileImage: "./images/Profile_section_img/lofii.jpg", backgroundImage: "./images/bg_profilecard_img/lofi.png" },
+      { profileImage: "./images/Profile_section_img/crazyycrossovers.jpg", backgroundImage: "./images/bg_profilecard_img/crazy.png" },
+      { profileImage: "./images/Profile_section_img/infinite.jpg", backgroundImage: "./images/bg_profilecard_img/infinite.png" },
+      { profileImage: "./images/Profile_section_img/emptiness.jpg", backgroundImage: "./images/bg_profilecard_img/emptiness.png" }
     ],
 
   ];
