@@ -7,45 +7,130 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-// navlink 
-// Menu Toggle Functionality
-const menuOpener = document.querySelector('.menu-opener');
-const navLinks = document.querySelector('.nav-linked');
+//------------- hero section js code
 
-menuOpener.addEventListener('click', () => {
-  navLinks.classList.toggle('active');
-  menuOpener.classList.toggle('active');
+const canvas = document.getElementById('star-canvas');
+const ctx = canvas.getContext('2d');
+
+let stars = [];
+let w, h;
+
+function initCanvas() {
+    w = canvas.width = window.innerWidth;
+    h = canvas.height = window.innerHeight;
+    stars = [];
+
+    for (let i = 0; i < 150; i++) {
+        stars.push({
+            x: Math.random() * w,
+            y: Math.random() * h,
+            radius: Math.random() * 1.2,
+            alpha: Math.random(),
+            dx: (Math.random() - 0.5) * 0.5,
+            dy: (Math.random() - 0.5) * 0.5,
+            flicker: Math.random() * 0.05 + 0.01
+        });
+    }
+}
+
+function animateStars() {
+    ctx.clearRect(0, 0, w, h);
+
+    for (let star of stars) {
+        star.alpha += star.flicker;
+        if (star.alpha <= 0 || star.alpha >= 1) {
+            star.flicker = -star.flicker;
+        }
+
+        star.x += star.dx;
+        star.y += star.dy;
+
+        // Wrap around edges
+        if (star.x < 0) star.x = w;
+        if (star.x > w) star.x = 0;
+        if (star.y < 0) star.y = h;
+        if (star.y > h) star.y = 0;
+
+        ctx.beginPath();
+        ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255, 255, 255, ${star.alpha})`;
+        ctx.fill();
+    }
+
+    requestAnimationFrame(animateStars);
+}
+
+window.addEventListener('resize', initCanvas);
+initCanvas();
+animateStars();
+
+
+// Mobile menu functionality
+const menuToggle = document.querySelector('.menu-toggle');
+const nav = document.querySelector('nav');
+const overlay = document.querySelector('.overlay');
+
+menuToggle.addEventListener('click', () => {
+    menuToggle.classList.toggle('active');
+    nav.classList.toggle('active');
+    overlay.classList.toggle('active');
+    document.body.classList.toggle('no-scroll');
 });
 
-// Fixed Navbar on Scroll
-document.addEventListener('scroll', function () {
-  const navbar = document.querySelector('.navlink');
-  const body = document.body;
-  const scrollPosition = window.scrollY;
-
-  if (scrollPosition > 100) {
-    navbar.classList.add('fixed-nav');
-    body.classList.add('fixed-nav-padding');
-  } else {
-    navbar.classList.remove('fixed-nav');
-    body.classList.remove('fixed-nav-padding');
-  }
+// Close menu when clicking overlay
+overlay.addEventListener('click', () => {
+    menuToggle.classList.remove('active');
+    nav.classList.remove('active');
+    overlay.classList.remove('active');
+    document.body.classList.remove('no-scroll');
 });
+
+// Close menu when clicking a nav link
+const navLinks = document.querySelectorAll('nav a');
+navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        menuToggle.classList.remove('active');
+        nav.classList.remove('active');
+        overlay.classList.remove('active');
+        document.body.classList.remove('no-scroll');
+    });
+});
+
+// Handle window resize
+window.addEventListener('resize', () => {
+    if (window.innerWidth > 768 && nav.classList.contains('active')) {
+        menuToggle.classList.remove('active');
+        nav.classList.remove('active');
+        overlay.classList.remove('active');
+        document.body.classList.remove('no-scroll');
+    }
+});
+
+
+const words = ["Digital", "Meme", "Social", "UGC", "Content", "Media"];
+let currentIndex = 0;
+const marketingText = document.querySelector('.marketing-text');
+
+function changeWord() {
+    marketingText.textContent = words[currentIndex];
+    currentIndex = (currentIndex + 1) % words.length;
+}
+
+setInterval(changeWord, 5000);
+
+
 // -------------- hero section and preloader----------------
 
 document.addEventListener("DOMContentLoaded", () => {
   const body = document.body;
-  const heroSection = document.querySelector(".main-container-section");
   const popupFormSection = document.querySelector(".popup-form-section");
   const overlay = document.querySelector(".overlay");
   const closeBtn = document.getElementById("close");
   const preloader = document.querySelector(".pre-loader");
 
-  gsap.set([heroSection, overlay, popupFormSection], { opacity: 0 });
+  gsap.set([popupFormSection], { opacity: 0 });
   gsap.set(body, { overflow: "hidden" });
-  gsap.set(".left-content, .right-content", { x: "0%", opacity: 1 });
   gsap.set(preloader, { height: "100vh", display: "block" });
-  gsap.set(".orange", { height: "0%", top: "100%" });
 
   const enableScroll = () => {
     body.style.overflow = "auto";
@@ -68,22 +153,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   };
 
-  const startHeroAnimation = () => {
-    const tl = gsap.timeline();
-    tl.to(heroSection, { opacity: 1, duration: 1, ease: "power2.inOut" });
-    tl.fromTo(".left-content", { x: "-100%", opacity: 0 }, { x: "0%", opacity: 1, duration: 1.2, ease: "power2.out" }, 0.2);
-    tl.fromTo(".right-content", { x: "100%", opacity: 0 }, { x: "0%", opacity: 1, duration: 1.2, ease: "power2.out" }, 0.2);
-
-    gsap.matchMedia().add("(max-width: 768px)", () => {
-      tl.to(".highlight", { width: "17vw", height: "78%", duration: 1, ease: "power2.inOut" }, 1);
-    }).add("(min-width: 769px)", () => {
-      tl.to(".highlight", { width: "12vw", height: "78%", duration: 1, ease: "power2.inOut" }, 1);
-    });
-
-    tl.to(".style-DBMC", { x: "vw", duration: 1, ease: "power2.out" }, "-=0.35");
-  };
-
-
   const loaderAnimation = () => {
     const tl = gsap.timeline();
     tl.from(".parent .child span", { x: 200, stagger: 0.2, duration: 1.1, ease: "power3.out" });
@@ -96,7 +165,7 @@ document.addEventListener("DOMContentLoaded", () => {
       onComplete: () => {
         preloader.style.display = "none";
         enableScroll();
-        startHeroAnimation();
+        // startHeroAnimation();
 
         setTimeout(() => {
           gsap.to([popupFormSection, overlay], {
