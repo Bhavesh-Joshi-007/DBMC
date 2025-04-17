@@ -1167,7 +1167,7 @@ html {
 
 @font-face {
   font-family: "Anton";
-  src: url('../fonts/random-grotesque.standard.woff') format('woff');
+  src: url('../assets/fonts/random-grotesque.standard.woff') format('woff');
   font-style: normal;
   font-weight: 400;
 }
