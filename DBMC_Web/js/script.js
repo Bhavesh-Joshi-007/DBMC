@@ -568,39 +568,39 @@ document.addEventListener('DOMContentLoaded', function () {
   // Profile data containing profile images and background images for 5 cards
   const profiles = [
     [
-      { profileImage: "./images/Profile_section_img/ghanta.jpg", backgroundImage: "./images/bg_profilecard_img/ghanta.png" },
-      { profileImage: "./images/Profile_section_img/laughtercolours.jpg", backgroundImage: "./images/bg_profilecard_img/loughterColors.png" },
-      { profileImage: "./images/Profile_section_img/adultsociety.jpg", backgroundImage: "./images/bg_profilecard_img/adultsociety.png" },
-      { profileImage: "./images/Profile_section_img/trolls_official.jpg", backgroundImage: "./images/bg_profilecard_img/troll_official.png" },
-      { profileImage: "./images/Profile_section_img/adultgram.jpg", backgroundImage: "./images/bg_profilecard_img/adultgram.png" }
+      { profileImage: "./assets/images/Profile_section_img/ghanta.jpg", backgroundImage: "./assets/images/bg_profilecard_img/ghanta.png" },
+      { profileImage: "./assets/images/Profile_section_img/laughtercolours.jpg", backgroundImage: "./assets/images/bg_profilecard_img/loughterColors.png" },
+      { profileImage: "./assets/images/Profile_section_img/adultsociety.jpg", backgroundImage: "./assets/images/bg_profilecard_img/adultsociety.png" },
+      { profileImage: "./assets/images/Profile_section_img/trolls_official.jpg", backgroundImage: "./assets/images/bg_profilecard_img/troll_official.png" },
+      { profileImage: "./assets/images/Profile_section_img/adultgram.jpg", backgroundImage: "./assets/images/bg_profilecard_img/adultgram.png" }
     ],
     [
-      { profileImage: "./images/Profile_section_img/world_cinema.jpg", backgroundImage: "./images/bg_profilecard_img/world_cinema.png" },
-      { profileImage: "./images/Profile_section_img/relatable.jpg", backgroundImage: "./images/bg_profilecard_img/relatable.png" },
-      { profileImage: "./images/Profile_section_img/popIn.jpg", backgroundImage: "./images/bg_profilecard_img/popins.png" },
-      { profileImage: "./images/Profile_section_img/the_indian_film.jpg", backgroundImage: "./images/bg_profilecard_img/indiafilm.png" },
-      { profileImage: "./images/Profile_section_img/scribled_strories.jpg", backgroundImage: "./images/bg_profilecard_img/scribled.png" }
+      { profileImage: "./assets/images/Profile_section_img/world_cinema.jpg", backgroundImage: "./assets/images/bg_profilecard_img/world_cinema.png" },
+      { profileImage: "./assets/images/Profile_section_img/relatable.jpg", backgroundImage: "./assets/images/bg_profilecard_img/relatable.png" },
+      { profileImage: "./assets/images/Profile_section_img/popIn.jpg", backgroundImage: "./assets/images/bg_profilecard_img/popins.png" },
+      { profileImage: "./assets/images/Profile_section_img/the_indian_film.jpg", backgroundImage: "./assets/images/bg_profilecard_img/indiafilm.png" },
+      { profileImage: "./assets/images/Profile_section_img/scribled_strories.jpg", backgroundImage: "./assets/images/bg_profilecard_img/scribled.png" }
     ],
     [
-      { profileImage: "./images/Profile_section_img/classy_women.jpg", backgroundImage: "./images/bg_profilecard_img/classyWomen.png" },
-      { profileImage: "./images/Profile_section_img/Rw.jpg", backgroundImage: "./images/bg_profilecard_img/real_women.png" },
-      { profileImage: "./images/Profile_section_img/sarif_Girls.jpg", backgroundImage: "./images/bg_profilecard_img/sarifGril.png" },
-      { profileImage: "./images/Profile_section_img/womanEmpire.jpg", backgroundImage: "./images/bg_profilecard_img/women_empire.png" },
-      { profileImage: "./images/Profile_section_img/girl_kingdom.jpg", backgroundImage: "./images/bg_profilecard_img/girl_Kingdom.png" }
+      { profileImage: "./assets/images/Profile_section_img/classy_women.jpg", backgroundImage: "./assets/images/bg_profilecard_img/classyWomen.png" },
+      { profileImage: "./assets/images/Profile_section_img/Rw.jpg", backgroundImage: "./assets/images/bg_profilecard_img/real_women.png" },
+      { profileImage: "./assets/images/Profile_section_img/sarif_Girls.jpg", backgroundImage: "./assets/images/bg_profilecard_img/sarifGril.png" },
+      { profileImage: "./assets/images/Profile_section_img/womanEmpire.jpg", backgroundImage: "./assets/images/bg_profilecard_img/women_empire.png" },
+      { profileImage: "./assets/images/Profile_section_img/girl_kingdom.jpg", backgroundImage: "./assets/images/bg_profilecard_img/girl_Kingdom.png" }
     ],
     [
-      { profileImage: "./images/Profile_section_img/indiaTalent.jpg", backgroundImage: "./images/bg_profilecard_img/india_talent.png" },
-      { profileImage: "./images/Profile_section_img/wakeup.jpg", backgroundImage: "./images/bg_profilecard_img/wake_up.png" },
-      { profileImage: "./images/Profile_section_img/singing_lover.jpg", backgroundImage: "./images/bg_profilecard_img/singing_lover.png" },
-      { profileImage: "./images/Profile_section_img/singer_cafe.jpg", backgroundImage: "./images/bg_profilecard_img/singerCafe.png" },
-      { profileImage: "./images/Profile_section_img/inianIdol.jpg", backgroundImage: "./images/bg_profilecard_img/indianIdot.png" }
+      { profileImage: "./assets/images/Profile_section_img/indiaTalent.jpg", backgroundImage: "./assets/images/bg_profilecard_img/india_talent.png" },
+      { profileImage: "./assets/images/Profile_section_img/wakeup.jpg", backgroundImage: "./assets/images/bg_profilecard_img/wake_up.png" },
+      { profileImage: "./assets/images/Profile_section_img/singing_lover.jpg", backgroundImage: "./assets/images/bg_profilecard_img/singing_lover.png" },
+      { profileImage: "./assets/images/Profile_section_img/singer_cafe.jpg", backgroundImage: "./assets/images/bg_profilecard_img/singerCafe.png" },
+      { profileImage: "./assets/images/Profile_section_img/inianIdol.jpg", backgroundImage: "./assets/images/bg_profilecard_img/indianIdot.png" }
     ],
     [
-      { profileImage: "./images/Profile_section_img/fox.jpg", backgroundImage: "./images/bg_profilecard_img/fox.png" },
-      { profileImage: "./images/Profile_section_img/lofii.jpg", backgroundImage: "./images/bg_profilecard_img/lofi.png" },
-      { profileImage: "./images/Profile_section_img/crazyycrossovers.jpg", backgroundImage: "./images/bg_profilecard_img/crazy.png" },
-      { profileImage: "./images/Profile_section_img/infinite.jpg", backgroundImage: "./images/bg_profilecard_img/infinite.png" },
-      { profileImage: "./images/Profile_section_img/emptiness.jpg", backgroundImage: "./images/bg_profilecard_img/emptiness.png" }
+      { profileImage: "./assets/images/Profile_section_img/fox.jpg", backgroundImage: "./assets/images/bg_profilecard_img/fox.png" },
+      { profileImage: "./assets/images/Profile_section_img/lofii.jpg", backgroundImage: "./assets/images/bg_profilecard_img/lofi.png" },
+      { profileImage: "./assets/images/Profile_section_img/crazyycrossovers.jpg", backgroundImage: "./assets/images/bg_profilecard_img/crazy.png" },
+      { profileImage: "./assets/images/Profile_section_img/infinite.jpg", backgroundImage: "./assets/images/bg_profilecard_img/infinite.png" },
+      { profileImage: "./assets/images/Profile_section_img/emptiness.jpg", backgroundImage: "./assets/images/bg_profilecard_img/emptiness.png" }
     ],
 
   ];
